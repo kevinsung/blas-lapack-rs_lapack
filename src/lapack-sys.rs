@@ -28860,44 +28860,28 @@ pub unsafe fn zpttrs(
 }
 
 #[inline]
-pub unsafe fn crot(
-    n: i32,
-    cx: &mut [c32],
-    incx: i32,
-    cy: &mut [c32],
-    incy: i32,
-    c: &[f32],
-    s: &[c32],
-) {
+pub unsafe fn crot(n: i32, cx: &mut [c32], incx: i32, cy: &mut [c32], incy: i32, c: f32, s: c32) {
     ffi::crot_(
         &n,
         cx.as_mut_ptr() as *mut _,
         &incx,
         cy.as_mut_ptr() as *mut _,
         &incy,
-        c.as_ptr(),
-        s.as_ptr() as *const _,
+        &c,
+        &s as *const _ as *const _,
     )
 }
 
 #[inline]
-pub unsafe fn zrot(
-    n: i32,
-    cx: &mut [c64],
-    incx: i32,
-    cy: &mut [c64],
-    incy: i32,
-    c: &[f64],
-    s: &[c64],
-) {
+pub unsafe fn zrot(n: i32, cx: &mut [c64], incx: i32, cy: &mut [c64], incy: i32, c: f64, s: c64) {
     ffi::zrot_(
         &n,
         cx.as_mut_ptr() as *mut _,
         &incx,
         cy.as_mut_ptr() as *mut _,
         &incy,
-        c.as_ptr(),
-        s.as_ptr() as *const _,
+        &c,
+        &s as *const _ as *const _,
     )
 }
 
