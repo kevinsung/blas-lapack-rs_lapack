@@ -28,5 +28,6 @@ version = "0.4"
 default-features = false
 
 [dependencies.lapack-sys]
-version = "0.15"
+git = "https://github.com/kevinsung/lapack-sys.git"
+branch = "zrot"
 default-features = false
