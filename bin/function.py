@@ -58,7 +58,7 @@ def read(path):
     with open(path) as file:
         append = False
         for line in file:
-            if line == 'extern "C" {\n':
+            if line in ('extern "C" {\n', 'unsafe extern "C" {\n'):
                 append = True
             elif line == '}\n':
                 append = False

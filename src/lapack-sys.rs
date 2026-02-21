@@ -29,6 +29,11 @@ pub unsafe fn cbbcsd(
     rwork: &mut [f32],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::cbbcsd_(
         &(jobu1 as c_char),
@@ -60,6 +65,11 @@ pub unsafe fn cbbcsd(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -94,6 +104,11 @@ pub unsafe fn dbbcsd(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::dbbcsd_(
         &(jobu1 as c_char),
@@ -125,6 +140,11 @@ pub unsafe fn dbbcsd(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -159,6 +179,11 @@ pub unsafe fn sbbcsd(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::sbbcsd_(
         &(jobu1 as c_char),
@@ -190,6 +215,11 @@ pub unsafe fn sbbcsd(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -224,6 +254,11 @@ pub unsafe fn zbbcsd(
     rwork: &mut [f64],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::zbbcsd_(
         &(jobu1 as c_char),
@@ -255,6 +290,11 @@ pub unsafe fn zbbcsd(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -274,6 +314,8 @@ pub unsafe fn dbdsdc(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dbdsdc_(
         &(uplo as c_char),
@@ -290,6 +332,8 @@ pub unsafe fn dbdsdc(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -309,6 +353,8 @@ pub unsafe fn sbdsdc(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sbdsdc_(
         &(uplo as c_char),
@@ -325,6 +371,8 @@ pub unsafe fn sbdsdc(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -345,6 +393,7 @@ pub unsafe fn cbdsqr(
     ldc: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cbdsqr_(
         &(uplo as c_char),
@@ -362,6 +411,7 @@ pub unsafe fn cbdsqr(
         &ldc,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -382,6 +432,7 @@ pub unsafe fn dbdsqr(
     ldc: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dbdsqr_(
         &(uplo as c_char),
@@ -399,6 +450,7 @@ pub unsafe fn dbdsqr(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -419,6 +471,7 @@ pub unsafe fn sbdsqr(
     ldc: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sbdsqr_(
         &(uplo as c_char),
@@ -436,6 +489,7 @@ pub unsafe fn sbdsqr(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -456,6 +510,7 @@ pub unsafe fn zbdsqr(
     ldc: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zbdsqr_(
         &(uplo as c_char),
@@ -473,6 +528,7 @@ pub unsafe fn zbdsqr(
         &ldc,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -495,6 +551,9 @@ pub unsafe fn dbdsvdx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dbdsvdx_(
         &(uplo as c_char),
@@ -514,6 +573,9 @@ pub unsafe fn dbdsvdx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -536,6 +598,9 @@ pub unsafe fn sbdsvdx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sbdsvdx_(
         &(uplo as c_char),
@@ -555,17 +620,52 @@ pub unsafe fn sbdsvdx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn ddisna(job: u8, m: i32, n: i32, d: &[f64], sep: &mut [f64], info: &mut i32) {
-    ffi::ddisna_(&(job as c_char), &m, &n, d.as_ptr(), sep.as_mut_ptr(), info)
+pub unsafe fn ddisna(
+    job: u8,
+    m: i32,
+    n: i32,
+    d: &[f64],
+    sep: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+) {
+    ffi::ddisna_(
+        &(job as c_char),
+        &m,
+        &n,
+        d.as_ptr(),
+        sep.as_mut_ptr(),
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn sdisna(job: u8, m: i32, n: i32, d: &[f32], sep: &mut [f32], info: &mut i32) {
-    ffi::sdisna_(&(job as c_char), &m, &n, d.as_ptr(), sep.as_mut_ptr(), info)
+pub unsafe fn sdisna(
+    job: u8,
+    m: i32,
+    n: i32,
+    d: &[f32],
+    sep: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+) {
+    ffi::sdisna_(
+        &(job as c_char),
+        &m,
+        &n,
+        d.as_ptr(),
+        sep.as_mut_ptr(),
+        info,
+        arg1,
+    )
 }
 
 #[inline]
@@ -589,6 +689,7 @@ pub unsafe fn cgbbrd(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgbbrd_(
         &(vect as c_char),
@@ -610,6 +711,7 @@ pub unsafe fn cgbbrd(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -633,6 +735,7 @@ pub unsafe fn dgbbrd(
     ldc: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgbbrd_(
         &(vect as c_char),
@@ -653,6 +756,7 @@ pub unsafe fn dgbbrd(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -676,6 +780,7 @@ pub unsafe fn sgbbrd(
     ldc: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgbbrd_(
         &(vect as c_char),
@@ -696,6 +801,7 @@ pub unsafe fn sgbbrd(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -720,6 +826,7 @@ pub unsafe fn zgbbrd(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgbbrd_(
         &(vect as c_char),
@@ -741,6 +848,7 @@ pub unsafe fn zgbbrd(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -758,6 +866,7 @@ pub unsafe fn cgbcon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgbcon_(
         &(norm as c_char),
@@ -772,6 +881,7 @@ pub unsafe fn cgbcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -789,6 +899,7 @@ pub unsafe fn dgbcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgbcon_(
         &(norm as c_char),
@@ -803,6 +914,7 @@ pub unsafe fn dgbcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -820,6 +932,7 @@ pub unsafe fn sgbcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgbcon_(
         &(norm as c_char),
@@ -834,6 +947,7 @@ pub unsafe fn sgbcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -851,6 +965,7 @@ pub unsafe fn zgbcon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgbcon_(
         &(norm as c_char),
@@ -865,6 +980,7 @@ pub unsafe fn zgbcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -1137,6 +1253,7 @@ pub unsafe fn cgbrfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgbrfs_(
         &(trans as c_char),
@@ -1158,6 +1275,7 @@ pub unsafe fn cgbrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -1182,6 +1300,7 @@ pub unsafe fn dgbrfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgbrfs_(
         &(trans as c_char),
@@ -1203,6 +1322,7 @@ pub unsafe fn dgbrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -1227,6 +1347,7 @@ pub unsafe fn sgbrfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgbrfs_(
         &(trans as c_char),
@@ -1248,6 +1369,7 @@ pub unsafe fn sgbrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -1272,6 +1394,7 @@ pub unsafe fn zgbrfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgbrfs_(
         &(trans as c_char),
@@ -1293,6 +1416,7 @@ pub unsafe fn zgbrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -1309,8 +1433,8 @@ pub unsafe fn cgbrfsx(
     afb: &[c32],
     ldafb: i32,
     ipiv: &[i32],
-    r: &mut [f32],
-    c: &mut [f32],
+    r: &[f32],
+    c: &[f32],
     b: &[c32],
     ldb: i32,
     x: &mut [c32],
@@ -1325,6 +1449,8 @@ pub unsafe fn cgbrfsx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgbrfsx_(
         &(trans as c_char),
@@ -1338,8 +1464,8 @@ pub unsafe fn cgbrfsx(
         afb.as_ptr() as *const _,
         &ldafb,
         ipiv.as_ptr(),
-        r.as_mut_ptr(),
-        c.as_mut_ptr(),
+        r.as_ptr(),
+        c.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -1354,6 +1480,8 @@ pub unsafe fn cgbrfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -1370,8 +1498,8 @@ pub unsafe fn dgbrfsx(
     afb: &[f64],
     ldafb: i32,
     ipiv: &[i32],
-    r: &mut [f64],
-    c: &mut [f64],
+    r: &[f64],
+    c: &[f64],
     b: &[f64],
     ldb: i32,
     x: &mut [f64],
@@ -1386,6 +1514,8 @@ pub unsafe fn dgbrfsx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgbrfsx_(
         &(trans as c_char),
@@ -1399,8 +1529,8 @@ pub unsafe fn dgbrfsx(
         afb.as_ptr(),
         &ldafb,
         ipiv.as_ptr(),
-        r.as_mut_ptr(),
-        c.as_mut_ptr(),
+        r.as_ptr(),
+        c.as_ptr(),
         b.as_ptr(),
         &ldb,
         x.as_mut_ptr(),
@@ -1415,6 +1545,8 @@ pub unsafe fn dgbrfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -1431,8 +1563,8 @@ pub unsafe fn sgbrfsx(
     afb: &[f32],
     ldafb: i32,
     ipiv: &[i32],
-    r: &mut [f32],
-    c: &mut [f32],
+    r: &[f32],
+    c: &[f32],
     b: &[f32],
     ldb: i32,
     x: &mut [f32],
@@ -1447,6 +1579,8 @@ pub unsafe fn sgbrfsx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgbrfsx_(
         &(trans as c_char),
@@ -1460,8 +1594,8 @@ pub unsafe fn sgbrfsx(
         afb.as_ptr(),
         &ldafb,
         ipiv.as_ptr(),
-        r.as_mut_ptr(),
-        c.as_mut_ptr(),
+        r.as_ptr(),
+        c.as_ptr(),
         b.as_ptr(),
         &ldb,
         x.as_mut_ptr(),
@@ -1476,6 +1610,8 @@ pub unsafe fn sgbrfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -1492,8 +1628,8 @@ pub unsafe fn zgbrfsx(
     afb: &[c64],
     ldafb: i32,
     ipiv: &[i32],
-    r: &mut [f64],
-    c: &mut [f64],
+    r: &[f64],
+    c: &[f64],
     b: &[c64],
     ldb: i32,
     x: &mut [c64],
@@ -1508,6 +1644,8 @@ pub unsafe fn zgbrfsx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgbrfsx_(
         &(trans as c_char),
@@ -1521,8 +1659,8 @@ pub unsafe fn zgbrfsx(
         afb.as_ptr() as *const _,
         &ldafb,
         ipiv.as_ptr(),
-        r.as_mut_ptr(),
-        c.as_mut_ptr(),
+        r.as_ptr(),
+        c.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -1537,6 +1675,8 @@ pub unsafe fn zgbrfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -1674,6 +1814,9 @@ pub unsafe fn cgbsvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgbsvx_(
         &(fact as c_char),
@@ -1700,6 +1843,9 @@ pub unsafe fn cgbsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -1729,6 +1875,9 @@ pub unsafe fn dgbsvx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgbsvx_(
         &(fact as c_char),
@@ -1755,6 +1904,9 @@ pub unsafe fn dgbsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -1784,6 +1936,9 @@ pub unsafe fn sgbsvx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgbsvx_(
         &(fact as c_char),
@@ -1810,6 +1965,9 @@ pub unsafe fn sgbsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -1839,6 +1997,9 @@ pub unsafe fn zgbsvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgbsvx_(
         &(fact as c_char),
@@ -1865,6 +2026,9 @@ pub unsafe fn zgbsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -1899,6 +2063,9 @@ pub unsafe fn cgbsvxx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgbsvxx_(
         &(fact as c_char),
@@ -1930,6 +2097,9 @@ pub unsafe fn cgbsvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -1964,6 +2134,9 @@ pub unsafe fn dgbsvxx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgbsvxx_(
         &(fact as c_char),
@@ -1995,6 +2168,9 @@ pub unsafe fn dgbsvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -2029,6 +2205,9 @@ pub unsafe fn sgbsvxx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgbsvxx_(
         &(fact as c_char),
@@ -2060,6 +2239,9 @@ pub unsafe fn sgbsvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -2094,6 +2276,9 @@ pub unsafe fn zgbsvxx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgbsvxx_(
         &(fact as c_char),
@@ -2125,6 +2310,9 @@ pub unsafe fn zgbsvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -2233,6 +2421,7 @@ pub unsafe fn cgbtrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgbtrs_(
         &(trans as c_char),
@@ -2246,6 +2435,7 @@ pub unsafe fn cgbtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -2262,6 +2452,7 @@ pub unsafe fn dgbtrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgbtrs_(
         &(trans as c_char),
@@ -2275,6 +2466,7 @@ pub unsafe fn dgbtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -2291,6 +2483,7 @@ pub unsafe fn sgbtrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgbtrs_(
         &(trans as c_char),
@@ -2304,6 +2497,7 @@ pub unsafe fn sgbtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -2320,6 +2514,7 @@ pub unsafe fn zgbtrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgbtrs_(
         &(trans as c_char),
@@ -2333,6 +2528,7 @@ pub unsafe fn zgbtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -2348,6 +2544,8 @@ pub unsafe fn cgebak(
     v: &mut [c32],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgebak_(
         &(job as c_char),
@@ -2360,6 +2558,8 @@ pub unsafe fn cgebak(
         v.as_mut_ptr() as *mut _,
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -2375,6 +2575,8 @@ pub unsafe fn dgebak(
     v: &mut [f64],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgebak_(
         &(job as c_char),
@@ -2387,6 +2589,8 @@ pub unsafe fn dgebak(
         v.as_mut_ptr(),
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -2402,6 +2606,8 @@ pub unsafe fn sgebak(
     v: &mut [f32],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgebak_(
         &(job as c_char),
@@ -2414,6 +2620,8 @@ pub unsafe fn sgebak(
         v.as_mut_ptr(),
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -2429,6 +2637,8 @@ pub unsafe fn zgebak(
     v: &mut [c64],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgebak_(
         &(job as c_char),
@@ -2441,6 +2651,8 @@ pub unsafe fn zgebak(
         v.as_mut_ptr() as *mut _,
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -2454,6 +2666,7 @@ pub unsafe fn cgebal(
     ihi: &mut i32,
     scale: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgebal_(
         &(job as c_char),
@@ -2464,6 +2677,7 @@ pub unsafe fn cgebal(
         ihi,
         scale.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2477,6 +2691,7 @@ pub unsafe fn dgebal(
     ihi: &mut i32,
     scale: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgebal_(
         &(job as c_char),
@@ -2487,6 +2702,7 @@ pub unsafe fn dgebal(
         ihi,
         scale.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2500,6 +2716,7 @@ pub unsafe fn sgebal(
     ihi: &mut i32,
     scale: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgebal_(
         &(job as c_char),
@@ -2510,6 +2727,7 @@ pub unsafe fn sgebal(
         ihi,
         scale.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2523,6 +2741,7 @@ pub unsafe fn zgebal(
     ihi: &mut i32,
     scale: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgebal_(
         &(job as c_char),
@@ -2533,6 +2752,7 @@ pub unsafe fn zgebal(
         ihi,
         scale.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2663,6 +2883,7 @@ pub unsafe fn cgecon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgecon_(
         &(norm as c_char),
@@ -2674,6 +2895,7 @@ pub unsafe fn cgecon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2688,6 +2910,7 @@ pub unsafe fn dgecon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgecon_(
         &(norm as c_char),
@@ -2699,6 +2922,7 @@ pub unsafe fn dgecon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2713,6 +2937,7 @@ pub unsafe fn sgecon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgecon_(
         &(norm as c_char),
@@ -2724,6 +2949,7 @@ pub unsafe fn sgecon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2738,6 +2964,7 @@ pub unsafe fn zgecon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgecon_(
         &(norm as c_char),
@@ -2749,6 +2976,7 @@ pub unsafe fn zgecon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -2985,6 +3213,8 @@ pub unsafe fn cgees(
     rwork: &mut [f32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgees_(
         &(jobvs as c_char),
@@ -3002,6 +3232,8 @@ pub unsafe fn cgees(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3022,6 +3254,8 @@ pub unsafe fn dgees(
     lwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgees_(
         &(jobvs as c_char),
@@ -3039,6 +3273,8 @@ pub unsafe fn dgees(
         &lwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3059,6 +3295,8 @@ pub unsafe fn sgees(
     lwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgees_(
         &(jobvs as c_char),
@@ -3076,6 +3314,8 @@ pub unsafe fn sgees(
         &lwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3096,6 +3336,8 @@ pub unsafe fn zgees(
     rwork: &mut [f64],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgees_(
         &(jobvs as c_char),
@@ -3113,6 +3355,8 @@ pub unsafe fn zgees(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3136,6 +3380,9 @@ pub unsafe fn cgeesx(
     rwork: &mut [f32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgeesx_(
         &(jobvs as c_char),
@@ -3156,6 +3403,9 @@ pub unsafe fn cgeesx(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -3181,6 +3431,9 @@ pub unsafe fn dgeesx(
     liwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgeesx_(
         &(jobvs as c_char),
@@ -3203,6 +3456,9 @@ pub unsafe fn dgeesx(
         &liwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -3228,6 +3484,9 @@ pub unsafe fn sgeesx(
     liwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgeesx_(
         &(jobvs as c_char),
@@ -3250,6 +3509,9 @@ pub unsafe fn sgeesx(
         &liwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -3273,6 +3535,9 @@ pub unsafe fn zgeesx(
     rwork: &mut [f64],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgeesx_(
         &(jobvs as c_char),
@@ -3293,6 +3558,9 @@ pub unsafe fn zgeesx(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -3312,6 +3580,8 @@ pub unsafe fn cgeev(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgeev_(
         &(jobvl as c_char),
@@ -3328,6 +3598,8 @@ pub unsafe fn cgeev(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3347,6 +3619,8 @@ pub unsafe fn dgeev(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgeev_(
         &(jobvl as c_char),
@@ -3363,6 +3637,8 @@ pub unsafe fn dgeev(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3382,6 +3658,8 @@ pub unsafe fn sgeev(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgeev_(
         &(jobvl as c_char),
@@ -3398,6 +3676,8 @@ pub unsafe fn sgeev(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3417,6 +3697,8 @@ pub unsafe fn zgeev(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgeev_(
         &(jobvl as c_char),
@@ -3433,6 +3715,8 @@ pub unsafe fn zgeev(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -3460,6 +3744,10 @@ pub unsafe fn cgeevx(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::cgeevx_(
         &(balanc as c_char),
@@ -3484,6 +3772,10 @@ pub unsafe fn cgeevx(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -3512,6 +3804,10 @@ pub unsafe fn dgeevx(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::dgeevx_(
         &(balanc as c_char),
@@ -3537,6 +3833,10 @@ pub unsafe fn dgeevx(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -3565,6 +3865,10 @@ pub unsafe fn sgeevx(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::sgeevx_(
         &(balanc as c_char),
@@ -3590,6 +3894,10 @@ pub unsafe fn sgeevx(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -3617,6 +3925,10 @@ pub unsafe fn zgeevx(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::zgeevx_(
         &(balanc as c_char),
@@ -3641,6 +3953,10 @@ pub unsafe fn zgeevx(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -3767,6 +4083,12 @@ pub unsafe fn cgejsv(
     lrwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::cgejsv_(
         &(joba as c_char),
@@ -3790,6 +4112,12 @@ pub unsafe fn cgejsv(
         &lrwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -3814,6 +4142,12 @@ pub unsafe fn dgejsv(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::dgejsv_(
         &(joba as c_char),
@@ -3835,6 +4169,12 @@ pub unsafe fn dgejsv(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -3859,6 +4199,12 @@ pub unsafe fn sgejsv(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::sgejsv_(
         &(joba as c_char),
@@ -3880,6 +4226,12 @@ pub unsafe fn sgejsv(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -3906,6 +4258,12 @@ pub unsafe fn zgejsv(
     lrwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::zgejsv_(
         &(joba as c_char),
@@ -3929,6 +4287,12 @@ pub unsafe fn zgejsv(
         &lrwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -4221,6 +4585,7 @@ pub unsafe fn cgels(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgels_(
         &(trans as c_char),
@@ -4234,6 +4599,7 @@ pub unsafe fn cgels(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -4250,7 +4616,7 @@ pub unsafe fn dgels(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
-    arg1: size_t,
+    arg1: usize,
 ) {
     ffi::dgels_(
         &(trans as c_char),
@@ -4281,6 +4647,7 @@ pub unsafe fn sgels(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgels_(
         &(trans as c_char),
@@ -4294,6 +4661,7 @@ pub unsafe fn sgels(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -4310,6 +4678,7 @@ pub unsafe fn zgels(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgels_(
         &(trans as c_char),
@@ -4323,6 +4692,7 @@ pub unsafe fn zgels(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -4758,6 +5128,8 @@ pub unsafe fn cgemlq(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgemlq_(
         &(side as c_char),
@@ -4774,6 +5146,8 @@ pub unsafe fn cgemlq(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -4793,6 +5167,8 @@ pub unsafe fn dgemlq(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgemlq_(
         &(side as c_char),
@@ -4809,6 +5185,8 @@ pub unsafe fn dgemlq(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -4828,6 +5206,8 @@ pub unsafe fn sgemlq(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgemlq_(
         &(side as c_char),
@@ -4844,6 +5224,8 @@ pub unsafe fn sgemlq(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -4863,6 +5245,8 @@ pub unsafe fn zgemlq(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgemlq_(
         &(side as c_char),
@@ -4879,6 +5263,8 @@ pub unsafe fn zgemlq(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -4898,6 +5284,8 @@ pub unsafe fn cgemqr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgemqr_(
         &(side as c_char),
@@ -4914,6 +5302,8 @@ pub unsafe fn cgemqr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -4933,6 +5323,8 @@ pub unsafe fn dgemqr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgemqr_(
         &(side as c_char),
@@ -4949,6 +5341,8 @@ pub unsafe fn dgemqr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -4968,6 +5362,8 @@ pub unsafe fn sgemqr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgemqr_(
         &(side as c_char),
@@ -4984,6 +5380,8 @@ pub unsafe fn sgemqr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -5003,6 +5401,8 @@ pub unsafe fn zgemqr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgemqr_(
         &(side as c_char),
@@ -5019,6 +5419,8 @@ pub unsafe fn zgemqr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -5038,6 +5440,8 @@ pub unsafe fn cgemqrt(
     ldc: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgemqrt_(
         &(side as c_char),
@@ -5054,6 +5458,8 @@ pub unsafe fn cgemqrt(
         &ldc,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -5073,6 +5479,8 @@ pub unsafe fn dgemqrt(
     ldc: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgemqrt_(
         &(side as c_char),
@@ -5089,6 +5497,8 @@ pub unsafe fn dgemqrt(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -5108,6 +5518,8 @@ pub unsafe fn sgemqrt(
     ldc: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgemqrt_(
         &(side as c_char),
@@ -5124,6 +5536,8 @@ pub unsafe fn sgemqrt(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -5143,6 +5557,8 @@ pub unsafe fn zgemqrt(
     ldc: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgemqrt_(
         &(side as c_char),
@@ -5159,6 +5575,8 @@ pub unsafe fn zgemqrt(
         &ldc,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -6161,6 +6579,7 @@ pub unsafe fn cgerfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgerfs_(
         &(trans as c_char),
@@ -6180,6 +6599,7 @@ pub unsafe fn cgerfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -6202,6 +6622,7 @@ pub unsafe fn dgerfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgerfs_(
         &(trans as c_char),
@@ -6221,6 +6642,7 @@ pub unsafe fn dgerfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -6243,6 +6665,7 @@ pub unsafe fn sgerfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgerfs_(
         &(trans as c_char),
@@ -6262,6 +6685,7 @@ pub unsafe fn sgerfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -6284,6 +6708,7 @@ pub unsafe fn zgerfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgerfs_(
         &(trans as c_char),
@@ -6303,6 +6728,7 @@ pub unsafe fn zgerfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -6333,6 +6759,8 @@ pub unsafe fn cgerfsx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgerfsx_(
         &(trans as c_char),
@@ -6360,6 +6788,8 @@ pub unsafe fn cgerfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -6390,6 +6820,8 @@ pub unsafe fn dgerfsx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgerfsx_(
         &(trans as c_char),
@@ -6417,6 +6849,8 @@ pub unsafe fn dgerfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -6447,6 +6881,8 @@ pub unsafe fn sgerfsx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgerfsx_(
         &(trans as c_char),
@@ -6474,6 +6910,8 @@ pub unsafe fn sgerfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -6504,6 +6942,8 @@ pub unsafe fn zgerfsx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgerfsx_(
         &(trans as c_char),
@@ -6531,6 +6971,8 @@ pub unsafe fn zgerfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -6727,6 +7169,7 @@ pub unsafe fn cgesdd(
     rwork: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgesdd_(
         &(jobz as c_char),
@@ -6744,6 +7187,7 @@ pub unsafe fn cgesdd(
         rwork.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -6763,6 +7207,7 @@ pub unsafe fn dgesdd(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgesdd_(
         &(jobz as c_char),
@@ -6779,6 +7224,7 @@ pub unsafe fn dgesdd(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -6798,6 +7244,7 @@ pub unsafe fn sgesdd(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgesdd_(
         &(jobz as c_char),
@@ -6814,6 +7261,7 @@ pub unsafe fn sgesdd(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -6834,6 +7282,7 @@ pub unsafe fn zgesdd(
     rwork: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgesdd_(
         &(jobz as c_char),
@@ -6851,6 +7300,663 @@ pub unsafe fn zgesdd(
         rwork.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+    )
+}
+
+#[inline]
+pub unsafe fn cgedmd(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    x: &mut [c32],
+    ldx: i32,
+    y: &mut [c32],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f32,
+    k: &mut i32,
+    eigs: &mut [c32],
+    z: &mut [c32],
+    ldz: i32,
+    res: &mut [f32],
+    b: &mut [c32],
+    ldb: i32,
+    w: &mut [c32],
+    ldw: i32,
+    s: &mut [c32],
+    lds: i32,
+    zwork: &mut [c32],
+    lzwork: &[i32],
+    work: &mut [f32],
+    lwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+) {
+    ffi::cgedmd_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        x.as_mut_ptr() as *mut _,
+        &ldx,
+        y.as_mut_ptr() as *mut _,
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        k,
+        eigs.as_mut_ptr() as *mut _,
+        z.as_mut_ptr() as *mut _,
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr() as *mut _,
+        &ldb,
+        w.as_mut_ptr() as *mut _,
+        &ldw,
+        s.as_mut_ptr() as *mut _,
+        &lds,
+        zwork.as_mut_ptr() as *mut _,
+        lzwork.as_ptr(),
+        work.as_mut_ptr(),
+        &lwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+    )
+}
+
+#[inline]
+pub unsafe fn dgedmd(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    x: &mut [f64],
+    ldx: i32,
+    y: &mut [f64],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f64,
+    k: &mut i32,
+    reig: &mut [f64],
+    imeig: &mut [f64],
+    z: &mut [f64],
+    ldz: i32,
+    res: &mut [f64],
+    b: &mut [f64],
+    ldb: i32,
+    w: &mut [f64],
+    ldw: i32,
+    s: &mut [f64],
+    lds: i32,
+    work: &mut [f64],
+    lwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+) {
+    ffi::dgedmd_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        x.as_mut_ptr(),
+        &ldx,
+        y.as_mut_ptr(),
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        k,
+        reig.as_mut_ptr(),
+        imeig.as_mut_ptr(),
+        z.as_mut_ptr(),
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr(),
+        &ldb,
+        w.as_mut_ptr(),
+        &ldw,
+        s.as_mut_ptr(),
+        &lds,
+        work.as_mut_ptr(),
+        &lwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+    )
+}
+
+#[inline]
+pub unsafe fn sgedmd(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    x: &mut [f32],
+    ldx: i32,
+    y: &mut [f32],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f32,
+    k: &mut i32,
+    reig: &mut [f32],
+    imeig: &mut [f32],
+    z: &mut [f32],
+    ldz: i32,
+    res: &mut [f32],
+    b: &mut [f32],
+    ldb: i32,
+    w: &mut [f32],
+    ldw: i32,
+    s: &mut [f32],
+    lds: i32,
+    work: &mut [f32],
+    lwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+) {
+    ffi::sgedmd_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        x.as_mut_ptr(),
+        &ldx,
+        y.as_mut_ptr(),
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        k,
+        reig.as_mut_ptr(),
+        imeig.as_mut_ptr(),
+        z.as_mut_ptr(),
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr(),
+        &ldb,
+        w.as_mut_ptr(),
+        &ldw,
+        s.as_mut_ptr(),
+        &lds,
+        work.as_mut_ptr(),
+        &lwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+    )
+}
+
+#[inline]
+pub unsafe fn zgedmd(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    x: &mut [c64],
+    ldx: i32,
+    y: &mut [c64],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f64,
+    k: &mut i32,
+    eigs: &mut [c64],
+    z: &mut [c64],
+    ldz: i32,
+    res: &mut [f64],
+    b: &mut [c64],
+    ldb: i32,
+    w: &mut [c64],
+    ldw: i32,
+    s: &mut [c64],
+    lds: i32,
+    zwork: &mut [c64],
+    lzwork: &[i32],
+    rwork: &mut [f64],
+    lrwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+) {
+    ffi::zgedmd_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        x.as_mut_ptr() as *mut _,
+        &ldx,
+        y.as_mut_ptr() as *mut _,
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        k,
+        eigs.as_mut_ptr() as *mut _,
+        z.as_mut_ptr() as *mut _,
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr() as *mut _,
+        &ldb,
+        w.as_mut_ptr() as *mut _,
+        &ldw,
+        s.as_mut_ptr() as *mut _,
+        &lds,
+        zwork.as_mut_ptr() as *mut _,
+        lzwork.as_ptr(),
+        rwork.as_mut_ptr(),
+        &lrwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+    )
+}
+
+#[inline]
+pub unsafe fn cgedmdq(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobq: u8,
+    jobt: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    f: &mut [c32],
+    ldf: i32,
+    x: &mut [c32],
+    ldx: i32,
+    y: &mut [c32],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f32,
+    k: i32,
+    eigs: &mut [c32],
+    z: &mut [c32],
+    ldz: i32,
+    res: &mut [f32],
+    b: &mut [c32],
+    ldb: i32,
+    v: &mut [c32],
+    ldv: i32,
+    s: &mut [c32],
+    lds: i32,
+    zwork: &mut [c32],
+    lzwork: &[i32],
+    work: &mut [f32],
+    lwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
+) {
+    ffi::cgedmdq_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobq as c_char),
+        &(jobt as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        f.as_mut_ptr() as *mut _,
+        &ldf,
+        x.as_mut_ptr() as *mut _,
+        &ldx,
+        y.as_mut_ptr() as *mut _,
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        &k,
+        eigs.as_mut_ptr() as *mut _,
+        z.as_mut_ptr() as *mut _,
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr() as *mut _,
+        &ldb,
+        v.as_mut_ptr() as *mut _,
+        &ldv,
+        s.as_mut_ptr() as *mut _,
+        &lds,
+        zwork.as_mut_ptr() as *mut _,
+        lzwork.as_ptr(),
+        work.as_mut_ptr(),
+        &lwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
+    )
+}
+
+#[inline]
+pub unsafe fn dgedmdq(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobq: u8,
+    jobt: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    f: &mut [f64],
+    ldf: i32,
+    x: &mut [f64],
+    ldx: i32,
+    y: &mut [f64],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f64,
+    k: &mut i32,
+    reig: &mut [f64],
+    imeig: &mut [f64],
+    z: &mut [f64],
+    ldz: i32,
+    res: &mut [f64],
+    b: &mut [f64],
+    ldb: i32,
+    v: &mut [f64],
+    ldv: i32,
+    s: &mut [f64],
+    lds: i32,
+    work: &mut [f64],
+    lwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
+) {
+    ffi::dgedmdq_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobq as c_char),
+        &(jobt as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        f.as_mut_ptr(),
+        &ldf,
+        x.as_mut_ptr(),
+        &ldx,
+        y.as_mut_ptr(),
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        k,
+        reig.as_mut_ptr(),
+        imeig.as_mut_ptr(),
+        z.as_mut_ptr(),
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr(),
+        &ldb,
+        v.as_mut_ptr(),
+        &ldv,
+        s.as_mut_ptr(),
+        &lds,
+        work.as_mut_ptr(),
+        &lwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
+    )
+}
+
+#[inline]
+pub unsafe fn sgedmdq(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobq: u8,
+    jobt: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    f: &mut [f32],
+    ldf: i32,
+    x: &mut [f32],
+    ldx: i32,
+    y: &mut [f32],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f32,
+    k: i32,
+    reig: &mut [f32],
+    imeig: &mut [f32],
+    z: &mut [f32],
+    ldz: i32,
+    res: &mut [f32],
+    b: &mut [f32],
+    ldb: i32,
+    v: &mut [f32],
+    ldv: i32,
+    s: &mut [f32],
+    lds: i32,
+    work: &mut [f32],
+    lwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
+) {
+    ffi::sgedmdq_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobq as c_char),
+        &(jobt as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        f.as_mut_ptr(),
+        &ldf,
+        x.as_mut_ptr(),
+        &ldx,
+        y.as_mut_ptr(),
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        &k,
+        reig.as_mut_ptr(),
+        imeig.as_mut_ptr(),
+        z.as_mut_ptr(),
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr(),
+        &ldb,
+        v.as_mut_ptr(),
+        &ldv,
+        s.as_mut_ptr(),
+        &lds,
+        work.as_mut_ptr(),
+        &lwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
+    )
+}
+
+#[inline]
+pub unsafe fn zgedmdq(
+    jobs: u8,
+    jobz: u8,
+    jobr: u8,
+    jobq: u8,
+    jobt: u8,
+    jobf: u8,
+    whtsvd: &[i32],
+    m: i32,
+    n: i32,
+    f: &mut [c64],
+    ldf: i32,
+    x: &mut [c64],
+    ldx: i32,
+    y: &mut [c64],
+    ldy: i32,
+    nrnk: &[i32],
+    tol: f64,
+    k: i32,
+    eigs: &mut [c64],
+    z: &mut [c64],
+    ldz: i32,
+    res: &mut [f64],
+    b: &mut [c64],
+    ldb: i32,
+    v: &mut [c64],
+    ldv: i32,
+    s: &mut [c64],
+    lds: i32,
+    zwork: &mut [c64],
+    lzwork: &[i32],
+    work: &mut [f64],
+    lwork: i32,
+    iwork: &mut [i32],
+    liwork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
+) {
+    ffi::zgedmdq_(
+        &(jobs as c_char),
+        &(jobz as c_char),
+        &(jobr as c_char),
+        &(jobq as c_char),
+        &(jobt as c_char),
+        &(jobf as c_char),
+        whtsvd.as_ptr(),
+        &m,
+        &n,
+        f.as_mut_ptr() as *mut _,
+        &ldf,
+        x.as_mut_ptr() as *mut _,
+        &ldx,
+        y.as_mut_ptr() as *mut _,
+        &ldy,
+        nrnk.as_ptr(),
+        &tol,
+        &k,
+        eigs.as_mut_ptr() as *mut _,
+        z.as_mut_ptr() as *mut _,
+        &ldz,
+        res.as_mut_ptr(),
+        b.as_mut_ptr() as *mut _,
+        &ldb,
+        v.as_mut_ptr() as *mut _,
+        &ldv,
+        s.as_mut_ptr() as *mut _,
+        &lds,
+        zwork.as_mut_ptr() as *mut _,
+        lzwork.as_ptr(),
+        work.as_mut_ptr(),
+        &lwork,
+        iwork.as_mut_ptr(),
+        &liwork,
+        info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -7031,6 +8137,8 @@ pub unsafe fn cgesvd(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgesvd_(
         &(jobu as c_char),
@@ -7048,6 +8156,8 @@ pub unsafe fn cgesvd(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -7067,6 +8177,8 @@ pub unsafe fn dgesvd(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgesvd_(
         &(jobu as c_char),
@@ -7083,6 +8195,8 @@ pub unsafe fn dgesvd(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -7102,6 +8216,8 @@ pub unsafe fn sgesvd(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgesvd_(
         &(jobu as c_char),
@@ -7118,6 +8234,8 @@ pub unsafe fn sgesvd(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -7138,6 +8256,8 @@ pub unsafe fn zgesvd(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgesvd_(
         &(jobu as c_char),
@@ -7155,6 +8275,8 @@ pub unsafe fn zgesvd(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -7182,6 +8304,11 @@ pub unsafe fn cgesvdq(
     rwork: &mut [f32],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::cgesvdq_(
         &(joba as c_char),
@@ -7206,6 +8333,11 @@ pub unsafe fn cgesvdq(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -7233,6 +8365,11 @@ pub unsafe fn dgesvdq(
     rwork: &mut [f64],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::dgesvdq_(
         &(joba as c_char),
@@ -7257,6 +8394,11 @@ pub unsafe fn dgesvdq(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -7284,6 +8426,11 @@ pub unsafe fn sgesvdq(
     rwork: &mut [f32],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::sgesvdq_(
         &(joba as c_char),
@@ -7308,6 +8455,11 @@ pub unsafe fn sgesvdq(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -7335,6 +8487,11 @@ pub unsafe fn zgesvdq(
     rwork: &mut [f64],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::zgesvdq_(
         &(joba as c_char),
@@ -7359,6 +8516,11 @@ pub unsafe fn zgesvdq(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -7386,6 +8548,9 @@ pub unsafe fn cgesvdx(
     rwork: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgesvdx_(
         &(jobu as c_char),
@@ -7410,6 +8575,9 @@ pub unsafe fn cgesvdx(
         rwork.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7436,6 +8604,9 @@ pub unsafe fn dgesvdx(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgesvdx_(
         &(jobu as c_char),
@@ -7459,6 +8630,9 @@ pub unsafe fn dgesvdx(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7485,6 +8659,9 @@ pub unsafe fn sgesvdx(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgesvdx_(
         &(jobu as c_char),
@@ -7508,6 +8685,9 @@ pub unsafe fn sgesvdx(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7535,6 +8715,9 @@ pub unsafe fn zgesvdx(
     rwork: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgesvdx_(
         &(jobu as c_char),
@@ -7559,6 +8742,9 @@ pub unsafe fn zgesvdx(
         rwork.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7580,6 +8766,9 @@ pub unsafe fn cgesvj(
     rwork: &mut [f32],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgesvj_(
         &(joba as c_char),
@@ -7598,6 +8787,9 @@ pub unsafe fn cgesvj(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7617,6 +8809,9 @@ pub unsafe fn dgesvj(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgesvj_(
         &(joba as c_char),
@@ -7633,6 +8828,9 @@ pub unsafe fn dgesvj(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7652,6 +8850,9 @@ pub unsafe fn sgesvj(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgesvj_(
         &(joba as c_char),
@@ -7668,6 +8869,9 @@ pub unsafe fn sgesvj(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7689,6 +8893,9 @@ pub unsafe fn zgesvj(
     rwork: &mut [f64],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgesvj_(
         &(joba as c_char),
@@ -7707,6 +8914,9 @@ pub unsafe fn zgesvj(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7734,6 +8944,9 @@ pub unsafe fn cgesvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgesvx_(
         &(fact as c_char),
@@ -7758,6 +8971,9 @@ pub unsafe fn cgesvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7785,6 +9001,9 @@ pub unsafe fn dgesvx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgesvx_(
         &(fact as c_char),
@@ -7809,6 +9028,9 @@ pub unsafe fn dgesvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7836,6 +9058,9 @@ pub unsafe fn sgesvx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgesvx_(
         &(fact as c_char),
@@ -7860,6 +9085,9 @@ pub unsafe fn sgesvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7887,6 +9115,9 @@ pub unsafe fn zgesvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgesvx_(
         &(fact as c_char),
@@ -7911,6 +9142,9 @@ pub unsafe fn zgesvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -7943,6 +9177,9 @@ pub unsafe fn cgesvxx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgesvxx_(
         &(fact as c_char),
@@ -7972,6 +9209,9 @@ pub unsafe fn cgesvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -8004,6 +9244,9 @@ pub unsafe fn dgesvxx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgesvxx_(
         &(fact as c_char),
@@ -8033,6 +9276,9 @@ pub unsafe fn dgesvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -8065,6 +9311,9 @@ pub unsafe fn sgesvxx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgesvxx_(
         &(fact as c_char),
@@ -8094,6 +9343,9 @@ pub unsafe fn sgesvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -8126,6 +9378,9 @@ pub unsafe fn zgesvxx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgesvxx_(
         &(fact as c_char),
@@ -8155,6 +9410,9 @@ pub unsafe fn zgesvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -8355,6 +9613,7 @@ pub unsafe fn cgetrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgetrs_(
         &(trans as c_char),
@@ -8366,6 +9625,7 @@ pub unsafe fn cgetrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -8380,6 +9640,7 @@ pub unsafe fn dgetrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgetrs_(
         &(trans as c_char),
@@ -8391,6 +9652,7 @@ pub unsafe fn dgetrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -8405,6 +9667,7 @@ pub unsafe fn sgetrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgetrs_(
         &(trans as c_char),
@@ -8416,6 +9679,7 @@ pub unsafe fn sgetrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -8430,6 +9694,7 @@ pub unsafe fn zgetrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgetrs_(
         &(trans as c_char),
@@ -8441,6 +9706,7 @@ pub unsafe fn zgetrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -8457,6 +9723,7 @@ pub unsafe fn cgetsls(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgetsls_(
         &(trans as c_char),
@@ -8470,6 +9737,7 @@ pub unsafe fn cgetsls(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -8486,6 +9754,7 @@ pub unsafe fn dgetsls(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgetsls_(
         &(trans as c_char),
@@ -8499,6 +9768,7 @@ pub unsafe fn dgetsls(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -8515,6 +9785,7 @@ pub unsafe fn sgetsls(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgetsls_(
         &(trans as c_char),
@@ -8528,6 +9799,7 @@ pub unsafe fn sgetsls(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -8544,6 +9816,7 @@ pub unsafe fn zgetsls(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgetsls_(
         &(trans as c_char),
@@ -8557,6 +9830,7 @@ pub unsafe fn zgetsls(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -8697,6 +9971,8 @@ pub unsafe fn cggbak(
     v: &mut [c32],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cggbak_(
         &(job as c_char),
@@ -8710,6 +9986,8 @@ pub unsafe fn cggbak(
         v.as_mut_ptr() as *mut _,
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -8726,6 +10004,8 @@ pub unsafe fn dggbak(
     v: &mut [f64],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dggbak_(
         &(job as c_char),
@@ -8739,6 +10019,8 @@ pub unsafe fn dggbak(
         v.as_mut_ptr(),
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -8755,6 +10037,8 @@ pub unsafe fn sggbak(
     v: &mut [f32],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sggbak_(
         &(job as c_char),
@@ -8768,6 +10052,8 @@ pub unsafe fn sggbak(
         v.as_mut_ptr(),
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -8784,6 +10070,8 @@ pub unsafe fn zggbak(
     v: &mut [c64],
     ldv: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zggbak_(
         &(job as c_char),
@@ -8797,6 +10085,8 @@ pub unsafe fn zggbak(
         v.as_mut_ptr() as *mut _,
         &ldv,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -8814,6 +10104,7 @@ pub unsafe fn cggbal(
     rscale: &mut [f32],
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cggbal_(
         &(job as c_char),
@@ -8828,6 +10119,7 @@ pub unsafe fn cggbal(
         rscale.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -8845,6 +10137,7 @@ pub unsafe fn dggbal(
     rscale: &mut [f64],
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dggbal_(
         &(job as c_char),
@@ -8859,6 +10152,7 @@ pub unsafe fn dggbal(
         rscale.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -8876,6 +10170,7 @@ pub unsafe fn sggbal(
     rscale: &mut [f32],
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sggbal_(
         &(job as c_char),
@@ -8890,6 +10185,7 @@ pub unsafe fn sggbal(
         rscale.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -8907,6 +10203,7 @@ pub unsafe fn zggbal(
     rscale: &mut [f64],
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zggbal_(
         &(job as c_char),
@@ -8921,6 +10218,7 @@ pub unsafe fn zggbal(
         rscale.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -8947,6 +10245,9 @@ pub unsafe fn cgges(
     rwork: &mut [f32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgges_(
         &(jobvsl as c_char),
@@ -8970,6 +10271,9 @@ pub unsafe fn cgges(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -8996,6 +10300,9 @@ pub unsafe fn dgges(
     lwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgges_(
         &(jobvsl as c_char),
@@ -9019,6 +10326,9 @@ pub unsafe fn dgges(
         &lwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -9045,6 +10355,9 @@ pub unsafe fn sgges(
     lwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgges_(
         &(jobvsl as c_char),
@@ -9068,6 +10381,9 @@ pub unsafe fn sgges(
         &lwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -9094,6 +10410,9 @@ pub unsafe fn zgges(
     rwork: &mut [f64],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgges_(
         &(jobvsl as c_char),
@@ -9117,6 +10436,9 @@ pub unsafe fn zgges(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -9143,6 +10465,9 @@ pub unsafe fn cgges3(
     rwork: &mut [f32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cgges3_(
         &(jobvsl as c_char),
@@ -9166,6 +10491,9 @@ pub unsafe fn cgges3(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -9192,6 +10520,9 @@ pub unsafe fn dgges3(
     lwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dgges3_(
         &(jobvsl as c_char),
@@ -9215,6 +10546,9 @@ pub unsafe fn dgges3(
         &lwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -9241,6 +10575,9 @@ pub unsafe fn sgges3(
     lwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sgges3_(
         &(jobvsl as c_char),
@@ -9264,6 +10601,9 @@ pub unsafe fn sgges3(
         &lwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -9290,6 +10630,9 @@ pub unsafe fn zgges3(
     rwork: &mut [f64],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zgges3_(
         &(jobvsl as c_char),
@@ -9313,6 +10656,9 @@ pub unsafe fn zgges3(
         rwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -9344,6 +10690,10 @@ pub unsafe fn cggesx(
     liwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::cggesx_(
         &(jobvsl as c_char),
@@ -9372,6 +10722,10 @@ pub unsafe fn cggesx(
         &liwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -9403,6 +10757,10 @@ pub unsafe fn dggesx(
     liwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::dggesx_(
         &(jobvsl as c_char),
@@ -9431,6 +10789,10 @@ pub unsafe fn dggesx(
         &liwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -9462,6 +10824,10 @@ pub unsafe fn sggesx(
     liwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::sggesx_(
         &(jobvsl as c_char),
@@ -9490,6 +10856,10 @@ pub unsafe fn sggesx(
         &liwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -9521,6 +10891,10 @@ pub unsafe fn zggesx(
     liwork: i32,
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::zggesx_(
         &(jobvsl as c_char),
@@ -9549,6 +10923,10 @@ pub unsafe fn zggesx(
         &liwork,
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -9571,6 +10949,8 @@ pub unsafe fn cggev(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cggev_(
         &(jobvl as c_char),
@@ -9590,6 +10970,8 @@ pub unsafe fn cggev(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9612,6 +10994,8 @@ pub unsafe fn dggev(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dggev_(
         &(jobvl as c_char),
@@ -9631,6 +11015,8 @@ pub unsafe fn dggev(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9653,6 +11039,8 @@ pub unsafe fn sggev(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sggev_(
         &(jobvl as c_char),
@@ -9672,6 +11060,8 @@ pub unsafe fn sggev(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9694,6 +11084,8 @@ pub unsafe fn zggev(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zggev_(
         &(jobvl as c_char),
@@ -9713,6 +11105,8 @@ pub unsafe fn zggev(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9735,6 +11129,8 @@ pub unsafe fn cggev3(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cggev3_(
         &(jobvl as c_char),
@@ -9754,6 +11150,8 @@ pub unsafe fn cggev3(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9776,6 +11174,8 @@ pub unsafe fn dggev3(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dggev3_(
         &(jobvl as c_char),
@@ -9795,6 +11195,8 @@ pub unsafe fn dggev3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9817,6 +11219,8 @@ pub unsafe fn sggev3(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sggev3_(
         &(jobvl as c_char),
@@ -9836,6 +11240,8 @@ pub unsafe fn sggev3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9858,6 +11264,8 @@ pub unsafe fn zggev3(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zggev3_(
         &(jobvl as c_char),
@@ -9877,6 +11285,8 @@ pub unsafe fn zggev3(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -9911,6 +11321,10 @@ pub unsafe fn cggevx(
     iwork: &mut [i32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::cggevx_(
         &(balanc as c_char),
@@ -9942,6 +11356,10 @@ pub unsafe fn cggevx(
         iwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -9976,6 +11394,10 @@ pub unsafe fn dggevx(
     iwork: &mut [i32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::dggevx_(
         &(balanc as c_char),
@@ -10007,6 +11429,10 @@ pub unsafe fn dggevx(
         iwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -10041,6 +11467,10 @@ pub unsafe fn sggevx(
     iwork: &mut [i32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::sggevx_(
         &(balanc as c_char),
@@ -10072,6 +11502,10 @@ pub unsafe fn sggevx(
         iwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -10106,6 +11540,10 @@ pub unsafe fn zggevx(
     iwork: &mut [i32],
     bwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::zggevx_(
         &(balanc as c_char),
@@ -10137,6 +11575,10 @@ pub unsafe fn zggevx(
         iwork.as_mut_ptr(),
         bwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -10290,6 +11732,8 @@ pub unsafe fn cgghd3(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgghd3_(
         &(compq as c_char),
@@ -10308,6 +11752,8 @@ pub unsafe fn cgghd3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10329,6 +11775,8 @@ pub unsafe fn dgghd3(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgghd3_(
         &(compq as c_char),
@@ -10347,6 +11795,8 @@ pub unsafe fn dgghd3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10368,6 +11818,8 @@ pub unsafe fn sgghd3(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgghd3_(
         &(compq as c_char),
@@ -10386,6 +11838,8 @@ pub unsafe fn sgghd3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10407,6 +11861,8 @@ pub unsafe fn zgghd3(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgghd3_(
         &(compq as c_char),
@@ -10425,6 +11881,8 @@ pub unsafe fn zgghd3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10444,6 +11902,8 @@ pub unsafe fn cgghrd(
     z: &mut [c32],
     ldz: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgghrd_(
         &(compq as c_char),
@@ -10460,6 +11920,8 @@ pub unsafe fn cgghrd(
         z.as_mut_ptr() as *mut _,
         &ldz,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10479,6 +11941,8 @@ pub unsafe fn dgghrd(
     z: &mut [f64],
     ldz: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgghrd_(
         &(compq as c_char),
@@ -10495,6 +11959,8 @@ pub unsafe fn dgghrd(
         z.as_mut_ptr(),
         &ldz,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10514,6 +11980,8 @@ pub unsafe fn sgghrd(
     z: &mut [f32],
     ldz: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgghrd_(
         &(compq as c_char),
@@ -10530,6 +11998,8 @@ pub unsafe fn sgghrd(
         z.as_mut_ptr(),
         &ldz,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10549,6 +12019,8 @@ pub unsafe fn zgghrd(
     z: &mut [c64],
     ldz: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgghrd_(
         &(compq as c_char),
@@ -10565,6 +12037,8 @@ pub unsafe fn zgghrd(
         z.as_mut_ptr() as *mut _,
         &ldz,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -10949,6 +12423,67 @@ pub unsafe fn zggrqf(
 }
 
 #[inline]
+pub unsafe fn cggsvd(
+    jobu: u8,
+    jobv: u8,
+    jobq: u8,
+    m: i32,
+    n: i32,
+    p: i32,
+    k: &mut i32,
+    l: &mut i32,
+    a: &mut [c32],
+    lda: i32,
+    b: &mut [c32],
+    ldb: i32,
+    alpha: &mut [f32],
+    beta: &mut [f32],
+    u: &mut [c32],
+    ldu: i32,
+    v: &mut [c32],
+    ldv: i32,
+    q: &mut [c32],
+    ldq: i32,
+    work: &mut [c32],
+    rwork: &mut [f32],
+    iwork: &mut [i32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) -> i32 {
+    ffi::cggsvd_(
+        &(jobu as c_char),
+        &(jobv as c_char),
+        &(jobq as c_char),
+        &m,
+        &n,
+        &p,
+        k,
+        l,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        b.as_mut_ptr() as *mut _,
+        &ldb,
+        alpha.as_mut_ptr(),
+        beta.as_mut_ptr(),
+        u.as_mut_ptr() as *mut _,
+        &ldu,
+        v.as_mut_ptr() as *mut _,
+        &ldv,
+        q.as_mut_ptr() as *mut _,
+        &ldq,
+        work.as_mut_ptr() as *mut _,
+        rwork.as_mut_ptr(),
+        iwork.as_mut_ptr(),
+        info,
+        arg1,
+        arg2,
+        arg3,
+    )
+}
+
+#[inline]
 pub unsafe fn sggsvd(
     jobu: u8,
     jobv: u8,
@@ -10973,6 +12508,9 @@ pub unsafe fn sggsvd(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> i32 {
     ffi::sggsvd_(
         &(jobu as c_char),
@@ -10998,6 +12536,9 @@ pub unsafe fn sggsvd(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11026,6 +12567,9 @@ pub unsafe fn dggsvd(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> i32 {
     ffi::dggsvd_(
         &(jobu as c_char),
@@ -11051,61 +12595,9 @@ pub unsafe fn dggsvd(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
-    )
-}
-
-#[inline]
-pub unsafe fn cggsvd(
-    jobu: u8,
-    jobv: u8,
-    jobq: u8,
-    m: i32,
-    n: i32,
-    p: i32,
-    k: &mut i32,
-    l: &mut i32,
-    a: &mut [c32],
-    lda: i32,
-    b: &mut [c32],
-    ldb: i32,
-    alpha: &mut [f32],
-    beta: &mut [f32],
-    u: &mut [c32],
-    ldu: i32,
-    v: &mut [c32],
-    ldv: i32,
-    q: &mut [c32],
-    ldq: i32,
-    work: &mut [c32],
-    rwork: &mut [f32],
-    iwork: &mut [i32],
-    info: &mut i32,
-) -> i32 {
-    ffi::cggsvd_(
-        &(jobu as c_char),
-        &(jobv as c_char),
-        &(jobq as c_char),
-        &m,
-        &n,
-        &p,
-        k,
-        l,
-        a.as_mut_ptr() as *mut _,
-        &lda,
-        b.as_mut_ptr() as *mut _,
-        &ldb,
-        alpha.as_mut_ptr(),
-        beta.as_mut_ptr(),
-        u.as_mut_ptr() as *mut _,
-        &ldu,
-        v.as_mut_ptr() as *mut _,
-        &ldv,
-        q.as_mut_ptr() as *mut _,
-        &ldq,
-        work.as_mut_ptr() as *mut _,
-        rwork.as_mut_ptr(),
-        iwork.as_mut_ptr(),
-        info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11135,6 +12627,9 @@ pub unsafe fn zggsvd(
     rwork: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> i32 {
     ffi::zggsvd_(
         &(jobu as c_char),
@@ -11161,6 +12656,9 @@ pub unsafe fn zggsvd(
         rwork.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11191,6 +12689,9 @@ pub unsafe fn cggsvd3(
     rwork: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cggsvd3_(
         &(jobu as c_char),
@@ -11218,6 +12719,9 @@ pub unsafe fn cggsvd3(
         rwork.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11247,6 +12751,9 @@ pub unsafe fn dggsvd3(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dggsvd3_(
         &(jobu as c_char),
@@ -11273,6 +12780,9 @@ pub unsafe fn dggsvd3(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11302,6 +12812,9 @@ pub unsafe fn sggsvd3(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sggsvd3_(
         &(jobu as c_char),
@@ -11328,6 +12841,9 @@ pub unsafe fn sggsvd3(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11358,6 +12874,9 @@ pub unsafe fn zggsvd3(
     rwork: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zggsvd3_(
         &(jobu as c_char),
@@ -11385,6 +12904,9 @@ pub unsafe fn zggsvd3(
         rwork.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11414,6 +12936,9 @@ pub unsafe fn sggsvp(
     tau: &mut [f32],
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> i32 {
     ffi::sggsvp_(
         &(jobu as c_char),
@@ -11440,6 +12965,9 @@ pub unsafe fn sggsvp(
         tau.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11469,6 +12997,9 @@ pub unsafe fn dggsvp(
     tau: &mut [f64],
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> i32 {
     ffi::dggsvp_(
         &(jobu as c_char),
@@ -11495,6 +13026,9 @@ pub unsafe fn dggsvp(
         tau.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11525,6 +13059,9 @@ pub unsafe fn cggsvp(
     tau: &mut [c32],
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> i32 {
     ffi::cggsvp_(
         &(jobu as c_char),
@@ -11552,6 +13089,9 @@ pub unsafe fn cggsvp(
         tau.as_mut_ptr() as *mut _,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11582,6 +13122,9 @@ pub unsafe fn zggsvp(
     tau: &mut [c64],
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> i32 {
     ffi::zggsvp_(
         &(jobu as c_char),
@@ -11609,6 +13152,9 @@ pub unsafe fn zggsvp(
         tau.as_mut_ptr() as *mut _,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11640,6 +13186,9 @@ pub unsafe fn cggsvp3(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cggsvp3_(
         &(jobu as c_char),
@@ -11668,6 +13217,9 @@ pub unsafe fn cggsvp3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11698,6 +13250,9 @@ pub unsafe fn dggsvp3(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dggsvp3_(
         &(jobu as c_char),
@@ -11725,6 +13280,9 @@ pub unsafe fn dggsvp3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11755,6 +13313,9 @@ pub unsafe fn sggsvp3(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sggsvp3_(
         &(jobu as c_char),
@@ -11782,6 +13343,9 @@ pub unsafe fn sggsvp3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11813,6 +13377,9 @@ pub unsafe fn zggsvp3(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zggsvp3_(
         &(jobu as c_char),
@@ -11841,6 +13408,9 @@ pub unsafe fn zggsvp3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -11857,6 +13427,7 @@ pub unsafe fn cgtcon(
     rcond: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgtcon_(
         &(norm as c_char),
@@ -11870,6 +13441,7 @@ pub unsafe fn cgtcon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -11887,6 +13459,7 @@ pub unsafe fn dgtcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgtcon_(
         &(norm as c_char),
@@ -11901,6 +13474,7 @@ pub unsafe fn dgtcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -11918,6 +13492,7 @@ pub unsafe fn sgtcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgtcon_(
         &(norm as c_char),
@@ -11932,6 +13507,7 @@ pub unsafe fn sgtcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -11948,6 +13524,7 @@ pub unsafe fn zgtcon(
     rcond: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgtcon_(
         &(norm as c_char),
@@ -11961,6 +13538,7 @@ pub unsafe fn zgtcon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -11986,6 +13564,7 @@ pub unsafe fn cgtrfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgtrfs_(
         &(trans as c_char),
@@ -12008,6 +13587,7 @@ pub unsafe fn cgtrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -12033,6 +13613,7 @@ pub unsafe fn dgtrfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgtrfs_(
         &(trans as c_char),
@@ -12055,6 +13636,7 @@ pub unsafe fn dgtrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -12080,6 +13662,7 @@ pub unsafe fn sgtrfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgtrfs_(
         &(trans as c_char),
@@ -12102,6 +13685,7 @@ pub unsafe fn sgtrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -12127,6 +13711,7 @@ pub unsafe fn zgtrfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgtrfs_(
         &(trans as c_char),
@@ -12149,6 +13734,7 @@ pub unsafe fn zgtrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -12268,6 +13854,8 @@ pub unsafe fn cgtsvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cgtsvx_(
         &(fact as c_char),
@@ -12292,6 +13880,8 @@ pub unsafe fn cgtsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12319,6 +13909,8 @@ pub unsafe fn dgtsvx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dgtsvx_(
         &(fact as c_char),
@@ -12343,6 +13935,8 @@ pub unsafe fn dgtsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12370,6 +13964,8 @@ pub unsafe fn sgtsvx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sgtsvx_(
         &(fact as c_char),
@@ -12394,6 +13990,8 @@ pub unsafe fn sgtsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12421,6 +14019,8 @@ pub unsafe fn zgtsvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zgtsvx_(
         &(fact as c_char),
@@ -12445,6 +14045,8 @@ pub unsafe fn zgtsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12545,6 +14147,7 @@ pub unsafe fn cgttrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cgttrs_(
         &(trans as c_char),
@@ -12558,6 +14161,7 @@ pub unsafe fn cgttrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -12574,6 +14178,7 @@ pub unsafe fn dgttrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dgttrs_(
         &(trans as c_char),
@@ -12587,6 +14192,7 @@ pub unsafe fn dgttrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -12603,6 +14209,7 @@ pub unsafe fn sgttrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sgttrs_(
         &(trans as c_char),
@@ -12616,6 +14223,7 @@ pub unsafe fn sgttrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -12632,6 +14240,7 @@ pub unsafe fn zgttrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zgttrs_(
         &(trans as c_char),
@@ -12645,6 +14254,7 @@ pub unsafe fn zgttrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -12662,6 +14272,8 @@ pub unsafe fn chbev(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbev_(
         &(jobz as c_char),
@@ -12676,6 +14288,8 @@ pub unsafe fn chbev(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12693,6 +14307,8 @@ pub unsafe fn zhbev(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbev_(
         &(jobz as c_char),
@@ -12707,6 +14323,8 @@ pub unsafe fn zhbev(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12725,6 +14343,8 @@ pub unsafe fn chbev_2stage(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbev_2stage_(
         &(jobz as c_char),
@@ -12740,6 +14360,8 @@ pub unsafe fn chbev_2stage(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12758,6 +14380,8 @@ pub unsafe fn zhbev_2stage(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbev_2stage_(
         &(jobz as c_char),
@@ -12773,6 +14397,8 @@ pub unsafe fn zhbev_2stage(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12794,6 +14420,8 @@ pub unsafe fn chbevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbevd_(
         &(jobz as c_char),
@@ -12812,6 +14440,8 @@ pub unsafe fn chbevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12833,6 +14463,8 @@ pub unsafe fn zhbevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbevd_(
         &(jobz as c_char),
@@ -12851,6 +14483,8 @@ pub unsafe fn zhbevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12872,6 +14506,8 @@ pub unsafe fn chbevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbevd_2stage_(
         &(jobz as c_char),
@@ -12890,6 +14526,8 @@ pub unsafe fn chbevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12911,6 +14549,8 @@ pub unsafe fn zhbevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbevd_2stage_(
         &(jobz as c_char),
@@ -12929,6 +14569,8 @@ pub unsafe fn zhbevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -12957,6 +14599,9 @@ pub unsafe fn chbevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chbevx_(
         &(jobz as c_char),
@@ -12982,6 +14627,9 @@ pub unsafe fn chbevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -13010,6 +14658,9 @@ pub unsafe fn zhbevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhbevx_(
         &(jobz as c_char),
@@ -13035,6 +14686,9 @@ pub unsafe fn zhbevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -13064,6 +14718,9 @@ pub unsafe fn chbevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chbevx_2stage_(
         &(jobz as c_char),
@@ -13090,6 +14747,9 @@ pub unsafe fn chbevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -13119,6 +14779,9 @@ pub unsafe fn zhbevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhbevx_2stage_(
         &(jobz as c_char),
@@ -13145,6 +14808,9 @@ pub unsafe fn zhbevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -13164,6 +14830,8 @@ pub unsafe fn chbgst(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbgst_(
         &(vect as c_char),
@@ -13180,6 +14848,8 @@ pub unsafe fn chbgst(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13199,6 +14869,8 @@ pub unsafe fn zhbgst(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbgst_(
         &(vect as c_char),
@@ -13215,6 +14887,8 @@ pub unsafe fn zhbgst(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13235,6 +14909,8 @@ pub unsafe fn chbgv(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbgv_(
         &(jobz as c_char),
@@ -13252,6 +14928,8 @@ pub unsafe fn chbgv(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13272,6 +14950,8 @@ pub unsafe fn zhbgv(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbgv_(
         &(jobz as c_char),
@@ -13289,6 +14969,8 @@ pub unsafe fn zhbgv(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13313,6 +14995,8 @@ pub unsafe fn chbgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbgvd_(
         &(jobz as c_char),
@@ -13334,6 +15018,8 @@ pub unsafe fn chbgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13358,6 +15044,8 @@ pub unsafe fn zhbgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbgvd_(
         &(jobz as c_char),
@@ -13379,6 +15067,8 @@ pub unsafe fn zhbgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13410,6 +15100,9 @@ pub unsafe fn chbgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chbgvx_(
         &(jobz as c_char),
@@ -13438,6 +15131,9 @@ pub unsafe fn chbgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -13469,6 +15165,9 @@ pub unsafe fn zhbgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhbgvx_(
         &(jobz as c_char),
@@ -13497,6 +15196,9 @@ pub unsafe fn zhbgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -13514,6 +15216,8 @@ pub unsafe fn chbtrd(
     ldq: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chbtrd_(
         &(vect as c_char),
@@ -13528,6 +15232,8 @@ pub unsafe fn chbtrd(
         &ldq,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13545,6 +15251,8 @@ pub unsafe fn zhbtrd(
     ldq: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhbtrd_(
         &(vect as c_char),
@@ -13559,6 +15267,8 @@ pub unsafe fn zhbtrd(
         &ldq,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13573,6 +15283,7 @@ pub unsafe fn checon(
     rcond: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::checon_(
         &(uplo as c_char),
@@ -13584,6 +15295,7 @@ pub unsafe fn checon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -13598,6 +15310,7 @@ pub unsafe fn zhecon(
     rcond: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhecon_(
         &(uplo as c_char),
@@ -13609,6 +15322,7 @@ pub unsafe fn zhecon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -13624,6 +15338,7 @@ pub unsafe fn checon_3(
     rcond: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::checon_3_(
         &(uplo as c_char),
@@ -13636,6 +15351,7 @@ pub unsafe fn checon_3(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -13651,6 +15367,7 @@ pub unsafe fn zhecon_3(
     rcond: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhecon_3_(
         &(uplo as c_char),
@@ -13663,6 +15380,7 @@ pub unsafe fn zhecon_3(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -13677,6 +15395,7 @@ pub unsafe fn cheequb(
     amax: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cheequb_(
         &(uplo as c_char),
@@ -13688,6 +15407,7 @@ pub unsafe fn cheequb(
         amax,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -13702,6 +15422,7 @@ pub unsafe fn zheequb(
     amax: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zheequb_(
         &(uplo as c_char),
@@ -13713,6 +15434,7 @@ pub unsafe fn zheequb(
         amax,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -13728,6 +15450,8 @@ pub unsafe fn cheev(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cheev_(
         &(jobz as c_char),
@@ -13740,6 +15464,8 @@ pub unsafe fn cheev(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13755,6 +15481,8 @@ pub unsafe fn zheev(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zheev_(
         &(jobz as c_char),
@@ -13767,6 +15495,8 @@ pub unsafe fn zheev(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13782,6 +15512,8 @@ pub unsafe fn cheev_2stage(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cheev_2stage_(
         &(jobz as c_char),
@@ -13794,6 +15526,8 @@ pub unsafe fn cheev_2stage(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13809,6 +15543,8 @@ pub unsafe fn zheev_2stage(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zheev_2stage_(
         &(jobz as c_char),
@@ -13821,6 +15557,8 @@ pub unsafe fn zheev_2stage(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13839,6 +15577,8 @@ pub unsafe fn cheevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cheevd_(
         &(jobz as c_char),
@@ -13854,6 +15594,8 @@ pub unsafe fn cheevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13872,6 +15614,8 @@ pub unsafe fn zheevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zheevd_(
         &(jobz as c_char),
@@ -13887,6 +15631,8 @@ pub unsafe fn zheevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13905,6 +15651,8 @@ pub unsafe fn cheevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cheevd_2stage_(
         &(jobz as c_char),
@@ -13920,6 +15668,8 @@ pub unsafe fn cheevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13938,6 +15688,8 @@ pub unsafe fn zheevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zheevd_2stage_(
         &(jobz as c_char),
@@ -13953,6 +15705,8 @@ pub unsafe fn zheevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -13981,6 +15735,9 @@ pub unsafe fn cheevr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cheevr_(
         &(jobz as c_char),
@@ -14006,6 +15763,9 @@ pub unsafe fn cheevr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14034,6 +15794,9 @@ pub unsafe fn zheevr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zheevr_(
         &(jobz as c_char),
@@ -14059,6 +15822,9 @@ pub unsafe fn zheevr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14087,6 +15853,9 @@ pub unsafe fn cheevr_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cheevr_2stage_(
         &(jobz as c_char),
@@ -14112,6 +15881,9 @@ pub unsafe fn cheevr_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14140,6 +15912,9 @@ pub unsafe fn zheevr_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zheevr_2stage_(
         &(jobz as c_char),
@@ -14165,6 +15940,9 @@ pub unsafe fn zheevr_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14191,6 +15969,9 @@ pub unsafe fn cheevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cheevx_(
         &(jobz as c_char),
@@ -14214,6 +15995,9 @@ pub unsafe fn cheevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14240,6 +16024,9 @@ pub unsafe fn zheevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zheevx_(
         &(jobz as c_char),
@@ -14263,6 +16050,9 @@ pub unsafe fn zheevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14289,6 +16079,9 @@ pub unsafe fn cheevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cheevx_2stage_(
         &(jobz as c_char),
@@ -14312,6 +16105,9 @@ pub unsafe fn cheevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14338,6 +16134,9 @@ pub unsafe fn zheevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zheevx_2stage_(
         &(jobz as c_char),
@@ -14361,6 +16160,9 @@ pub unsafe fn zheevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14371,9 +16173,10 @@ pub unsafe fn chegst(
     n: i32,
     a: &mut [c32],
     lda: i32,
-    b: &mut [c32],
+    b: &[c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chegst_(
         itype.as_ptr(),
@@ -14381,9 +16184,10 @@ pub unsafe fn chegst(
         &n,
         a.as_mut_ptr() as *mut _,
         &lda,
-        b.as_mut_ptr() as *mut _,
+        b.as_ptr() as *const _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -14394,9 +16198,10 @@ pub unsafe fn zhegst(
     n: i32,
     a: &mut [c64],
     lda: i32,
-    b: &mut [c64],
+    b: &[c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhegst_(
         itype.as_ptr(),
@@ -14404,9 +16209,10 @@ pub unsafe fn zhegst(
         &n,
         a.as_mut_ptr() as *mut _,
         &lda,
-        b.as_mut_ptr() as *mut _,
+        b.as_ptr() as *const _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -14425,6 +16231,8 @@ pub unsafe fn chegv(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chegv_(
         itype.as_ptr(),
@@ -14440,6 +16248,8 @@ pub unsafe fn chegv(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14458,6 +16268,8 @@ pub unsafe fn zhegv(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhegv_(
         itype.as_ptr(),
@@ -14473,6 +16285,8 @@ pub unsafe fn zhegv(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14491,6 +16305,8 @@ pub unsafe fn chegv_2stage(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chegv_2stage_(
         itype.as_ptr(),
@@ -14506,6 +16322,8 @@ pub unsafe fn chegv_2stage(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14524,6 +16342,8 @@ pub unsafe fn zhegv_2stage(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhegv_2stage_(
         itype.as_ptr(),
@@ -14539,6 +16359,8 @@ pub unsafe fn zhegv_2stage(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14560,6 +16382,8 @@ pub unsafe fn chegvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chegvd_(
         itype.as_ptr(),
@@ -14578,6 +16402,8 @@ pub unsafe fn chegvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14599,6 +16425,8 @@ pub unsafe fn zhegvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhegvd_(
         itype.as_ptr(),
@@ -14617,6 +16445,8 @@ pub unsafe fn zhegvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14646,6 +16476,9 @@ pub unsafe fn chegvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chegvx_(
         itype.as_ptr(),
@@ -14672,6 +16505,9 @@ pub unsafe fn chegvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14701,6 +16537,9 @@ pub unsafe fn zhegvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhegvx_(
         itype.as_ptr(),
@@ -14727,6 +16566,9 @@ pub unsafe fn zhegvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -14749,6 +16591,7 @@ pub unsafe fn cherfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cherfs_(
         &(uplo as c_char),
@@ -14768,6 +16611,7 @@ pub unsafe fn cherfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -14790,6 +16634,7 @@ pub unsafe fn zherfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zherfs_(
         &(uplo as c_char),
@@ -14809,6 +16654,7 @@ pub unsafe fn zherfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -14823,7 +16669,7 @@ pub unsafe fn cherfsx(
     af: &[c32],
     ldaf: i32,
     ipiv: &[i32],
-    s: &mut [f32],
+    s: &[f32],
     b: &[c32],
     ldb: i32,
     x: &mut [c32],
@@ -14838,6 +16684,8 @@ pub unsafe fn cherfsx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cherfsx_(
         &(uplo as c_char),
@@ -14849,7 +16697,7 @@ pub unsafe fn cherfsx(
         af.as_ptr() as *const _,
         &ldaf,
         ipiv.as_ptr(),
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -14864,6 +16712,8 @@ pub unsafe fn cherfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14878,7 +16728,7 @@ pub unsafe fn zherfsx(
     af: &[c64],
     ldaf: i32,
     ipiv: &[i32],
-    s: &mut [f64],
+    s: &[f64],
     b: &[c64],
     ldb: i32,
     x: &mut [c64],
@@ -14893,6 +16743,8 @@ pub unsafe fn zherfsx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zherfsx_(
         &(uplo as c_char),
@@ -14904,7 +16756,7 @@ pub unsafe fn zherfsx(
         af.as_ptr() as *const _,
         &ldaf,
         ipiv.as_ptr(),
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -14919,6 +16771,8 @@ pub unsafe fn zherfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -14935,6 +16789,7 @@ pub unsafe fn chesv(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chesv_(
         &(uplo as c_char),
@@ -14948,6 +16803,7 @@ pub unsafe fn chesv(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -14964,6 +16820,7 @@ pub unsafe fn zhesv(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhesv_(
         &(uplo as c_char),
@@ -14977,6 +16834,7 @@ pub unsafe fn zhesv(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -14993,6 +16851,7 @@ pub unsafe fn chesv_aa(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chesv_aa_(
         &(uplo as c_char),
@@ -15006,6 +16865,7 @@ pub unsafe fn chesv_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15022,6 +16882,7 @@ pub unsafe fn zhesv_aa(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhesv_aa_(
         &(uplo as c_char),
@@ -15035,6 +16896,7 @@ pub unsafe fn zhesv_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15054,6 +16916,7 @@ pub unsafe fn chesv_aa_2stage(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chesv_aa_2stage_(
         &(uplo as c_char),
@@ -15070,6 +16933,7 @@ pub unsafe fn chesv_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15089,6 +16953,7 @@ pub unsafe fn zhesv_aa_2stage(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhesv_aa_2stage_(
         &(uplo as c_char),
@@ -15105,6 +16970,7 @@ pub unsafe fn zhesv_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15122,6 +16988,7 @@ pub unsafe fn chesv_rk(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chesv_rk_(
         &(uplo as c_char),
@@ -15136,6 +17003,7 @@ pub unsafe fn chesv_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15153,6 +17021,7 @@ pub unsafe fn zhesv_rk(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhesv_rk_(
         &(uplo as c_char),
@@ -15167,6 +17036,7 @@ pub unsafe fn zhesv_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15183,6 +17053,7 @@ pub unsafe fn chesv_rook(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chesv_rook_(
         &(uplo as c_char),
@@ -15196,6 +17067,7 @@ pub unsafe fn chesv_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15212,6 +17084,7 @@ pub unsafe fn zhesv_rook(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhesv_rook_(
         &(uplo as c_char),
@@ -15225,6 +17098,7 @@ pub unsafe fn zhesv_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15250,6 +17124,8 @@ pub unsafe fn chesvx(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chesvx_(
         &(fact as c_char),
@@ -15272,6 +17148,8 @@ pub unsafe fn chesvx(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -15297,6 +17175,8 @@ pub unsafe fn zhesvx(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhesvx_(
         &(fact as c_char),
@@ -15319,6 +17199,8 @@ pub unsafe fn zhesvx(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -15350,6 +17232,9 @@ pub unsafe fn chesvxx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chesvxx_(
         &(fact as c_char),
@@ -15378,6 +17263,9 @@ pub unsafe fn chesvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -15409,6 +17297,9 @@ pub unsafe fn zhesvxx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhesvxx_(
         &(fact as c_char),
@@ -15437,11 +17328,22 @@ pub unsafe fn zhesvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn cheswapr(uplo: u8, n: i32, a: &mut [c32], lda: i32, i1: &[i32], i2: &[i32]) {
+pub unsafe fn cheswapr(
+    uplo: u8,
+    n: i32,
+    a: &mut [c32],
+    lda: i32,
+    i1: &[i32],
+    i2: &[i32],
+    arg1: usize,
+) {
     ffi::cheswapr_(
         &(uplo as c_char),
         &n,
@@ -15449,11 +17351,20 @@ pub unsafe fn cheswapr(uplo: u8, n: i32, a: &mut [c32], lda: i32, i1: &[i32], i2
         &lda,
         i1.as_ptr(),
         i2.as_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zheswapr(uplo: u8, n: i32, a: &mut [c64], lda: i32, i1: &[i32], i2: &[i32]) {
+pub unsafe fn zheswapr(
+    uplo: u8,
+    n: i32,
+    a: &mut [c64],
+    lda: i32,
+    i1: &[i32],
+    i2: &[i32],
+    arg1: usize,
+) {
     ffi::zheswapr_(
         &(uplo as c_char),
         &n,
@@ -15461,6 +17372,7 @@ pub unsafe fn zheswapr(uplo: u8, n: i32, a: &mut [c64], lda: i32, i1: &[i32], i2
         &lda,
         i1.as_ptr(),
         i2.as_ptr(),
+        arg1,
     )
 }
 
@@ -15476,6 +17388,7 @@ pub unsafe fn chetrd(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrd_(
         &(uplo as c_char),
@@ -15488,6 +17401,7 @@ pub unsafe fn chetrd(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15503,6 +17417,7 @@ pub unsafe fn zhetrd(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrd_(
         &(uplo as c_char),
@@ -15515,6 +17430,7 @@ pub unsafe fn zhetrd(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15533,6 +17449,8 @@ pub unsafe fn chetrd_2stage(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chetrd_2stage_(
         &(vect as c_char),
@@ -15548,6 +17466,8 @@ pub unsafe fn chetrd_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -15566,6 +17486,8 @@ pub unsafe fn zhetrd_2stage(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhetrd_2stage_(
         &(vect as c_char),
@@ -15581,6 +17503,8 @@ pub unsafe fn zhetrd_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -15594,6 +17518,7 @@ pub unsafe fn chetrf(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrf_(
         &(uplo as c_char),
@@ -15604,6 +17529,7 @@ pub unsafe fn chetrf(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15617,6 +17543,7 @@ pub unsafe fn zhetrf(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrf_(
         &(uplo as c_char),
@@ -15627,6 +17554,7 @@ pub unsafe fn zhetrf(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15640,6 +17568,7 @@ pub unsafe fn chetrf_aa(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrf_aa_(
         &(uplo as c_char),
@@ -15650,6 +17579,7 @@ pub unsafe fn chetrf_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15663,6 +17593,7 @@ pub unsafe fn zhetrf_aa(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrf_aa_(
         &(uplo as c_char),
@@ -15673,6 +17604,7 @@ pub unsafe fn zhetrf_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15689,6 +17621,7 @@ pub unsafe fn chetrf_aa_2stage(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrf_aa_2stage_(
         &(uplo as c_char),
@@ -15702,6 +17635,7 @@ pub unsafe fn chetrf_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15718,6 +17652,7 @@ pub unsafe fn zhetrf_aa_2stage(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrf_aa_2stage_(
         &(uplo as c_char),
@@ -15731,6 +17666,7 @@ pub unsafe fn zhetrf_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15745,6 +17681,7 @@ pub unsafe fn chetrf_rk(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrf_rk_(
         &(uplo as c_char),
@@ -15756,6 +17693,7 @@ pub unsafe fn chetrf_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15770,6 +17708,7 @@ pub unsafe fn zhetrf_rk(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrf_rk_(
         &(uplo as c_char),
@@ -15781,6 +17720,7 @@ pub unsafe fn zhetrf_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15794,6 +17734,7 @@ pub unsafe fn chetrf_rook(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrf_rook_(
         &(uplo as c_char),
@@ -15804,6 +17745,7 @@ pub unsafe fn chetrf_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15817,6 +17759,7 @@ pub unsafe fn zhetrf_rook(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrf_rook_(
         &(uplo as c_char),
@@ -15827,6 +17770,7 @@ pub unsafe fn zhetrf_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15839,6 +17783,7 @@ pub unsafe fn chetri(
     ipiv: &[i32],
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetri_(
         &(uplo as c_char),
@@ -15848,6 +17793,7 @@ pub unsafe fn chetri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -15860,6 +17806,7 @@ pub unsafe fn zhetri(
     ipiv: &[i32],
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetri_(
         &(uplo as c_char),
@@ -15869,6 +17816,7 @@ pub unsafe fn zhetri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -15882,6 +17830,7 @@ pub unsafe fn chetri2(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetri2_(
         &(uplo as c_char),
@@ -15892,6 +17841,7 @@ pub unsafe fn chetri2(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15905,6 +17855,7 @@ pub unsafe fn zhetri2(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetri2_(
         &(uplo as c_char),
@@ -15915,6 +17866,7 @@ pub unsafe fn zhetri2(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -15928,6 +17880,7 @@ pub unsafe fn chetri2x(
     work: &mut [c32],
     nb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetri2x_(
         &(uplo as c_char),
@@ -15938,6 +17891,7 @@ pub unsafe fn chetri2x(
         work.as_mut_ptr() as *mut _,
         &nb,
         info,
+        arg1,
     )
 }
 
@@ -15951,6 +17905,7 @@ pub unsafe fn zhetri2x(
     work: &mut [c64],
     nb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetri2x_(
         &(uplo as c_char),
@@ -15961,6 +17916,7 @@ pub unsafe fn zhetri2x(
         work.as_mut_ptr() as *mut _,
         &nb,
         info,
+        arg1,
     )
 }
 
@@ -15975,6 +17931,7 @@ pub unsafe fn chetri_3(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetri_3_(
         &(uplo as c_char),
@@ -15986,6 +17943,7 @@ pub unsafe fn chetri_3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -16000,6 +17958,7 @@ pub unsafe fn zhetri_3(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetri_3_(
         &(uplo as c_char),
@@ -16011,6 +17970,7 @@ pub unsafe fn zhetri_3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -16025,6 +17985,7 @@ pub unsafe fn chetrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrs_(
         &(uplo as c_char),
@@ -16036,6 +17997,7 @@ pub unsafe fn chetrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16050,6 +18012,7 @@ pub unsafe fn zhetrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrs_(
         &(uplo as c_char),
@@ -16061,6 +18024,7 @@ pub unsafe fn zhetrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16076,6 +18040,7 @@ pub unsafe fn chetrs2(
     ldb: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrs2_(
         &(uplo as c_char),
@@ -16088,6 +18053,7 @@ pub unsafe fn chetrs2(
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -16103,6 +18069,7 @@ pub unsafe fn zhetrs2(
     ldb: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrs2_(
         &(uplo as c_char),
@@ -16115,6 +18082,7 @@ pub unsafe fn zhetrs2(
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -16130,6 +18098,7 @@ pub unsafe fn chetrs_3(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrs_3_(
         &(uplo as c_char),
@@ -16142,6 +18111,7 @@ pub unsafe fn chetrs_3(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16157,6 +18127,7 @@ pub unsafe fn zhetrs_3(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrs_3_(
         &(uplo as c_char),
@@ -16169,6 +18140,7 @@ pub unsafe fn zhetrs_3(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16185,6 +18157,7 @@ pub unsafe fn chetrs_aa(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrs_aa_(
         &(uplo as c_char),
@@ -16198,6 +18171,7 @@ pub unsafe fn chetrs_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -16214,6 +18188,7 @@ pub unsafe fn zhetrs_aa(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrs_aa_(
         &(uplo as c_char),
@@ -16227,6 +18202,7 @@ pub unsafe fn zhetrs_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -16244,6 +18220,7 @@ pub unsafe fn chetrs_aa_2stage(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrs_aa_2stage_(
         &(uplo as c_char),
@@ -16258,6 +18235,7 @@ pub unsafe fn chetrs_aa_2stage(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16275,6 +18253,7 @@ pub unsafe fn zhetrs_aa_2stage(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrs_aa_2stage_(
         &(uplo as c_char),
@@ -16289,6 +18268,7 @@ pub unsafe fn zhetrs_aa_2stage(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16303,6 +18283,7 @@ pub unsafe fn chetrs_rook(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chetrs_rook_(
         &(uplo as c_char),
@@ -16314,6 +18295,7 @@ pub unsafe fn chetrs_rook(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16328,6 +18310,7 @@ pub unsafe fn zhetrs_rook(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhetrs_rook_(
         &(uplo as c_char),
@@ -16339,6 +18322,7 @@ pub unsafe fn zhetrs_rook(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -16354,6 +18338,9 @@ pub unsafe fn chfrk(
     lda: i32,
     beta: &[f32],
     c: &mut [c32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chfrk_(
         &(transr as c_char),
@@ -16366,6 +18353,9 @@ pub unsafe fn chfrk(
         &lda,
         beta.as_ptr(),
         c.as_mut_ptr() as *mut _,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -16381,6 +18371,9 @@ pub unsafe fn zhfrk(
     lda: i32,
     beta: &[f64],
     c: &mut [c64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhfrk_(
         &(transr as c_char),
@@ -16393,6 +18386,9 @@ pub unsafe fn zhfrk(
         &lda,
         beta.as_ptr(),
         c.as_mut_ptr() as *mut _,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -16418,6 +18414,9 @@ pub unsafe fn chgeqz(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chgeqz_(
         &(job as c_char),
@@ -16440,6 +18439,9 @@ pub unsafe fn chgeqz(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -16465,6 +18467,9 @@ pub unsafe fn dhgeqz(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dhgeqz_(
         &(job as c_char),
@@ -16487,6 +18492,9 @@ pub unsafe fn dhgeqz(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -16512,6 +18520,9 @@ pub unsafe fn shgeqz(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::shgeqz_(
         &(job as c_char),
@@ -16534,6 +18545,9 @@ pub unsafe fn shgeqz(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -16559,6 +18573,9 @@ pub unsafe fn zhgeqz(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhgeqz_(
         &(job as c_char),
@@ -16581,6 +18598,9 @@ pub unsafe fn zhgeqz(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -16594,6 +18614,7 @@ pub unsafe fn chpcon(
     rcond: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chpcon_(
         &(uplo as c_char),
@@ -16604,6 +18625,7 @@ pub unsafe fn chpcon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -16617,6 +18639,7 @@ pub unsafe fn zhpcon(
     rcond: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhpcon_(
         &(uplo as c_char),
@@ -16627,6 +18650,7 @@ pub unsafe fn zhpcon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -16642,6 +18666,8 @@ pub unsafe fn chpev(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chpev_(
         &(jobz as c_char),
@@ -16654,6 +18680,8 @@ pub unsafe fn chpev(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -16669,6 +18697,8 @@ pub unsafe fn zhpev(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhpev_(
         &(jobz as c_char),
@@ -16681,6 +18711,8 @@ pub unsafe fn zhpev(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -16700,6 +18732,8 @@ pub unsafe fn chpevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chpevd_(
         &(jobz as c_char),
@@ -16716,6 +18750,8 @@ pub unsafe fn chpevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -16735,6 +18771,8 @@ pub unsafe fn zhpevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhpevd_(
         &(jobz as c_char),
@@ -16751,6 +18789,8 @@ pub unsafe fn zhpevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -16775,6 +18815,9 @@ pub unsafe fn chpevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chpevx_(
         &(jobz as c_char),
@@ -16796,6 +18839,9 @@ pub unsafe fn chpevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -16820,6 +18866,9 @@ pub unsafe fn zhpevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhpevx_(
         &(jobz as c_char),
@@ -16841,11 +18890,22 @@ pub unsafe fn zhpevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn chpgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [c32], bp: &[c32], info: &mut i32) {
+pub unsafe fn chpgst(
+    itype: &[i32],
+    uplo: u8,
+    n: i32,
+    ap: &mut [c32],
+    bp: &[c32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::chpgst_(
         itype.as_ptr(),
         &(uplo as c_char),
@@ -16853,11 +18913,20 @@ pub unsafe fn chpgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [c32], bp: &[c32]
         ap.as_mut_ptr() as *mut _,
         bp.as_ptr() as *const _,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zhpgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [c64], bp: &[c64], info: &mut i32) {
+pub unsafe fn zhpgst(
+    itype: &[i32],
+    uplo: u8,
+    n: i32,
+    ap: &mut [c64],
+    bp: &[c64],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::zhpgst_(
         itype.as_ptr(),
         &(uplo as c_char),
@@ -16865,6 +18934,7 @@ pub unsafe fn zhpgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [c64], bp: &[c64]
         ap.as_mut_ptr() as *mut _,
         bp.as_ptr() as *const _,
         info,
+        arg1,
     )
 }
 
@@ -16882,6 +18952,8 @@ pub unsafe fn chpgv(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chpgv_(
         itype.as_ptr(),
@@ -16896,6 +18968,8 @@ pub unsafe fn chpgv(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -16913,6 +18987,8 @@ pub unsafe fn zhpgv(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhpgv_(
         itype.as_ptr(),
@@ -16927,6 +19003,8 @@ pub unsafe fn zhpgv(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -16948,6 +19026,8 @@ pub unsafe fn chpgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chpgvd_(
         itype.as_ptr(),
@@ -16966,6 +19046,8 @@ pub unsafe fn chpgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -16987,6 +19069,8 @@ pub unsafe fn zhpgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhpgvd_(
         itype.as_ptr(),
@@ -17005,6 +19089,8 @@ pub unsafe fn zhpgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -17031,6 +19117,9 @@ pub unsafe fn chpgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chpgvx_(
         itype.as_ptr(),
@@ -17054,6 +19143,9 @@ pub unsafe fn chpgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -17080,6 +19172,9 @@ pub unsafe fn zhpgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhpgvx_(
         itype.as_ptr(),
@@ -17103,6 +19198,9 @@ pub unsafe fn zhpgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -17123,6 +19221,7 @@ pub unsafe fn chprfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chprfs_(
         &(uplo as c_char),
@@ -17140,6 +19239,7 @@ pub unsafe fn chprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -17160,6 +19260,7 @@ pub unsafe fn zhprfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhprfs_(
         &(uplo as c_char),
@@ -17177,6 +19278,7 @@ pub unsafe fn zhprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -17190,6 +19292,7 @@ pub unsafe fn chpsv(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chpsv_(
         &(uplo as c_char),
@@ -17200,6 +19303,7 @@ pub unsafe fn chpsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -17213,6 +19317,7 @@ pub unsafe fn zhpsv(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhpsv_(
         &(uplo as c_char),
@@ -17223,6 +19328,7 @@ pub unsafe fn zhpsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -17245,6 +19351,8 @@ pub unsafe fn chpsvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chpsvx_(
         &(fact as c_char),
@@ -17264,6 +19372,8 @@ pub unsafe fn chpsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -17286,6 +19396,8 @@ pub unsafe fn zhpsvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhpsvx_(
         &(fact as c_char),
@@ -17305,6 +19417,8 @@ pub unsafe fn zhpsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -17317,6 +19431,7 @@ pub unsafe fn chptrd(
     e: &mut [f32],
     tau: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chptrd_(
         &(uplo as c_char),
@@ -17326,6 +19441,7 @@ pub unsafe fn chptrd(
         e.as_mut_ptr(),
         tau.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -17338,6 +19454,7 @@ pub unsafe fn zhptrd(
     e: &mut [f64],
     tau: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhptrd_(
         &(uplo as c_char),
@@ -17347,28 +19464,45 @@ pub unsafe fn zhptrd(
         e.as_mut_ptr(),
         tau.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn chptrf(uplo: u8, n: i32, ap: &mut [c32], ipiv: &mut [i32], info: &mut i32) {
+pub unsafe fn chptrf(
+    uplo: u8,
+    n: i32,
+    ap: &mut [c32],
+    ipiv: &mut [i32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::chptrf_(
         &(uplo as c_char),
         &n,
         ap.as_mut_ptr() as *mut _,
         ipiv.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zhptrf(uplo: u8, n: i32, ap: &mut [c64], ipiv: &mut [i32], info: &mut i32) {
+pub unsafe fn zhptrf(
+    uplo: u8,
+    n: i32,
+    ap: &mut [c64],
+    ipiv: &mut [i32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::zhptrf_(
         &(uplo as c_char),
         &n,
         ap.as_mut_ptr() as *mut _,
         ipiv.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -17380,6 +19514,7 @@ pub unsafe fn chptri(
     ipiv: &[i32],
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chptri_(
         &(uplo as c_char),
@@ -17388,6 +19523,7 @@ pub unsafe fn chptri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -17399,6 +19535,7 @@ pub unsafe fn zhptri(
     ipiv: &[i32],
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhptri_(
         &(uplo as c_char),
@@ -17407,6 +19544,7 @@ pub unsafe fn zhptri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -17420,6 +19558,7 @@ pub unsafe fn chptrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::chptrs_(
         &(uplo as c_char),
@@ -17430,6 +19569,7 @@ pub unsafe fn chptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -17443,6 +19583,7 @@ pub unsafe fn zhptrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zhptrs_(
         &(uplo as c_char),
@@ -17453,6 +19594,7 @@ pub unsafe fn zhptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -17477,6 +19619,9 @@ pub unsafe fn chsein(
     ifaill: &mut [i32],
     ifailr: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::chsein_(
         &(side as c_char),
@@ -17498,6 +19643,9 @@ pub unsafe fn chsein(
         ifaill.as_mut_ptr(),
         ifailr.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -17522,6 +19670,9 @@ pub unsafe fn dhsein(
     ifaill: &mut [i32],
     ifailr: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dhsein_(
         &(side as c_char),
@@ -17543,6 +19694,9 @@ pub unsafe fn dhsein(
         ifaill.as_mut_ptr(),
         ifailr.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -17567,6 +19721,9 @@ pub unsafe fn shsein(
     ifaill: &mut [i32],
     ifailr: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::shsein_(
         &(side as c_char),
@@ -17588,6 +19745,9 @@ pub unsafe fn shsein(
         ifaill.as_mut_ptr(),
         ifailr.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -17612,6 +19772,9 @@ pub unsafe fn zhsein(
     ifaill: &mut [i32],
     ifailr: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zhsein_(
         &(side as c_char),
@@ -17633,6 +19796,9 @@ pub unsafe fn zhsein(
         ifaill.as_mut_ptr(),
         ifailr.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -17651,6 +19817,8 @@ pub unsafe fn chseqr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::chseqr_(
         &(job as c_char),
@@ -17666,6 +19834,8 @@ pub unsafe fn chseqr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -17685,6 +19855,8 @@ pub unsafe fn dhseqr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dhseqr_(
         &(job as c_char),
@@ -17701,6 +19873,8 @@ pub unsafe fn dhseqr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -17720,6 +19894,8 @@ pub unsafe fn shseqr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::shseqr_(
         &(job as c_char),
@@ -17736,6 +19912,8 @@ pub unsafe fn shseqr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -17754,6 +19932,8 @@ pub unsafe fn zhseqr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zhseqr_(
         &(job as c_char),
@@ -17769,6 +19949,8 @@ pub unsafe fn zhseqr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -17863,7 +20045,16 @@ pub unsafe fn zlacn2(
 }
 
 #[inline]
-pub unsafe fn clacp2(uplo: u8, m: i32, n: i32, a: &[f32], lda: i32, b: &mut [c32], ldb: i32) {
+pub unsafe fn clacp2(
+    uplo: u8,
+    m: i32,
+    n: i32,
+    a: &[f32],
+    lda: i32,
+    b: &mut [c32],
+    ldb: i32,
+    arg1: usize,
+) {
     ffi::clacp2_(
         &(uplo as c_char),
         &m,
@@ -17872,11 +20063,21 @@ pub unsafe fn clacp2(uplo: u8, m: i32, n: i32, a: &[f32], lda: i32, b: &mut [c32
         &lda,
         b.as_mut_ptr() as *mut _,
         &ldb,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zlacp2(uplo: u8, m: i32, n: i32, a: &[f64], lda: i32, b: &mut [c64], ldb: i32) {
+pub unsafe fn zlacp2(
+    uplo: u8,
+    m: i32,
+    n: i32,
+    a: &[f64],
+    lda: i32,
+    b: &mut [c64],
+    ldb: i32,
+    arg1: usize,
+) {
     ffi::zlacp2_(
         &(uplo as c_char),
         &m,
@@ -17885,11 +20086,21 @@ pub unsafe fn zlacp2(uplo: u8, m: i32, n: i32, a: &[f64], lda: i32, b: &mut [c64
         &lda,
         b.as_mut_ptr() as *mut _,
         &ldb,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn clacpy(uplo: u8, m: i32, n: i32, a: &[c32], lda: i32, b: &mut [c32], ldb: i32) {
+pub unsafe fn clacpy(
+    uplo: u8,
+    m: i32,
+    n: i32,
+    a: &[c32],
+    lda: i32,
+    b: &mut [c32],
+    ldb: i32,
+    arg1: usize,
+) {
     ffi::clacpy_(
         &(uplo as c_char),
         &m,
@@ -17898,11 +20109,21 @@ pub unsafe fn clacpy(uplo: u8, m: i32, n: i32, a: &[c32], lda: i32, b: &mut [c32
         &lda,
         b.as_mut_ptr() as *mut _,
         &ldb,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dlacpy(uplo: u8, m: i32, n: i32, a: &[f64], lda: i32, b: &mut [f64], ldb: i32) {
+pub unsafe fn dlacpy(
+    uplo: u8,
+    m: i32,
+    n: i32,
+    a: &[f64],
+    lda: i32,
+    b: &mut [f64],
+    ldb: i32,
+    arg1: usize,
+) {
     ffi::dlacpy_(
         &(uplo as c_char),
         &m,
@@ -17911,11 +20132,21 @@ pub unsafe fn dlacpy(uplo: u8, m: i32, n: i32, a: &[f64], lda: i32, b: &mut [f64
         &lda,
         b.as_mut_ptr(),
         &ldb,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn slacpy(uplo: u8, m: i32, n: i32, a: &[f32], lda: i32, b: &mut [f32], ldb: i32) {
+pub unsafe fn slacpy(
+    uplo: u8,
+    m: i32,
+    n: i32,
+    a: &[f32],
+    lda: i32,
+    b: &mut [f32],
+    ldb: i32,
+    arg1: usize,
+) {
     ffi::slacpy_(
         &(uplo as c_char),
         &m,
@@ -17924,11 +20155,21 @@ pub unsafe fn slacpy(uplo: u8, m: i32, n: i32, a: &[f32], lda: i32, b: &mut [f32
         &lda,
         b.as_mut_ptr(),
         &ldb,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zlacpy(uplo: u8, m: i32, n: i32, a: &[c64], lda: i32, b: &mut [c64], ldb: i32) {
+pub unsafe fn zlacpy(
+    uplo: u8,
+    m: i32,
+    n: i32,
+    a: &[c64],
+    lda: i32,
+    b: &mut [c64],
+    ldb: i32,
+    arg1: usize,
+) {
     ffi::zlacpy_(
         &(uplo as c_char),
         &m,
@@ -17937,6 +20178,7 @@ pub unsafe fn zlacpy(uplo: u8, m: i32, n: i32, a: &[c64], lda: i32, b: &mut [c64
         &lda,
         b.as_mut_ptr() as *mut _,
         &ldb,
+        arg1,
     )
 }
 
@@ -18305,13 +20547,13 @@ pub unsafe fn zlagsy(
 }
 
 #[inline]
-pub unsafe fn dlamch(cmach: u8) -> f64 {
-    ffi::dlamch_(&(cmach as c_char))
+pub unsafe fn dlamch(cmach: u8, arg1: usize) -> f64 {
+    ffi::dlamch_(&(cmach as c_char), arg1)
 }
 
 #[inline]
-pub unsafe fn slamch(cmach: u8) -> f32 {
-    ffi::slamch_(&(cmach as c_char))
+pub unsafe fn slamch(cmach: u8, arg1: usize) -> f32 {
+    ffi::slamch_(&(cmach as c_char), arg1)
 }
 
 #[inline]
@@ -18323,6 +20565,7 @@ pub unsafe fn clangb(
     ab: &[c32],
     ldab: i32,
     work: &mut [f32],
+    arg1: usize,
 ) -> f32 {
     ffi::clangb_(
         &(norm as c_char),
@@ -18332,6 +20575,7 @@ pub unsafe fn clangb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
@@ -18344,6 +20588,7 @@ pub unsafe fn dlangb(
     ab: &[f64],
     ldab: i32,
     work: &mut [f64],
+    arg1: usize,
 ) -> f64 {
     ffi::dlangb_(
         &(norm as c_char),
@@ -18353,6 +20598,7 @@ pub unsafe fn dlangb(
         ab.as_ptr(),
         &ldab,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
@@ -18365,6 +20611,7 @@ pub unsafe fn slangb(
     ab: &[f32],
     ldab: i32,
     work: &mut [f32],
+    arg1: usize,
 ) -> f32 {
     ffi::slangb_(
         &(norm as c_char),
@@ -18374,6 +20621,7 @@ pub unsafe fn slangb(
         ab.as_ptr(),
         &ldab,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
@@ -18386,6 +20634,7 @@ pub unsafe fn zlangb(
     ab: &[c64],
     ldab: i32,
     work: &mut [f64],
+    arg1: usize,
 ) -> f64 {
     ffi::zlangb_(
         &(norm as c_char),
@@ -18395,11 +20644,20 @@ pub unsafe fn zlangb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn clange(norm: u8, m: i32, n: i32, a: &[c32], lda: i32, work: &mut [f32]) -> f32 {
+pub unsafe fn clange(
+    norm: u8,
+    m: i32,
+    n: i32,
+    a: &[c32],
+    lda: i32,
+    work: &mut [f32],
+    arg1: usize,
+) -> f32 {
     ffi::clange_(
         &(norm as c_char),
         &m,
@@ -18407,11 +20665,20 @@ pub unsafe fn clange(norm: u8, m: i32, n: i32, a: &[c32], lda: i32, work: &mut [
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dlange(norm: u8, m: i32, n: i32, a: &[f64], lda: i32, work: &mut [f64]) -> f64 {
+pub unsafe fn dlange(
+    norm: u8,
+    m: i32,
+    n: i32,
+    a: &[f64],
+    lda: i32,
+    work: &mut [f64],
+    arg1: usize,
+) -> f64 {
     ffi::dlange_(
         &(norm as c_char),
         &m,
@@ -18419,11 +20686,20 @@ pub unsafe fn dlange(norm: u8, m: i32, n: i32, a: &[f64], lda: i32, work: &mut [
         a.as_ptr(),
         &lda,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn slange(norm: u8, m: i32, n: i32, a: &[f32], lda: i32, work: &mut [f32]) -> f32 {
+pub unsafe fn slange(
+    norm: u8,
+    m: i32,
+    n: i32,
+    a: &[f32],
+    lda: i32,
+    work: &mut [f32],
+    arg1: usize,
+) -> f32 {
     ffi::slange_(
         &(norm as c_char),
         &m,
@@ -18431,11 +20707,20 @@ pub unsafe fn slange(norm: u8, m: i32, n: i32, a: &[f32], lda: i32, work: &mut [
         a.as_ptr(),
         &lda,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zlange(norm: u8, m: i32, n: i32, a: &[c64], lda: i32, work: &mut [f64]) -> f64 {
+pub unsafe fn zlange(
+    norm: u8,
+    m: i32,
+    n: i32,
+    a: &[c64],
+    lda: i32,
+    work: &mut [f64],
+    arg1: usize,
+) -> f64 {
     ffi::zlange_(
         &(norm as c_char),
         &m,
@@ -18443,38 +20728,55 @@ pub unsafe fn zlange(norm: u8, m: i32, n: i32, a: &[c64], lda: i32, work: &mut [
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn clangt(norm: u8, n: i32, dl: &[c32], d: &[c32], du: &[c32]) -> f32 {
+pub unsafe fn clangt(norm: u8, n: i32, dl: &[c32], d: &[c32], du: &[c32], arg1: usize) -> f32 {
     ffi::clangt_(
         &(norm as c_char),
         &n,
         dl.as_ptr() as *const _,
         d.as_ptr() as *const _,
         du.as_ptr() as *const _,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dlangt(norm: u8, n: i32, dl: &[f64], d: &[f64], du: &[f64]) -> f64 {
-    ffi::dlangt_(&(norm as c_char), &n, dl.as_ptr(), d.as_ptr(), du.as_ptr())
+pub unsafe fn dlangt(norm: u8, n: i32, dl: &[f64], d: &[f64], du: &[f64], arg1: usize) -> f64 {
+    ffi::dlangt_(
+        &(norm as c_char),
+        &n,
+        dl.as_ptr(),
+        d.as_ptr(),
+        du.as_ptr(),
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn slangt(norm: u8, n: i32, dl: &[f32], d: &[f32], du: &[f32]) -> f32 {
-    ffi::slangt_(&(norm as c_char), &n, dl.as_ptr(), d.as_ptr(), du.as_ptr())
+pub unsafe fn slangt(norm: u8, n: i32, dl: &[f32], d: &[f32], du: &[f32], arg1: usize) -> f32 {
+    ffi::slangt_(
+        &(norm as c_char),
+        &n,
+        dl.as_ptr(),
+        d.as_ptr(),
+        du.as_ptr(),
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn zlangt(norm: u8, n: i32, dl: &[c64], d: &[c64], du: &[c64]) -> f64 {
+pub unsafe fn zlangt(norm: u8, n: i32, dl: &[c64], d: &[c64], du: &[c64], arg1: usize) -> f64 {
     ffi::zlangt_(
         &(norm as c_char),
         &n,
         dl.as_ptr() as *const _,
         d.as_ptr() as *const _,
         du.as_ptr() as *const _,
+        arg1,
     )
 }
 
@@ -18487,6 +20789,8 @@ pub unsafe fn clanhb(
     ab: &[c32],
     ldab: i32,
     work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
 ) -> f32 {
     ffi::clanhb_(
         &(norm as c_char),
@@ -18496,6 +20800,8 @@ pub unsafe fn clanhb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
@@ -18508,6 +20814,8 @@ pub unsafe fn zlanhb(
     ab: &[c64],
     ldab: i32,
     work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
 ) -> f64 {
     ffi::zlanhb_(
         &(norm as c_char),
@@ -18517,11 +20825,22 @@ pub unsafe fn zlanhb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn clanhe(norm: u8, uplo: u8, n: i32, a: &[c32], lda: i32, work: &mut [f32]) -> f32 {
+pub unsafe fn clanhe(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    a: &[c32],
+    lda: i32,
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+) -> f32 {
     ffi::clanhe_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18529,11 +20848,22 @@ pub unsafe fn clanhe(norm: u8, uplo: u8, n: i32, a: &[c32], lda: i32, work: &mut
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn zlanhe(norm: u8, uplo: u8, n: i32, a: &[c64], lda: i32, work: &mut [f64]) -> f64 {
+pub unsafe fn zlanhe(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    a: &[c64],
+    lda: i32,
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+) -> f64 {
     ffi::zlanhe_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18541,71 +20871,121 @@ pub unsafe fn zlanhe(norm: u8, uplo: u8, n: i32, a: &[c64], lda: i32, work: &mut
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn clanhp(norm: u8, uplo: u8, n: i32, ap: &[c32], work: &mut [f32]) -> f32 {
+pub unsafe fn clanhp(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[c32],
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+) -> f32 {
     ffi::clanhp_(
         &(norm as c_char),
         &(uplo as c_char),
         &n,
         ap.as_ptr() as *const _,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn zlanhp(norm: u8, uplo: u8, n: i32, ap: &[c64], work: &mut [f64]) -> f64 {
+pub unsafe fn zlanhp(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[c64],
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+) -> f64 {
     ffi::zlanhp_(
         &(norm as c_char),
         &(uplo as c_char),
         &n,
         ap.as_ptr() as *const _,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn clanhs(norm: u8, n: i32, a: &[c32], lda: i32, work: &mut [f32]) -> f32 {
+pub unsafe fn clanhs(norm: u8, n: i32, a: &[c32], lda: i32, work: &mut [f32], arg1: usize) -> f32 {
     ffi::clanhs_(
         &(norm as c_char),
         &n,
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dlanhs(norm: u8, n: i32, a: &[f64], lda: i32, work: &mut [f64]) -> f64 {
-    ffi::dlanhs_(&(norm as c_char), &n, a.as_ptr(), &lda, work.as_mut_ptr())
+pub unsafe fn dlanhs(norm: u8, n: i32, a: &[f64], lda: i32, work: &mut [f64], arg1: usize) -> f64 {
+    ffi::dlanhs_(
+        &(norm as c_char),
+        &n,
+        a.as_ptr(),
+        &lda,
+        work.as_mut_ptr(),
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn slanhs(norm: u8, n: i32, a: &[f32], lda: i32, work: &mut [f32]) -> f32 {
-    ffi::slanhs_(&(norm as c_char), &n, a.as_ptr(), &lda, work.as_mut_ptr())
+pub unsafe fn slanhs(norm: u8, n: i32, a: &[f32], lda: i32, work: &mut [f32], arg1: usize) -> f32 {
+    ffi::slanhs_(
+        &(norm as c_char),
+        &n,
+        a.as_ptr(),
+        &lda,
+        work.as_mut_ptr(),
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn zlanhs(norm: u8, n: i32, a: &[c64], lda: i32, work: &mut [f64]) -> f64 {
+pub unsafe fn zlanhs(norm: u8, n: i32, a: &[c64], lda: i32, work: &mut [f64], arg1: usize) -> f64 {
     ffi::zlanhs_(
         &(norm as c_char),
         &n,
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn clanht(norm: u8, n: i32, d: &[f32], e: &[c32]) -> f32 {
-    ffi::clanht_(&(norm as c_char), &n, d.as_ptr(), e.as_ptr() as *const _)
+pub unsafe fn clanht(norm: u8, n: i32, d: &[f32], e: &[c32], arg1: usize) -> f32 {
+    ffi::clanht_(
+        &(norm as c_char),
+        &n,
+        d.as_ptr(),
+        e.as_ptr() as *const _,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn zlanht(norm: u8, n: i32, d: &[f64], e: &[c64]) -> f64 {
-    ffi::zlanht_(&(norm as c_char), &n, d.as_ptr(), e.as_ptr() as *const _)
+pub unsafe fn zlanht(norm: u8, n: i32, d: &[f64], e: &[c64], arg1: usize) -> f64 {
+    ffi::zlanht_(
+        &(norm as c_char),
+        &n,
+        d.as_ptr(),
+        e.as_ptr() as *const _,
+        arg1,
+    )
 }
 
 #[inline]
@@ -18617,6 +20997,8 @@ pub unsafe fn clansb(
     ab: &[c32],
     ldab: i32,
     work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
 ) -> f32 {
     ffi::clansb_(
         &(norm as c_char),
@@ -18626,6 +21008,8 @@ pub unsafe fn clansb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
@@ -18638,6 +21022,8 @@ pub unsafe fn dlansb(
     ab: &[f64],
     ldab: i32,
     work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
 ) -> f64 {
     ffi::dlansb_(
         &(norm as c_char),
@@ -18647,6 +21033,8 @@ pub unsafe fn dlansb(
         ab.as_ptr(),
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
@@ -18659,6 +21047,8 @@ pub unsafe fn slansb(
     ab: &[f32],
     ldab: i32,
     work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
 ) -> f32 {
     ffi::slansb_(
         &(norm as c_char),
@@ -18668,6 +21058,8 @@ pub unsafe fn slansb(
         ab.as_ptr(),
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
@@ -18680,6 +21072,8 @@ pub unsafe fn zlansb(
     ab: &[c64],
     ldab: i32,
     work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
 ) -> f64 {
     ffi::zlansb_(
         &(norm as c_char),
@@ -18689,65 +21083,116 @@ pub unsafe fn zlansb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn clansp(norm: u8, uplo: u8, n: i32, ap: &[c32], work: &mut [f32]) -> f32 {
+pub unsafe fn clansp(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[c32],
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+) -> f32 {
     ffi::clansp_(
         &(norm as c_char),
         &(uplo as c_char),
         &n,
         ap.as_ptr() as *const _,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dlansp(norm: u8, uplo: u8, n: i32, ap: &[f64], work: &mut [f64]) -> f64 {
+pub unsafe fn dlansp(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[f64],
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+) -> f64 {
     ffi::dlansp_(
         &(norm as c_char),
         &(uplo as c_char),
         &n,
         ap.as_ptr(),
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn slansp(norm: u8, uplo: u8, n: i32, ap: &[f32], work: &mut [f32]) -> f32 {
+pub unsafe fn slansp(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[f32],
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+) -> f32 {
     ffi::slansp_(
         &(norm as c_char),
         &(uplo as c_char),
         &n,
         ap.as_ptr(),
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn zlansp(norm: u8, uplo: u8, n: i32, ap: &[c64], work: &mut [f64]) -> f64 {
+pub unsafe fn zlansp(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[c64],
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+) -> f64 {
     ffi::zlansp_(
         &(norm as c_char),
         &(uplo as c_char),
         &n,
         ap.as_ptr() as *const _,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dlanst(norm: u8, n: i32, d: &[f64], e: &[f64]) -> f64 {
-    ffi::dlanst_(&(norm as c_char), &n, d.as_ptr(), e.as_ptr())
+pub unsafe fn dlanst(norm: u8, n: i32, d: &[f64], e: &[f64], arg1: usize) -> f64 {
+    ffi::dlanst_(&(norm as c_char), &n, d.as_ptr(), e.as_ptr(), arg1)
 }
 
 #[inline]
-pub unsafe fn slanst(norm: u8, n: i32, d: &[f32], e: &[f32]) -> f32 {
-    ffi::slanst_(&(norm as c_char), &n, d.as_ptr(), e.as_ptr())
+pub unsafe fn slanst(norm: u8, n: i32, d: &[f32], e: &[f32], arg1: usize) -> f32 {
+    ffi::slanst_(&(norm as c_char), &n, d.as_ptr(), e.as_ptr(), arg1)
 }
 
 #[inline]
-pub unsafe fn clansy(norm: u8, uplo: u8, n: i32, a: &[c32], lda: i32, work: &mut [f32]) -> f32 {
+pub unsafe fn clansy(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    a: &[c32],
+    lda: i32,
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+) -> f32 {
     ffi::clansy_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18755,11 +21200,22 @@ pub unsafe fn clansy(norm: u8, uplo: u8, n: i32, a: &[c32], lda: i32, work: &mut
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dlansy(norm: u8, uplo: u8, n: i32, a: &[f64], lda: i32, work: &mut [f64]) -> f64 {
+pub unsafe fn dlansy(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    a: &[f64],
+    lda: i32,
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+) -> f64 {
     ffi::dlansy_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18767,11 +21223,22 @@ pub unsafe fn dlansy(norm: u8, uplo: u8, n: i32, a: &[f64], lda: i32, work: &mut
         a.as_ptr(),
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn slansy(norm: u8, uplo: u8, n: i32, a: &[f32], lda: i32, work: &mut [f32]) -> f32 {
+pub unsafe fn slansy(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    a: &[f32],
+    lda: i32,
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+) -> f32 {
     ffi::slansy_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18779,11 +21246,22 @@ pub unsafe fn slansy(norm: u8, uplo: u8, n: i32, a: &[f32], lda: i32, work: &mut
         a.as_ptr(),
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn zlansy(norm: u8, uplo: u8, n: i32, a: &[c64], lda: i32, work: &mut [f64]) -> f64 {
+pub unsafe fn zlansy(
+    norm: u8,
+    uplo: u8,
+    n: i32,
+    a: &[c64],
+    lda: i32,
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+) -> f64 {
     ffi::zlansy_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18791,6 +21269,8 @@ pub unsafe fn zlansy(norm: u8, uplo: u8, n: i32, a: &[c64], lda: i32, work: &mut
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
     )
 }
 
@@ -18804,6 +21284,9 @@ pub unsafe fn clantb(
     ab: &[c32],
     ldab: i32,
     work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f32 {
     ffi::clantb_(
         &(norm as c_char),
@@ -18814,6 +21297,9 @@ pub unsafe fn clantb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -18827,6 +21313,9 @@ pub unsafe fn dlantb(
     ab: &[f64],
     ldab: i32,
     work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f64 {
     ffi::dlantb_(
         &(norm as c_char),
@@ -18837,6 +21326,9 @@ pub unsafe fn dlantb(
         ab.as_ptr(),
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -18850,6 +21342,9 @@ pub unsafe fn slantb(
     ab: &[f32],
     ldab: i32,
     work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f32 {
     ffi::slantb_(
         &(norm as c_char),
@@ -18860,6 +21355,9 @@ pub unsafe fn slantb(
         ab.as_ptr(),
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -18873,6 +21371,9 @@ pub unsafe fn zlantb(
     ab: &[c64],
     ldab: i32,
     work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f64 {
     ffi::zlantb_(
         &(norm as c_char),
@@ -18883,11 +21384,24 @@ pub unsafe fn zlantb(
         ab.as_ptr() as *const _,
         &ldab,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn clantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[c32], work: &mut [f32]) -> f32 {
+pub unsafe fn clantp(
+    norm: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &[c32],
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) -> f32 {
     ffi::clantp_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18895,11 +21409,24 @@ pub unsafe fn clantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[c32], work: &mu
         &n,
         ap.as_ptr() as *const _,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn dlantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[f64], work: &mut [f64]) -> f64 {
+pub unsafe fn dlantp(
+    norm: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &[f64],
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) -> f64 {
     ffi::dlantp_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18907,11 +21434,24 @@ pub unsafe fn dlantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[f64], work: &mu
         &n,
         ap.as_ptr(),
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn slantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[f32], work: &mut [f32]) -> f32 {
+pub unsafe fn slantp(
+    norm: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &[f32],
+    work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) -> f32 {
     ffi::slantp_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18919,11 +21459,24 @@ pub unsafe fn slantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[f32], work: &mu
         &n,
         ap.as_ptr(),
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn zlantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[c64], work: &mut [f64]) -> f64 {
+pub unsafe fn zlantp(
+    norm: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &[c64],
+    work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) -> f64 {
     ffi::zlantp_(
         &(norm as c_char),
         &(uplo as c_char),
@@ -18931,6 +21484,9 @@ pub unsafe fn zlantp(norm: u8, uplo: u8, diag: u8, n: i32, ap: &[c64], work: &mu
         &n,
         ap.as_ptr() as *const _,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -18944,6 +21500,9 @@ pub unsafe fn clantr(
     a: &[c32],
     lda: i32,
     work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f32 {
     ffi::clantr_(
         &(norm as c_char),
@@ -18954,6 +21513,9 @@ pub unsafe fn clantr(
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -18967,6 +21529,9 @@ pub unsafe fn dlantr(
     a: &[f64],
     lda: i32,
     work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f64 {
     ffi::dlantr_(
         &(norm as c_char),
@@ -18977,6 +21542,9 @@ pub unsafe fn dlantr(
         a.as_ptr(),
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -18990,6 +21558,9 @@ pub unsafe fn slantr(
     a: &[f32],
     lda: i32,
     work: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f32 {
     ffi::slantr_(
         &(norm as c_char),
@@ -19000,6 +21571,9 @@ pub unsafe fn slantr(
         a.as_ptr(),
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -19013,6 +21587,9 @@ pub unsafe fn zlantr(
     a: &[c64],
     lda: i32,
     work: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) -> f64 {
     ffi::zlantr_(
         &(norm as c_char),
@@ -19023,6 +21600,9 @@ pub unsafe fn zlantr(
         a.as_ptr() as *const _,
         &lda,
         work.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -19203,6 +21783,7 @@ pub unsafe fn clarf(
     c: &mut [c32],
     ldc: i32,
     work: &mut [c32],
+    arg1: usize,
 ) {
     ffi::clarf_(
         &(side as c_char),
@@ -19214,6 +21795,7 @@ pub unsafe fn clarf(
         c.as_mut_ptr() as *mut _,
         &ldc,
         work.as_mut_ptr() as *mut _,
+        arg1,
     )
 }
 
@@ -19228,6 +21810,7 @@ pub unsafe fn dlarf(
     c: &mut [f64],
     ldc: i32,
     work: &mut [f64],
+    arg1: usize,
 ) {
     ffi::dlarf_(
         &(side as c_char),
@@ -19239,6 +21822,7 @@ pub unsafe fn dlarf(
         c.as_mut_ptr(),
         &ldc,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
@@ -19253,6 +21837,7 @@ pub unsafe fn slarf(
     c: &mut [f32],
     ldc: i32,
     work: &mut [f32],
+    arg1: usize,
 ) {
     ffi::slarf_(
         &(side as c_char),
@@ -19264,6 +21849,7 @@ pub unsafe fn slarf(
         c.as_mut_ptr(),
         &ldc,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
@@ -19278,6 +21864,7 @@ pub unsafe fn zlarf(
     c: &mut [c64],
     ldc: i32,
     work: &mut [c64],
+    arg1: usize,
 ) {
     ffi::zlarf_(
         &(side as c_char),
@@ -19289,6 +21876,7 @@ pub unsafe fn zlarf(
         c.as_mut_ptr() as *mut _,
         &ldc,
         work.as_mut_ptr() as *mut _,
+        arg1,
     )
 }
 
@@ -19309,6 +21897,10 @@ pub unsafe fn clarfb(
     ldc: i32,
     work: &mut [c32],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::clarfb_(
         &(side as c_char),
@@ -19326,6 +21918,10 @@ pub unsafe fn clarfb(
         &ldc,
         work.as_mut_ptr() as *mut _,
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -19346,6 +21942,10 @@ pub unsafe fn dlarfb(
     ldc: i32,
     work: &mut [f64],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::dlarfb_(
         &(side as c_char),
@@ -19363,6 +21963,10 @@ pub unsafe fn dlarfb(
         &ldc,
         work.as_mut_ptr(),
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -19383,6 +21987,10 @@ pub unsafe fn slarfb(
     ldc: i32,
     work: &mut [f32],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::slarfb_(
         &(side as c_char),
@@ -19400,6 +22008,10 @@ pub unsafe fn slarfb(
         &ldc,
         work.as_mut_ptr(),
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -19420,6 +22032,10 @@ pub unsafe fn zlarfb(
     ldc: i32,
     work: &mut [c64],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::zlarfb_(
         &(side as c_char),
@@ -19437,6 +22053,10 @@ pub unsafe fn zlarfb(
         &ldc,
         work.as_mut_ptr() as *mut _,
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -19483,6 +22103,8 @@ pub unsafe fn clarft(
     tau: &[c32],
     t: &mut [c32],
     ldt: i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::clarft_(
         &(direct as c_char),
@@ -19494,6 +22116,8 @@ pub unsafe fn clarft(
         tau.as_ptr() as *const _,
         t.as_mut_ptr() as *mut _,
         &ldt,
+        arg1,
+        arg2,
     )
 }
 
@@ -19508,6 +22132,8 @@ pub unsafe fn dlarft(
     tau: &[f64],
     t: &mut [f64],
     ldt: i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dlarft_(
         &(direct as c_char),
@@ -19519,6 +22145,8 @@ pub unsafe fn dlarft(
         tau.as_ptr(),
         t.as_mut_ptr(),
         &ldt,
+        arg1,
+        arg2,
     )
 }
 
@@ -19533,6 +22161,8 @@ pub unsafe fn slarft(
     tau: &[f32],
     t: &mut [f32],
     ldt: i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::slarft_(
         &(direct as c_char),
@@ -19544,6 +22174,8 @@ pub unsafe fn slarft(
         tau.as_ptr(),
         t.as_mut_ptr(),
         &ldt,
+        arg1,
+        arg2,
     )
 }
 
@@ -19558,6 +22190,8 @@ pub unsafe fn zlarft(
     tau: &[c64],
     t: &mut [c64],
     ldt: i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zlarft_(
         &(direct as c_char),
@@ -19569,6 +22203,8 @@ pub unsafe fn zlarft(
         tau.as_ptr() as *const _,
         t.as_mut_ptr() as *mut _,
         &ldt,
+        arg1,
+        arg2,
     )
 }
 
@@ -19582,6 +22218,7 @@ pub unsafe fn clarfx(
     c: &mut [c32],
     ldc: i32,
     work: &mut [c32],
+    arg1: usize,
 ) {
     ffi::clarfx_(
         &(side as c_char),
@@ -19592,6 +22229,7 @@ pub unsafe fn clarfx(
         c.as_mut_ptr() as *mut _,
         &ldc,
         work.as_mut_ptr() as *mut _,
+        arg1,
     )
 }
 
@@ -19605,6 +22243,7 @@ pub unsafe fn dlarfx(
     c: &mut [f64],
     ldc: i32,
     work: &mut [f64],
+    arg1: usize,
 ) {
     ffi::dlarfx_(
         &(side as c_char),
@@ -19615,6 +22254,7 @@ pub unsafe fn dlarfx(
         c.as_mut_ptr(),
         &ldc,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
@@ -19628,6 +22268,7 @@ pub unsafe fn slarfx(
     c: &mut [f32],
     ldc: i32,
     work: &mut [f32],
+    arg1: usize,
 ) {
     ffi::slarfx_(
         &(side as c_char),
@@ -19638,6 +22279,7 @@ pub unsafe fn slarfx(
         c.as_mut_ptr(),
         &ldc,
         work.as_mut_ptr(),
+        arg1,
     )
 }
 
@@ -19651,6 +22293,7 @@ pub unsafe fn zlarfx(
     c: &mut [c64],
     ldc: i32,
     work: &mut [c64],
+    arg1: usize,
 ) {
     ffi::zlarfx_(
         &(side as c_char),
@@ -19661,6 +22304,7 @@ pub unsafe fn zlarfx(
         c.as_mut_ptr() as *mut _,
         &ldc,
         work.as_mut_ptr() as *mut _,
+        arg1,
     )
 }
 
@@ -19750,6 +22394,7 @@ pub unsafe fn clascl(
     a: &mut [c32],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::clascl_(
         &(type_ as c_char),
@@ -19762,6 +22407,7 @@ pub unsafe fn clascl(
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
     )
 }
 
@@ -19777,6 +22423,7 @@ pub unsafe fn dlascl(
     a: &mut [f64],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dlascl_(
         &(type_ as c_char),
@@ -19789,6 +22436,7 @@ pub unsafe fn dlascl(
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
     )
 }
 
@@ -19804,6 +22452,7 @@ pub unsafe fn slascl(
     a: &mut [f32],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::slascl_(
         &(type_ as c_char),
@@ -19816,6 +22465,7 @@ pub unsafe fn slascl(
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
     )
 }
 
@@ -19831,6 +22481,7 @@ pub unsafe fn zlascl(
     a: &mut [c64],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zlascl_(
         &(type_ as c_char),
@@ -19843,6 +22494,7 @@ pub unsafe fn zlascl(
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
     )
 }
 
@@ -19855,6 +22507,7 @@ pub unsafe fn claset(
     beta: &[c32],
     a: &mut [c32],
     lda: i32,
+    arg1: usize,
 ) {
     ffi::claset_(
         &(uplo as c_char),
@@ -19864,6 +22517,7 @@ pub unsafe fn claset(
         beta.as_ptr() as *const _,
         a.as_mut_ptr() as *mut _,
         &lda,
+        arg1,
     )
 }
 
@@ -19876,6 +22530,7 @@ pub unsafe fn dlaset(
     beta: &[f64],
     a: &mut [f64],
     lda: i32,
+    arg1: usize,
 ) {
     ffi::dlaset_(
         &(uplo as c_char),
@@ -19885,6 +22540,7 @@ pub unsafe fn dlaset(
         beta.as_ptr(),
         a.as_mut_ptr(),
         &lda,
+        arg1,
     )
 }
 
@@ -19897,6 +22553,7 @@ pub unsafe fn slaset(
     beta: &[f32],
     a: &mut [f32],
     lda: i32,
+    arg1: usize,
 ) {
     ffi::slaset_(
         &(uplo as c_char),
@@ -19906,6 +22563,7 @@ pub unsafe fn slaset(
         beta.as_ptr(),
         a.as_mut_ptr(),
         &lda,
+        arg1,
     )
 }
 
@@ -19918,6 +22576,7 @@ pub unsafe fn zlaset(
     beta: &[c64],
     a: &mut [c64],
     lda: i32,
+    arg1: usize,
 ) {
     ffi::zlaset_(
         &(uplo as c_char),
@@ -19927,17 +22586,18 @@ pub unsafe fn zlaset(
         beta.as_ptr() as *const _,
         a.as_mut_ptr() as *mut _,
         &lda,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dlasrt(id: u8, n: i32, d: &mut [f64], info: &mut i32) {
-    ffi::dlasrt_(&(id as c_char), &n, d.as_mut_ptr(), info)
+pub unsafe fn dlasrt(id: u8, n: i32, d: &mut [f64], info: &mut i32, arg1: usize) {
+    ffi::dlasrt_(&(id as c_char), &n, d.as_mut_ptr(), info, arg1)
 }
 
 #[inline]
-pub unsafe fn slasrt(id: u8, n: i32, d: &mut [f32], info: &mut i32) {
-    ffi::slasrt_(&(id as c_char), &n, d.as_mut_ptr(), info)
+pub unsafe fn slasrt(id: u8, n: i32, d: &mut [f32], info: &mut i32, arg1: usize) {
+    ffi::slasrt_(&(id as c_char), &n, d.as_mut_ptr(), info, arg1)
 }
 
 #[inline]
@@ -20038,6 +22698,9 @@ pub unsafe fn clatms(
     lda: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::clatms_(
         &m,
@@ -20056,6 +22719,9 @@ pub unsafe fn clatms(
         &lda,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -20077,6 +22743,9 @@ pub unsafe fn dlatms(
     lda: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dlatms_(
         &m,
@@ -20095,6 +22764,9 @@ pub unsafe fn dlatms(
         &lda,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -20116,6 +22788,9 @@ pub unsafe fn slatms(
     lda: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::slatms_(
         &m,
@@ -20134,6 +22809,9 @@ pub unsafe fn slatms(
         &lda,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -20155,6 +22833,9 @@ pub unsafe fn zlatms(
     lda: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zlatms_(
         &m,
@@ -20173,27 +22854,44 @@ pub unsafe fn zlatms(
         &lda,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn clauum(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32) {
-    ffi::clauum_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn clauum(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::clauum_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn dlauum(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32) {
-    ffi::dlauum_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn dlauum(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::dlauum_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn slauum(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32) {
-    ffi::slauum_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn slauum(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::slauum_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn zlauum(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32) {
-    ffi::zlauum_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn zlauum(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::zlauum_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
@@ -20211,6 +22909,7 @@ pub unsafe fn dopgtr(
     ldq: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dopgtr_(
         &(uplo as c_char),
@@ -20221,6 +22920,7 @@ pub unsafe fn dopgtr(
         &ldq,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -20234,6 +22934,7 @@ pub unsafe fn sopgtr(
     ldq: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sopgtr_(
         &(uplo as c_char),
@@ -20244,6 +22945,7 @@ pub unsafe fn sopgtr(
         &ldq,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -20260,6 +22962,9 @@ pub unsafe fn dopmtr(
     ldc: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dopmtr_(
         &(side as c_char),
@@ -20273,6 +22978,9 @@ pub unsafe fn dopmtr(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -20289,6 +22997,9 @@ pub unsafe fn sopmtr(
     ldc: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sopmtr_(
         &(side as c_char),
@@ -20302,6 +23013,9 @@ pub unsafe fn sopmtr(
         &ldc,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -20329,6 +23043,8 @@ pub unsafe fn dorbdb(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dorbdb_(
         &(trans as c_char),
@@ -20353,6 +23069,8 @@ pub unsafe fn dorbdb(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -20380,6 +23098,8 @@ pub unsafe fn sorbdb(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sorbdb_(
         &(trans as c_char),
@@ -20404,6 +23124,8 @@ pub unsafe fn sorbdb(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -20439,6 +23161,12 @@ pub unsafe fn dorcsd(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::dorcsd_(
         &(jobu1 as c_char),
@@ -20471,6 +23199,12 @@ pub unsafe fn dorcsd(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -20506,6 +23240,12 @@ pub unsafe fn sorcsd(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::sorcsd_(
         &(jobu1 as c_char),
@@ -20538,6 +23278,12 @@ pub unsafe fn sorcsd(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -20564,6 +23310,9 @@ pub unsafe fn dorcsd2by1(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dorcsd2by1_(
         &(jobu1 as c_char),
@@ -20587,6 +23336,9 @@ pub unsafe fn dorcsd2by1(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -20613,6 +23365,9 @@ pub unsafe fn sorcsd2by1(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sorcsd2by1_(
         &(jobu1 as c_char),
@@ -20636,6 +23391,9 @@ pub unsafe fn sorcsd2by1(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -20651,6 +23409,7 @@ pub unsafe fn dorgbr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dorgbr_(
         &(vect as c_char),
@@ -20663,6 +23422,7 @@ pub unsafe fn dorgbr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -20678,6 +23438,7 @@ pub unsafe fn sorgbr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sorgbr_(
         &(vect as c_char),
@@ -20690,6 +23451,7 @@ pub unsafe fn sorgbr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -20953,6 +23715,7 @@ pub unsafe fn dorgtr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dorgtr_(
         &(uplo as c_char),
@@ -20963,6 +23726,7 @@ pub unsafe fn dorgtr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -20976,6 +23740,7 @@ pub unsafe fn sorgtr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sorgtr_(
         &(uplo as c_char),
@@ -20986,6 +23751,7 @@ pub unsafe fn sorgtr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -21048,6 +23814,56 @@ pub unsafe fn sorgtsqr_row(
 }
 
 #[inline]
+pub unsafe fn dorhr_col(
+    m: i32,
+    n: i32,
+    nb: i32,
+    a: &mut [f64],
+    lda: i32,
+    t: &mut [f64],
+    ldt: i32,
+    d: &mut [f64],
+    info: &mut i32,
+) {
+    ffi::dorhr_col_(
+        &m,
+        &n,
+        &nb,
+        a.as_mut_ptr(),
+        &lda,
+        t.as_mut_ptr(),
+        &ldt,
+        d.as_mut_ptr(),
+        info,
+    )
+}
+
+#[inline]
+pub unsafe fn sorhr_col(
+    m: i32,
+    n: i32,
+    nb: i32,
+    a: &mut [f32],
+    lda: i32,
+    t: &mut [f32],
+    ldt: i32,
+    d: &mut [f32],
+    info: &mut i32,
+) {
+    ffi::sorhr_col_(
+        &m,
+        &n,
+        &nb,
+        a.as_mut_ptr(),
+        &lda,
+        t.as_mut_ptr(),
+        &ldt,
+        d.as_mut_ptr(),
+        info,
+    )
+}
+
+#[inline]
 pub unsafe fn dormbr(
     vect: u8,
     side: u8,
@@ -21063,6 +23879,9 @@ pub unsafe fn dormbr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dormbr_(
         &(vect as c_char),
@@ -21079,6 +23898,9 @@ pub unsafe fn dormbr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -21098,6 +23920,9 @@ pub unsafe fn sormbr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sormbr_(
         &(vect as c_char),
@@ -21114,6 +23939,9 @@ pub unsafe fn sormbr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -21133,6 +23961,8 @@ pub unsafe fn dormhr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dormhr_(
         &(side as c_char),
@@ -21149,6 +23979,8 @@ pub unsafe fn dormhr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21168,6 +24000,8 @@ pub unsafe fn sormhr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sormhr_(
         &(side as c_char),
@@ -21184,6 +24018,8 @@ pub unsafe fn sormhr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21202,6 +24038,8 @@ pub unsafe fn dormlq(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dormlq_(
         &(side as c_char),
@@ -21217,6 +24055,8 @@ pub unsafe fn dormlq(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21235,6 +24075,8 @@ pub unsafe fn sormlq(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sormlq_(
         &(side as c_char),
@@ -21250,6 +24092,8 @@ pub unsafe fn sormlq(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21268,6 +24112,8 @@ pub unsafe fn dormql(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dormql_(
         &(side as c_char),
@@ -21283,6 +24129,8 @@ pub unsafe fn dormql(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21301,6 +24149,8 @@ pub unsafe fn sormql(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sormql_(
         &(side as c_char),
@@ -21316,6 +24166,8 @@ pub unsafe fn sormql(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21334,6 +24186,8 @@ pub unsafe fn dormqr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dormqr_(
         &(side as c_char),
@@ -21349,6 +24203,8 @@ pub unsafe fn dormqr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21367,6 +24223,8 @@ pub unsafe fn sormqr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sormqr_(
         &(side as c_char),
@@ -21382,6 +24240,8 @@ pub unsafe fn sormqr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21400,6 +24260,8 @@ pub unsafe fn dormrq(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dormrq_(
         &(side as c_char),
@@ -21415,6 +24277,8 @@ pub unsafe fn dormrq(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21433,6 +24297,8 @@ pub unsafe fn sormrq(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sormrq_(
         &(side as c_char),
@@ -21448,6 +24314,8 @@ pub unsafe fn sormrq(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21467,6 +24335,8 @@ pub unsafe fn dormrz(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dormrz_(
         &(side as c_char),
@@ -21483,6 +24353,8 @@ pub unsafe fn dormrz(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21502,6 +24374,8 @@ pub unsafe fn sormrz(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sormrz_(
         &(side as c_char),
@@ -21518,6 +24392,8 @@ pub unsafe fn sormrz(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -21536,6 +24412,9 @@ pub unsafe fn dormtr(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dormtr_(
         &(side as c_char),
@@ -21551,6 +24430,9 @@ pub unsafe fn dormtr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -21569,6 +24451,9 @@ pub unsafe fn sormtr(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sormtr_(
         &(side as c_char),
@@ -21584,6 +24469,9 @@ pub unsafe fn sormtr(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -21599,6 +24487,7 @@ pub unsafe fn cpbcon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpbcon_(
         &(uplo as c_char),
@@ -21611,6 +24500,7 @@ pub unsafe fn cpbcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -21626,6 +24516,7 @@ pub unsafe fn dpbcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpbcon_(
         &(uplo as c_char),
@@ -21638,6 +24529,7 @@ pub unsafe fn dpbcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -21653,6 +24545,7 @@ pub unsafe fn spbcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spbcon_(
         &(uplo as c_char),
@@ -21665,6 +24558,7 @@ pub unsafe fn spbcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -21680,6 +24574,7 @@ pub unsafe fn zpbcon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpbcon_(
         &(uplo as c_char),
@@ -21692,6 +24587,7 @@ pub unsafe fn zpbcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -21706,6 +24602,7 @@ pub unsafe fn cpbequ(
     scond: &mut [f32],
     amax: &mut f32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpbequ_(
         &(uplo as c_char),
@@ -21717,6 +24614,7 @@ pub unsafe fn cpbequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -21731,6 +24629,7 @@ pub unsafe fn dpbequ(
     scond: &mut [f64],
     amax: &mut f64,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpbequ_(
         &(uplo as c_char),
@@ -21742,6 +24641,7 @@ pub unsafe fn dpbequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -21756,6 +24656,7 @@ pub unsafe fn spbequ(
     scond: &mut [f32],
     amax: &mut f32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spbequ_(
         &(uplo as c_char),
@@ -21767,6 +24668,7 @@ pub unsafe fn spbequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -21781,6 +24683,7 @@ pub unsafe fn zpbequ(
     scond: &mut [f64],
     amax: &mut f64,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpbequ_(
         &(uplo as c_char),
@@ -21792,6 +24695,7 @@ pub unsafe fn zpbequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -21814,6 +24718,7 @@ pub unsafe fn cpbrfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpbrfs_(
         &(uplo as c_char),
@@ -21833,6 +24738,7 @@ pub unsafe fn cpbrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -21855,6 +24761,7 @@ pub unsafe fn dpbrfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpbrfs_(
         &(uplo as c_char),
@@ -21874,6 +24781,7 @@ pub unsafe fn dpbrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -21896,6 +24804,7 @@ pub unsafe fn spbrfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spbrfs_(
         &(uplo as c_char),
@@ -21915,6 +24824,7 @@ pub unsafe fn spbrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -21937,6 +24847,7 @@ pub unsafe fn zpbrfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpbrfs_(
         &(uplo as c_char),
@@ -21956,11 +24867,20 @@ pub unsafe fn zpbrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn cpbstf(uplo: u8, n: i32, kd: i32, ab: &mut [c32], ldab: i32, info: &mut i32) {
+pub unsafe fn cpbstf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [c32],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::cpbstf_(
         &(uplo as c_char),
         &n,
@@ -21968,21 +24888,62 @@ pub unsafe fn cpbstf(uplo: u8, n: i32, kd: i32, ab: &mut [c32], ldab: i32, info:
         ab.as_mut_ptr() as *mut _,
         &ldab,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dpbstf(uplo: u8, n: i32, kd: i32, ab: &mut [f64], ldab: i32, info: &mut i32) {
-    ffi::dpbstf_(&(uplo as c_char), &n, &kd, ab.as_mut_ptr(), &ldab, info)
+pub unsafe fn dpbstf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [f64],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
+    ffi::dpbstf_(
+        &(uplo as c_char),
+        &n,
+        &kd,
+        ab.as_mut_ptr(),
+        &ldab,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn spbstf(uplo: u8, n: i32, kd: i32, ab: &mut [f32], ldab: i32, info: &mut i32) {
-    ffi::spbstf_(&(uplo as c_char), &n, &kd, ab.as_mut_ptr(), &ldab, info)
+pub unsafe fn spbstf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [f32],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
+    ffi::spbstf_(
+        &(uplo as c_char),
+        &n,
+        &kd,
+        ab.as_mut_ptr(),
+        &ldab,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn zpbstf(uplo: u8, n: i32, kd: i32, ab: &mut [c64], ldab: i32, info: &mut i32) {
+pub unsafe fn zpbstf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [c64],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::zpbstf_(
         &(uplo as c_char),
         &n,
@@ -21990,6 +24951,7 @@ pub unsafe fn zpbstf(uplo: u8, n: i32, kd: i32, ab: &mut [c64], ldab: i32, info:
         ab.as_mut_ptr() as *mut _,
         &ldab,
         info,
+        arg1,
     )
 }
 
@@ -22004,6 +24966,7 @@ pub unsafe fn cpbsv(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpbsv_(
         &(uplo as c_char),
@@ -22015,6 +24978,7 @@ pub unsafe fn cpbsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -22029,6 +24993,7 @@ pub unsafe fn dpbsv(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpbsv_(
         &(uplo as c_char),
@@ -22040,6 +25005,7 @@ pub unsafe fn dpbsv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -22054,6 +25020,7 @@ pub unsafe fn spbsv(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spbsv_(
         &(uplo as c_char),
@@ -22065,6 +25032,7 @@ pub unsafe fn spbsv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -22079,6 +25047,7 @@ pub unsafe fn zpbsv(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpbsv_(
         &(uplo as c_char),
@@ -22090,6 +25059,7 @@ pub unsafe fn zpbsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -22116,6 +25086,9 @@ pub unsafe fn cpbsvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cpbsvx_(
         &(fact as c_char),
@@ -22139,6 +25112,9 @@ pub unsafe fn cpbsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -22165,6 +25141,9 @@ pub unsafe fn dpbsvx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dpbsvx_(
         &(fact as c_char),
@@ -22188,6 +25167,9 @@ pub unsafe fn dpbsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -22214,6 +25196,9 @@ pub unsafe fn spbsvx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::spbsvx_(
         &(fact as c_char),
@@ -22237,6 +25222,9 @@ pub unsafe fn spbsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -22263,6 +25251,9 @@ pub unsafe fn zpbsvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zpbsvx_(
         &(fact as c_char),
@@ -22286,11 +25277,22 @@ pub unsafe fn zpbsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn cpbtrf(uplo: u8, n: i32, kd: i32, ab: &mut [c32], ldab: i32, info: &mut i32) {
+pub unsafe fn cpbtrf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [c32],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::cpbtrf_(
         &(uplo as c_char),
         &n,
@@ -22298,21 +25300,62 @@ pub unsafe fn cpbtrf(uplo: u8, n: i32, kd: i32, ab: &mut [c32], ldab: i32, info:
         ab.as_mut_ptr() as *mut _,
         &ldab,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dpbtrf(uplo: u8, n: i32, kd: i32, ab: &mut [f64], ldab: i32, info: &mut i32) {
-    ffi::dpbtrf_(&(uplo as c_char), &n, &kd, ab.as_mut_ptr(), &ldab, info)
+pub unsafe fn dpbtrf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [f64],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
+    ffi::dpbtrf_(
+        &(uplo as c_char),
+        &n,
+        &kd,
+        ab.as_mut_ptr(),
+        &ldab,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn spbtrf(uplo: u8, n: i32, kd: i32, ab: &mut [f32], ldab: i32, info: &mut i32) {
-    ffi::spbtrf_(&(uplo as c_char), &n, &kd, ab.as_mut_ptr(), &ldab, info)
+pub unsafe fn spbtrf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [f32],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
+    ffi::spbtrf_(
+        &(uplo as c_char),
+        &n,
+        &kd,
+        ab.as_mut_ptr(),
+        &ldab,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn zpbtrf(uplo: u8, n: i32, kd: i32, ab: &mut [c64], ldab: i32, info: &mut i32) {
+pub unsafe fn zpbtrf(
+    uplo: u8,
+    n: i32,
+    kd: i32,
+    ab: &mut [c64],
+    ldab: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::zpbtrf_(
         &(uplo as c_char),
         &n,
@@ -22320,6 +25363,7 @@ pub unsafe fn zpbtrf(uplo: u8, n: i32, kd: i32, ab: &mut [c64], ldab: i32, info:
         ab.as_mut_ptr() as *mut _,
         &ldab,
         info,
+        arg1,
     )
 }
 
@@ -22334,6 +25378,7 @@ pub unsafe fn cpbtrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpbtrs_(
         &(uplo as c_char),
@@ -22345,6 +25390,7 @@ pub unsafe fn cpbtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -22359,6 +25405,7 @@ pub unsafe fn dpbtrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpbtrs_(
         &(uplo as c_char),
@@ -22370,6 +25417,7 @@ pub unsafe fn dpbtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -22384,6 +25432,7 @@ pub unsafe fn spbtrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spbtrs_(
         &(uplo as c_char),
@@ -22395,6 +25444,7 @@ pub unsafe fn spbtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -22409,6 +25459,7 @@ pub unsafe fn zpbtrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpbtrs_(
         &(uplo as c_char),
@@ -22420,94 +25471,175 @@ pub unsafe fn zpbtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn cpftrf(transr: u8, uplo: u8, n: i32, a: &mut [c32], info: &mut i32) {
+pub unsafe fn cpftrf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [c32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::cpftrf_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dpftrf(transr: u8, uplo: u8, n: i32, a: &mut [f64], info: &mut i32) {
+pub unsafe fn dpftrf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::dpftrf_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn spftrf(transr: u8, uplo: u8, n: i32, a: &mut [f32], info: &mut i32) {
+pub unsafe fn spftrf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::spftrf_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn zpftrf(transr: u8, uplo: u8, n: i32, a: &mut [c64], info: &mut i32) {
+pub unsafe fn zpftrf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [c64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::zpftrf_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn cpftri(transr: u8, uplo: u8, n: i32, a: &mut [c32], info: &mut i32) {
+pub unsafe fn cpftri(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [c32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::cpftri_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dpftri(transr: u8, uplo: u8, n: i32, a: &mut [f64], info: &mut i32) {
+pub unsafe fn dpftri(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::dpftri_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn spftri(transr: u8, uplo: u8, n: i32, a: &mut [f32], info: &mut i32) {
+pub unsafe fn spftri(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::spftri_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn zpftri(transr: u8, uplo: u8, n: i32, a: &mut [c64], info: &mut i32) {
+pub unsafe fn zpftri(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    a: &mut [c64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::zpftri_(
         &(transr as c_char),
         &(uplo as c_char),
         &n,
         a.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -22521,6 +25653,8 @@ pub unsafe fn cpftrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cpftrs_(
         &(transr as c_char),
@@ -22531,6 +25665,8 @@ pub unsafe fn cpftrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -22544,6 +25680,8 @@ pub unsafe fn dpftrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dpftrs_(
         &(transr as c_char),
@@ -22554,6 +25692,8 @@ pub unsafe fn dpftrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -22567,6 +25707,8 @@ pub unsafe fn spftrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::spftrs_(
         &(transr as c_char),
@@ -22577,6 +25719,8 @@ pub unsafe fn spftrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -22590,6 +25734,8 @@ pub unsafe fn zpftrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zpftrs_(
         &(transr as c_char),
@@ -22600,6 +25746,8 @@ pub unsafe fn zpftrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -22614,6 +25762,7 @@ pub unsafe fn cpocon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpocon_(
         &(uplo as c_char),
@@ -22625,6 +25774,7 @@ pub unsafe fn cpocon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -22639,6 +25789,7 @@ pub unsafe fn dpocon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpocon_(
         &(uplo as c_char),
@@ -22650,6 +25801,7 @@ pub unsafe fn dpocon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -22664,6 +25816,7 @@ pub unsafe fn spocon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spocon_(
         &(uplo as c_char),
@@ -22675,6 +25828,7 @@ pub unsafe fn spocon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -22689,6 +25843,7 @@ pub unsafe fn zpocon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpocon_(
         &(uplo as c_char),
@@ -22700,6 +25855,7 @@ pub unsafe fn zpocon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -22889,6 +26045,7 @@ pub unsafe fn cporfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cporfs_(
         &(uplo as c_char),
@@ -22907,6 +26064,7 @@ pub unsafe fn cporfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -22928,6 +26086,7 @@ pub unsafe fn dporfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dporfs_(
         &(uplo as c_char),
@@ -22946,6 +26105,7 @@ pub unsafe fn dporfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -22967,6 +26127,7 @@ pub unsafe fn sporfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sporfs_(
         &(uplo as c_char),
@@ -22985,6 +26146,7 @@ pub unsafe fn sporfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -23006,6 +26168,7 @@ pub unsafe fn zporfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zporfs_(
         &(uplo as c_char),
@@ -23024,6 +26187,7 @@ pub unsafe fn zporfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -23037,7 +26201,7 @@ pub unsafe fn cporfsx(
     lda: i32,
     af: &[c32],
     ldaf: i32,
-    s: &mut [f32],
+    s: &[f32],
     b: &[c32],
     ldb: i32,
     x: &mut [c32],
@@ -23052,6 +26216,8 @@ pub unsafe fn cporfsx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cporfsx_(
         &(uplo as c_char),
@@ -23062,7 +26228,7 @@ pub unsafe fn cporfsx(
         &lda,
         af.as_ptr() as *const _,
         &ldaf,
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -23077,6 +26243,8 @@ pub unsafe fn cporfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -23090,7 +26258,7 @@ pub unsafe fn dporfsx(
     lda: i32,
     af: &[f64],
     ldaf: i32,
-    s: &mut [f64],
+    s: &[f64],
     b: &[f64],
     ldb: i32,
     x: &mut [f64],
@@ -23105,6 +26273,8 @@ pub unsafe fn dporfsx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dporfsx_(
         &(uplo as c_char),
@@ -23115,7 +26285,7 @@ pub unsafe fn dporfsx(
         &lda,
         af.as_ptr(),
         &ldaf,
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr(),
         &ldb,
         x.as_mut_ptr(),
@@ -23130,6 +26300,8 @@ pub unsafe fn dporfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -23143,7 +26315,7 @@ pub unsafe fn sporfsx(
     lda: i32,
     af: &[f32],
     ldaf: i32,
-    s: &mut [f32],
+    s: &[f32],
     b: &[f32],
     ldb: i32,
     x: &mut [f32],
@@ -23158,6 +26330,8 @@ pub unsafe fn sporfsx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sporfsx_(
         &(uplo as c_char),
@@ -23168,7 +26342,7 @@ pub unsafe fn sporfsx(
         &lda,
         af.as_ptr(),
         &ldaf,
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr(),
         &ldb,
         x.as_mut_ptr(),
@@ -23183,6 +26357,8 @@ pub unsafe fn sporfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -23196,7 +26372,7 @@ pub unsafe fn zporfsx(
     lda: i32,
     af: &[c64],
     ldaf: i32,
-    s: &mut [f64],
+    s: &[f64],
     b: &[c64],
     ldb: i32,
     x: &mut [c64],
@@ -23211,6 +26387,8 @@ pub unsafe fn zporfsx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zporfsx_(
         &(uplo as c_char),
@@ -23221,7 +26399,7 @@ pub unsafe fn zporfsx(
         &lda,
         af.as_ptr() as *const _,
         &ldaf,
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -23236,6 +26414,8 @@ pub unsafe fn zporfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -23249,6 +26429,7 @@ pub unsafe fn cposv(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cposv_(
         &(uplo as c_char),
@@ -23259,6 +26440,7 @@ pub unsafe fn cposv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23272,6 +26454,7 @@ pub unsafe fn dposv(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dposv_(
         &(uplo as c_char),
@@ -23282,6 +26465,7 @@ pub unsafe fn dposv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23295,6 +26479,7 @@ pub unsafe fn sposv(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sposv_(
         &(uplo as c_char),
@@ -23305,6 +26490,7 @@ pub unsafe fn sposv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23318,6 +26504,7 @@ pub unsafe fn zposv(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zposv_(
         &(uplo as c_char),
@@ -23328,6 +26515,7 @@ pub unsafe fn zposv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23346,6 +26534,7 @@ pub unsafe fn dsposv(
     swork: &mut [f32],
     iter: &mut i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsposv_(
         &(uplo as c_char),
@@ -23361,6 +26550,7 @@ pub unsafe fn dsposv(
         swork.as_mut_ptr(),
         iter,
         info,
+        arg1,
     )
 }
 
@@ -23380,6 +26570,7 @@ pub unsafe fn zcposv(
     rwork: &mut [f64],
     iter: &mut i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zcposv_(
         &(uplo as c_char),
@@ -23396,6 +26587,7 @@ pub unsafe fn zcposv(
         rwork.as_mut_ptr(),
         iter,
         info,
+        arg1,
     )
 }
 
@@ -23421,6 +26613,9 @@ pub unsafe fn cposvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cposvx_(
         &(fact as c_char),
@@ -23443,6 +26638,9 @@ pub unsafe fn cposvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -23468,6 +26666,9 @@ pub unsafe fn dposvx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dposvx_(
         &(fact as c_char),
@@ -23490,6 +26691,9 @@ pub unsafe fn dposvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -23515,6 +26719,9 @@ pub unsafe fn sposvx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sposvx_(
         &(fact as c_char),
@@ -23537,6 +26744,9 @@ pub unsafe fn sposvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -23562,6 +26772,9 @@ pub unsafe fn zposvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zposvx_(
         &(fact as c_char),
@@ -23584,6 +26797,9 @@ pub unsafe fn zposvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -23614,6 +26830,9 @@ pub unsafe fn cposvxx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cposvxx_(
         &(fact as c_char),
@@ -23641,6 +26860,9 @@ pub unsafe fn cposvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -23671,6 +26893,9 @@ pub unsafe fn dposvxx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dposvxx_(
         &(fact as c_char),
@@ -23698,6 +26923,9 @@ pub unsafe fn dposvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -23728,6 +26956,9 @@ pub unsafe fn sposvxx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sposvxx_(
         &(fact as c_char),
@@ -23755,6 +26986,9 @@ pub unsafe fn sposvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -23785,6 +27019,9 @@ pub unsafe fn zposvxx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zposvxx_(
         &(fact as c_char),
@@ -23812,87 +27049,146 @@ pub unsafe fn zposvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn cpotf2(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32) {
-    ffi::cpotf2_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn cpotf2(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::cpotf2_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn dpotf2(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32) {
-    ffi::dpotf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn dpotf2(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::dpotf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn spotf2(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32) {
-    ffi::spotf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn spotf2(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::spotf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn zpotf2(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32) {
-    ffi::zpotf2_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn zpotf2(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::zpotf2_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn cpotrf(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32) {
-    ffi::cpotrf_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn cpotrf(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::cpotrf_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn dpotrf(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32) {
-    ffi::dpotrf_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn dpotrf(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::dpotrf_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn spotrf(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32) {
-    ffi::spotrf_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn spotrf(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::spotrf_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn zpotrf(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32) {
-    ffi::zpotrf_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn zpotrf(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::zpotrf_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn cpotrf2(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32) {
-    ffi::cpotrf2_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn cpotrf2(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::cpotrf2_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn dpotrf2(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32) {
-    ffi::dpotrf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn dpotrf2(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::dpotrf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn spotrf2(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32) {
-    ffi::spotrf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn spotrf2(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::spotrf2_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn zpotrf2(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32) {
-    ffi::zpotrf2_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn zpotrf2(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::zpotrf2_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn cpotri(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32) {
-    ffi::cpotri_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn cpotri(uplo: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::cpotri_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
-pub unsafe fn dpotri(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32) {
-    ffi::dpotri_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn dpotri(uplo: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::dpotri_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn spotri(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32) {
-    ffi::spotri_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info)
+pub unsafe fn spotri(uplo: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::spotri_(&(uplo as c_char), &n, a.as_mut_ptr(), &lda, info, arg1)
 }
 
 #[inline]
-pub unsafe fn zpotri(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32) {
-    ffi::zpotri_(&(uplo as c_char), &n, a.as_mut_ptr() as *mut _, &lda, info)
+pub unsafe fn zpotri(uplo: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32, arg1: usize) {
+    ffi::zpotri_(
+        &(uplo as c_char),
+        &n,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        info,
+        arg1,
+    )
 }
 
 #[inline]
@@ -23905,6 +27201,7 @@ pub unsafe fn cpotrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpotrs_(
         &(uplo as c_char),
@@ -23915,6 +27212,7 @@ pub unsafe fn cpotrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23928,6 +27226,7 @@ pub unsafe fn dpotrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpotrs_(
         &(uplo as c_char),
@@ -23938,6 +27237,7 @@ pub unsafe fn dpotrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23951,6 +27251,7 @@ pub unsafe fn spotrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spotrs_(
         &(uplo as c_char),
@@ -23961,6 +27262,7 @@ pub unsafe fn spotrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23974,6 +27276,7 @@ pub unsafe fn zpotrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpotrs_(
         &(uplo as c_char),
@@ -23984,6 +27287,7 @@ pub unsafe fn zpotrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -23997,6 +27301,7 @@ pub unsafe fn cppcon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cppcon_(
         &(uplo as c_char),
@@ -24007,6 +27312,7 @@ pub unsafe fn cppcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24020,6 +27326,7 @@ pub unsafe fn dppcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dppcon_(
         &(uplo as c_char),
@@ -24030,6 +27337,7 @@ pub unsafe fn dppcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24043,6 +27351,7 @@ pub unsafe fn sppcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sppcon_(
         &(uplo as c_char),
@@ -24053,6 +27362,7 @@ pub unsafe fn sppcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24066,6 +27376,7 @@ pub unsafe fn zppcon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zppcon_(
         &(uplo as c_char),
@@ -24076,6 +27387,7 @@ pub unsafe fn zppcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24088,6 +27400,7 @@ pub unsafe fn cppequ(
     scond: &mut [f32],
     amax: &mut f32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cppequ_(
         &(uplo as c_char),
@@ -24097,6 +27410,7 @@ pub unsafe fn cppequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -24109,6 +27423,7 @@ pub unsafe fn dppequ(
     scond: &mut [f64],
     amax: &mut f64,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dppequ_(
         &(uplo as c_char),
@@ -24118,6 +27433,7 @@ pub unsafe fn dppequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -24130,6 +27446,7 @@ pub unsafe fn sppequ(
     scond: &mut [f32],
     amax: &mut f32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sppequ_(
         &(uplo as c_char),
@@ -24139,6 +27456,7 @@ pub unsafe fn sppequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -24151,6 +27469,7 @@ pub unsafe fn zppequ(
     scond: &mut [f64],
     amax: &mut f64,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zppequ_(
         &(uplo as c_char),
@@ -24160,6 +27479,7 @@ pub unsafe fn zppequ(
         scond.as_mut_ptr(),
         amax,
         info,
+        arg1,
     )
 }
 
@@ -24179,6 +27499,7 @@ pub unsafe fn cpprfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpprfs_(
         &(uplo as c_char),
@@ -24195,6 +27516,7 @@ pub unsafe fn cpprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24214,6 +27536,7 @@ pub unsafe fn dpprfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpprfs_(
         &(uplo as c_char),
@@ -24230,6 +27553,7 @@ pub unsafe fn dpprfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24249,6 +27573,7 @@ pub unsafe fn spprfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spprfs_(
         &(uplo as c_char),
@@ -24265,6 +27590,7 @@ pub unsafe fn spprfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24284,6 +27610,7 @@ pub unsafe fn zpprfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpprfs_(
         &(uplo as c_char),
@@ -24300,6 +27627,7 @@ pub unsafe fn zpprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24312,6 +27640,7 @@ pub unsafe fn cppsv(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cppsv_(
         &(uplo as c_char),
@@ -24321,6 +27650,7 @@ pub unsafe fn cppsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24333,6 +27663,7 @@ pub unsafe fn dppsv(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dppsv_(
         &(uplo as c_char),
@@ -24342,6 +27673,7 @@ pub unsafe fn dppsv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24354,6 +27686,7 @@ pub unsafe fn sppsv(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sppsv_(
         &(uplo as c_char),
@@ -24363,6 +27696,7 @@ pub unsafe fn sppsv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24375,6 +27709,7 @@ pub unsafe fn zppsv(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zppsv_(
         &(uplo as c_char),
@@ -24384,6 +27719,7 @@ pub unsafe fn zppsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24407,6 +27743,9 @@ pub unsafe fn cppsvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cppsvx_(
         &(fact as c_char),
@@ -24427,6 +27766,9 @@ pub unsafe fn cppsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -24450,6 +27792,9 @@ pub unsafe fn dppsvx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dppsvx_(
         &(fact as c_char),
@@ -24470,6 +27815,9 @@ pub unsafe fn dppsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -24493,6 +27841,9 @@ pub unsafe fn sppsvx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sppsvx_(
         &(fact as c_char),
@@ -24513,6 +27864,9 @@ pub unsafe fn sppsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -24536,6 +27890,9 @@ pub unsafe fn zppsvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zppsvx_(
         &(fact as c_char),
@@ -24556,47 +27913,50 @@ pub unsafe fn zppsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn cpptrf(uplo: u8, n: i32, ap: &mut [c32], info: &mut i32) {
-    ffi::cpptrf_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info)
+pub unsafe fn cpptrf(uplo: u8, n: i32, ap: &mut [c32], info: &mut i32, arg1: usize) {
+    ffi::cpptrf_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info, arg1)
 }
 
 #[inline]
-pub unsafe fn dpptrf(uplo: u8, n: i32, ap: &mut [f64], info: &mut i32) {
-    ffi::dpptrf_(&(uplo as c_char), &n, ap.as_mut_ptr(), info)
+pub unsafe fn dpptrf(uplo: u8, n: i32, ap: &mut [f64], info: &mut i32, arg1: usize) {
+    ffi::dpptrf_(&(uplo as c_char), &n, ap.as_mut_ptr(), info, arg1)
 }
 
 #[inline]
-pub unsafe fn spptrf(uplo: u8, n: i32, ap: &mut [f32], info: &mut i32) {
-    ffi::spptrf_(&(uplo as c_char), &n, ap.as_mut_ptr(), info)
+pub unsafe fn spptrf(uplo: u8, n: i32, ap: &mut [f32], info: &mut i32, arg1: usize) {
+    ffi::spptrf_(&(uplo as c_char), &n, ap.as_mut_ptr(), info, arg1)
 }
 
 #[inline]
-pub unsafe fn zpptrf(uplo: u8, n: i32, ap: &mut [c64], info: &mut i32) {
-    ffi::zpptrf_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info)
+pub unsafe fn zpptrf(uplo: u8, n: i32, ap: &mut [c64], info: &mut i32, arg1: usize) {
+    ffi::zpptrf_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info, arg1)
 }
 
 #[inline]
-pub unsafe fn cpptri(uplo: u8, n: i32, ap: &mut [c32], info: &mut i32) {
-    ffi::cpptri_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info)
+pub unsafe fn cpptri(uplo: u8, n: i32, ap: &mut [c32], info: &mut i32, arg1: usize) {
+    ffi::cpptri_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info, arg1)
 }
 
 #[inline]
-pub unsafe fn dpptri(uplo: u8, n: i32, ap: &mut [f64], info: &mut i32) {
-    ffi::dpptri_(&(uplo as c_char), &n, ap.as_mut_ptr(), info)
+pub unsafe fn dpptri(uplo: u8, n: i32, ap: &mut [f64], info: &mut i32, arg1: usize) {
+    ffi::dpptri_(&(uplo as c_char), &n, ap.as_mut_ptr(), info, arg1)
 }
 
 #[inline]
-pub unsafe fn spptri(uplo: u8, n: i32, ap: &mut [f32], info: &mut i32) {
-    ffi::spptri_(&(uplo as c_char), &n, ap.as_mut_ptr(), info)
+pub unsafe fn spptri(uplo: u8, n: i32, ap: &mut [f32], info: &mut i32, arg1: usize) {
+    ffi::spptri_(&(uplo as c_char), &n, ap.as_mut_ptr(), info, arg1)
 }
 
 #[inline]
-pub unsafe fn zpptri(uplo: u8, n: i32, ap: &mut [c64], info: &mut i32) {
-    ffi::zpptri_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info)
+pub unsafe fn zpptri(uplo: u8, n: i32, ap: &mut [c64], info: &mut i32, arg1: usize) {
+    ffi::zpptri_(&(uplo as c_char), &n, ap.as_mut_ptr() as *mut _, info, arg1)
 }
 
 #[inline]
@@ -24608,6 +27968,7 @@ pub unsafe fn cpptrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpptrs_(
         &(uplo as c_char),
@@ -24617,6 +27978,7 @@ pub unsafe fn cpptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24629,6 +27991,7 @@ pub unsafe fn dpptrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpptrs_(
         &(uplo as c_char),
@@ -24638,6 +28001,7 @@ pub unsafe fn dpptrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24650,6 +28014,7 @@ pub unsafe fn spptrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spptrs_(
         &(uplo as c_char),
@@ -24659,6 +28024,7 @@ pub unsafe fn spptrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24671,6 +28037,7 @@ pub unsafe fn zpptrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpptrs_(
         &(uplo as c_char),
@@ -24680,6 +28047,7 @@ pub unsafe fn zpptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -24694,6 +28062,7 @@ pub unsafe fn cpstrf(
     tol: f32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpstrf_(
         &(uplo as c_char),
@@ -24705,6 +28074,7 @@ pub unsafe fn cpstrf(
         &tol,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24719,6 +28089,7 @@ pub unsafe fn dpstrf(
     tol: f64,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpstrf_(
         &(uplo as c_char),
@@ -24730,6 +28101,7 @@ pub unsafe fn dpstrf(
         &tol,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24744,6 +28116,7 @@ pub unsafe fn spstrf(
     tol: f32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spstrf_(
         &(uplo as c_char),
@@ -24755,6 +28128,7 @@ pub unsafe fn spstrf(
         &tol,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24769,6 +28143,7 @@ pub unsafe fn zpstrf(
     tol: f64,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpstrf_(
         &(uplo as c_char),
@@ -24780,6 +28155,7 @@ pub unsafe fn zpstrf(
         &tol,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24877,6 +28253,7 @@ pub unsafe fn cpteqr(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpteqr_(
         &(compz as c_char),
@@ -24887,6 +28264,7 @@ pub unsafe fn cpteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24900,6 +28278,7 @@ pub unsafe fn dpteqr(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dpteqr_(
         &(compz as c_char),
@@ -24910,6 +28289,7 @@ pub unsafe fn dpteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24923,6 +28303,7 @@ pub unsafe fn spteqr(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::spteqr_(
         &(compz as c_char),
@@ -24933,6 +28314,7 @@ pub unsafe fn spteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24946,6 +28328,7 @@ pub unsafe fn zpteqr(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpteqr_(
         &(compz as c_char),
@@ -24956,6 +28339,7 @@ pub unsafe fn zpteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -24977,6 +28361,7 @@ pub unsafe fn cptrfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cptrfs_(
         &(uplo as c_char),
@@ -24995,6 +28380,7 @@ pub unsafe fn cptrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -25086,6 +28472,7 @@ pub unsafe fn zptrfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zptrfs_(
         &(uplo as c_char),
@@ -25104,6 +28491,7 @@ pub unsafe fn zptrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -25210,6 +28598,7 @@ pub unsafe fn cptsvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cptsvx_(
         &(fact as c_char),
@@ -25229,6 +28618,7 @@ pub unsafe fn cptsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -25250,6 +28640,7 @@ pub unsafe fn dptsvx(
     berr: &mut [f64],
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dptsvx_(
         &(fact as c_char),
@@ -25268,6 +28659,7 @@ pub unsafe fn dptsvx(
         berr.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -25289,6 +28681,7 @@ pub unsafe fn sptsvx(
     berr: &mut [f32],
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sptsvx_(
         &(fact as c_char),
@@ -25307,6 +28700,7 @@ pub unsafe fn sptsvx(
         berr.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -25329,6 +28723,7 @@ pub unsafe fn zptsvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zptsvx_(
         &(fact as c_char),
@@ -25348,6 +28743,7 @@ pub unsafe fn zptsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -25381,6 +28777,7 @@ pub unsafe fn cpttrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cpttrs_(
         &(uplo as c_char),
@@ -25391,6 +28788,7 @@ pub unsafe fn cpttrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -25446,6 +28844,7 @@ pub unsafe fn zpttrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zpttrs_(
         &(uplo as c_char),
@@ -25456,6 +28855,49 @@ pub unsafe fn zpttrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+    )
+}
+
+#[inline]
+pub unsafe fn crot(
+    n: i32,
+    cx: &mut [c32],
+    incx: i32,
+    cy: &mut [c32],
+    incy: i32,
+    c: &[f32],
+    s: &[c32],
+) {
+    ffi::crot_(
+        &n,
+        cx.as_mut_ptr() as *mut _,
+        &incx,
+        cy.as_mut_ptr() as *mut _,
+        &incy,
+        c.as_ptr(),
+        s.as_ptr() as *const _,
+    )
+}
+
+#[inline]
+pub unsafe fn zrot(
+    n: i32,
+    cx: &mut [c64],
+    incx: i32,
+    cy: &mut [c64],
+    incy: i32,
+    c: &[f64],
+    s: &[c64],
+) {
+    ffi::zrot_(
+        &n,
+        cx.as_mut_ptr() as *mut _,
+        &incx,
+        cy.as_mut_ptr() as *mut _,
+        &incy,
+        c.as_ptr(),
+        s.as_ptr() as *const _,
     )
 }
 
@@ -25472,6 +28914,8 @@ pub unsafe fn dsbev(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbev_(
         &(jobz as c_char),
@@ -25485,6 +28929,8 @@ pub unsafe fn dsbev(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25501,6 +28947,8 @@ pub unsafe fn ssbev(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbev_(
         &(jobz as c_char),
@@ -25514,6 +28962,8 @@ pub unsafe fn ssbev(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25531,6 +28981,8 @@ pub unsafe fn dsbev_2stage(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbev_2stage_(
         &(jobz as c_char),
@@ -25545,6 +28997,8 @@ pub unsafe fn dsbev_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25562,6 +29016,8 @@ pub unsafe fn ssbev_2stage(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbev_2stage_(
         &(jobz as c_char),
@@ -25576,6 +29032,8 @@ pub unsafe fn ssbev_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25595,6 +29053,8 @@ pub unsafe fn dsbevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbevd_(
         &(jobz as c_char),
@@ -25611,6 +29071,8 @@ pub unsafe fn dsbevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25630,6 +29092,8 @@ pub unsafe fn ssbevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbevd_(
         &(jobz as c_char),
@@ -25646,6 +29110,8 @@ pub unsafe fn ssbevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25665,6 +29131,8 @@ pub unsafe fn dsbevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbevd_2stage_(
         &(jobz as c_char),
@@ -25681,6 +29149,8 @@ pub unsafe fn dsbevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25700,6 +29170,8 @@ pub unsafe fn ssbevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbevd_2stage_(
         &(jobz as c_char),
@@ -25716,6 +29188,8 @@ pub unsafe fn ssbevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25743,6 +29217,9 @@ pub unsafe fn dsbevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsbevx_(
         &(jobz as c_char),
@@ -25767,6 +29244,9 @@ pub unsafe fn dsbevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -25794,6 +29274,9 @@ pub unsafe fn ssbevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssbevx_(
         &(jobz as c_char),
@@ -25818,6 +29301,9 @@ pub unsafe fn ssbevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -25846,6 +29332,9 @@ pub unsafe fn dsbevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsbevx_2stage_(
         &(jobz as c_char),
@@ -25871,6 +29360,9 @@ pub unsafe fn dsbevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -25899,6 +29391,9 @@ pub unsafe fn ssbevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssbevx_2stage_(
         &(jobz as c_char),
@@ -25924,6 +29419,9 @@ pub unsafe fn ssbevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -25942,6 +29440,8 @@ pub unsafe fn dsbgst(
     ldx: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbgst_(
         &(vect as c_char),
@@ -25957,6 +29457,8 @@ pub unsafe fn dsbgst(
         &ldx,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -25975,6 +29477,8 @@ pub unsafe fn ssbgst(
     ldx: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbgst_(
         &(vect as c_char),
@@ -25990,6 +29494,8 @@ pub unsafe fn ssbgst(
         &ldx,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26009,6 +29515,8 @@ pub unsafe fn dsbgv(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbgv_(
         &(jobz as c_char),
@@ -26025,6 +29533,8 @@ pub unsafe fn dsbgv(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26044,6 +29554,8 @@ pub unsafe fn ssbgv(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbgv_(
         &(jobz as c_char),
@@ -26060,6 +29572,8 @@ pub unsafe fn ssbgv(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26082,6 +29596,8 @@ pub unsafe fn dsbgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbgvd_(
         &(jobz as c_char),
@@ -26101,6 +29617,8 @@ pub unsafe fn dsbgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26123,6 +29641,8 @@ pub unsafe fn ssbgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbgvd_(
         &(jobz as c_char),
@@ -26142,6 +29662,8 @@ pub unsafe fn ssbgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26172,6 +29694,9 @@ pub unsafe fn dsbgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsbgvx_(
         &(jobz as c_char),
@@ -26199,6 +29724,9 @@ pub unsafe fn dsbgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -26229,6 +29757,9 @@ pub unsafe fn ssbgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssbgvx_(
         &(jobz as c_char),
@@ -26256,6 +29787,9 @@ pub unsafe fn ssbgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -26273,6 +29807,8 @@ pub unsafe fn dsbtrd(
     ldq: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsbtrd_(
         &(vect as c_char),
@@ -26287,6 +29823,8 @@ pub unsafe fn dsbtrd(
         &ldq,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26304,6 +29842,8 @@ pub unsafe fn ssbtrd(
     ldq: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssbtrd_(
         &(vect as c_char),
@@ -26318,6 +29858,8 @@ pub unsafe fn ssbtrd(
         &ldq,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26333,6 +29875,9 @@ pub unsafe fn dsfrk(
     lda: i32,
     beta: &[f64],
     c: &mut [f64],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsfrk_(
         &(transr as c_char),
@@ -26345,6 +29890,9 @@ pub unsafe fn dsfrk(
         &lda,
         beta.as_ptr(),
         c.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -26360,6 +29908,9 @@ pub unsafe fn ssfrk(
     lda: i32,
     beta: &[f32],
     c: &mut [f32],
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssfrk_(
         &(transr as c_char),
@@ -26372,6 +29923,9 @@ pub unsafe fn ssfrk(
         &lda,
         beta.as_ptr(),
         c.as_mut_ptr(),
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -26385,6 +29939,7 @@ pub unsafe fn cspcon(
     rcond: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cspcon_(
         &(uplo as c_char),
@@ -26395,6 +29950,7 @@ pub unsafe fn cspcon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -26409,6 +29965,7 @@ pub unsafe fn dspcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dspcon_(
         &(uplo as c_char),
@@ -26420,6 +29977,7 @@ pub unsafe fn dspcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -26434,6 +29992,7 @@ pub unsafe fn sspcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sspcon_(
         &(uplo as c_char),
@@ -26445,6 +30004,7 @@ pub unsafe fn sspcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -26458,6 +30018,7 @@ pub unsafe fn zspcon(
     rcond: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zspcon_(
         &(uplo as c_char),
@@ -26468,6 +30029,7 @@ pub unsafe fn zspcon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -26482,6 +30044,8 @@ pub unsafe fn dspev(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dspev_(
         &(jobz as c_char),
@@ -26493,6 +30057,8 @@ pub unsafe fn dspev(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26507,6 +30073,8 @@ pub unsafe fn sspev(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sspev_(
         &(jobz as c_char),
@@ -26518,6 +30086,8 @@ pub unsafe fn sspev(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26535,6 +30105,8 @@ pub unsafe fn dspevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dspevd_(
         &(jobz as c_char),
@@ -26549,6 +30121,8 @@ pub unsafe fn dspevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26566,6 +30140,8 @@ pub unsafe fn sspevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sspevd_(
         &(jobz as c_char),
@@ -26580,6 +30156,8 @@ pub unsafe fn sspevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26603,6 +30181,9 @@ pub unsafe fn dspevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dspevx_(
         &(jobz as c_char),
@@ -26623,6 +30204,9 @@ pub unsafe fn dspevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -26646,6 +30230,9 @@ pub unsafe fn sspevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sspevx_(
         &(jobz as c_char),
@@ -26666,11 +30253,22 @@ pub unsafe fn sspevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn dspgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [f64], bp: &[f64], info: &mut i32) {
+pub unsafe fn dspgst(
+    itype: &[i32],
+    uplo: u8,
+    n: i32,
+    ap: &mut [f64],
+    bp: &[f64],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::dspgst_(
         itype.as_ptr(),
         &(uplo as c_char),
@@ -26678,11 +30276,20 @@ pub unsafe fn dspgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [f64], bp: &[f64]
         ap.as_mut_ptr(),
         bp.as_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn sspgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [f32], bp: &[f32], info: &mut i32) {
+pub unsafe fn sspgst(
+    itype: &[i32],
+    uplo: u8,
+    n: i32,
+    ap: &mut [f32],
+    bp: &[f32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::sspgst_(
         itype.as_ptr(),
         &(uplo as c_char),
@@ -26690,6 +30297,7 @@ pub unsafe fn sspgst(itype: &[i32], uplo: u8, n: i32, ap: &mut [f32], bp: &[f32]
         ap.as_mut_ptr(),
         bp.as_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -26706,6 +30314,8 @@ pub unsafe fn dspgv(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dspgv_(
         itype.as_ptr(),
@@ -26719,6 +30329,8 @@ pub unsafe fn dspgv(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26735,6 +30347,8 @@ pub unsafe fn sspgv(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sspgv_(
         itype.as_ptr(),
@@ -26748,6 +30362,8 @@ pub unsafe fn sspgv(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26767,6 +30383,8 @@ pub unsafe fn dspgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dspgvd_(
         itype.as_ptr(),
@@ -26783,6 +30401,8 @@ pub unsafe fn dspgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26802,6 +30422,8 @@ pub unsafe fn sspgvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sspgvd_(
         itype.as_ptr(),
@@ -26818,6 +30440,8 @@ pub unsafe fn sspgvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -26843,6 +30467,9 @@ pub unsafe fn dspgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dspgvx_(
         itype.as_ptr(),
@@ -26865,6 +30492,9 @@ pub unsafe fn dspgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -26890,6 +30520,9 @@ pub unsafe fn sspgvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::sspgvx_(
         itype.as_ptr(),
@@ -26912,6 +30545,9 @@ pub unsafe fn sspgvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -26932,6 +30568,7 @@ pub unsafe fn csprfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csprfs_(
         &(uplo as c_char),
@@ -26949,6 +30586,7 @@ pub unsafe fn csprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -26969,6 +30607,7 @@ pub unsafe fn dsprfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsprfs_(
         &(uplo as c_char),
@@ -26986,6 +30625,7 @@ pub unsafe fn dsprfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -27006,6 +30646,7 @@ pub unsafe fn ssprfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssprfs_(
         &(uplo as c_char),
@@ -27023,6 +30664,7 @@ pub unsafe fn ssprfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -27043,6 +30685,7 @@ pub unsafe fn zsprfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsprfs_(
         &(uplo as c_char),
@@ -27060,6 +30703,7 @@ pub unsafe fn zsprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -27073,6 +30717,7 @@ pub unsafe fn cspsv(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cspsv_(
         &(uplo as c_char),
@@ -27083,6 +30728,7 @@ pub unsafe fn cspsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27096,6 +30742,7 @@ pub unsafe fn dspsv(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dspsv_(
         &(uplo as c_char),
@@ -27106,6 +30753,7 @@ pub unsafe fn dspsv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27119,6 +30767,7 @@ pub unsafe fn sspsv(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sspsv_(
         &(uplo as c_char),
@@ -27129,6 +30778,7 @@ pub unsafe fn sspsv(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27142,6 +30792,7 @@ pub unsafe fn zspsv(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zspsv_(
         &(uplo as c_char),
@@ -27152,6 +30803,7 @@ pub unsafe fn zspsv(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27174,6 +30826,8 @@ pub unsafe fn cspsvx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cspsvx_(
         &(fact as c_char),
@@ -27193,6 +30847,8 @@ pub unsafe fn cspsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27215,6 +30871,8 @@ pub unsafe fn dspsvx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dspsvx_(
         &(fact as c_char),
@@ -27234,6 +30892,8 @@ pub unsafe fn dspsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27256,6 +30916,8 @@ pub unsafe fn sspsvx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sspsvx_(
         &(fact as c_char),
@@ -27275,6 +30937,8 @@ pub unsafe fn sspsvx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27297,6 +30961,8 @@ pub unsafe fn zspsvx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zspsvx_(
         &(fact as c_char),
@@ -27316,6 +30982,8 @@ pub unsafe fn zspsvx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27328,6 +30996,7 @@ pub unsafe fn dsptrd(
     e: &mut [f64],
     tau: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsptrd_(
         &(uplo as c_char),
@@ -27337,6 +31006,7 @@ pub unsafe fn dsptrd(
         e.as_mut_ptr(),
         tau.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -27349,6 +31019,7 @@ pub unsafe fn ssptrd(
     e: &mut [f32],
     tau: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssptrd_(
         &(uplo as c_char),
@@ -27358,50 +31029,83 @@ pub unsafe fn ssptrd(
         e.as_mut_ptr(),
         tau.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn csptrf(uplo: u8, n: i32, ap: &mut [c32], ipiv: &mut [i32], info: &mut i32) {
+pub unsafe fn csptrf(
+    uplo: u8,
+    n: i32,
+    ap: &mut [c32],
+    ipiv: &mut [i32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::csptrf_(
         &(uplo as c_char),
         &n,
         ap.as_mut_ptr() as *mut _,
         ipiv.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dsptrf(uplo: u8, n: i32, ap: &mut [f64], ipiv: &mut [i32], info: &mut i32) {
+pub unsafe fn dsptrf(
+    uplo: u8,
+    n: i32,
+    ap: &mut [f64],
+    ipiv: &mut [i32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::dsptrf_(
         &(uplo as c_char),
         &n,
         ap.as_mut_ptr(),
         ipiv.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn ssptrf(uplo: u8, n: i32, ap: &mut [f32], ipiv: &mut [i32], info: &mut i32) {
+pub unsafe fn ssptrf(
+    uplo: u8,
+    n: i32,
+    ap: &mut [f32],
+    ipiv: &mut [i32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::ssptrf_(
         &(uplo as c_char),
         &n,
         ap.as_mut_ptr(),
         ipiv.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zsptrf(uplo: u8, n: i32, ap: &mut [c64], ipiv: &mut [i32], info: &mut i32) {
+pub unsafe fn zsptrf(
+    uplo: u8,
+    n: i32,
+    ap: &mut [c64],
+    ipiv: &mut [i32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::zsptrf_(
         &(uplo as c_char),
         &n,
         ap.as_mut_ptr() as *mut _,
         ipiv.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -27413,6 +31117,7 @@ pub unsafe fn csptri(
     ipiv: &[i32],
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csptri_(
         &(uplo as c_char),
@@ -27421,6 +31126,7 @@ pub unsafe fn csptri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -27432,6 +31138,7 @@ pub unsafe fn dsptri(
     ipiv: &[i32],
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsptri_(
         &(uplo as c_char),
@@ -27440,6 +31147,7 @@ pub unsafe fn dsptri(
         ipiv.as_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -27451,6 +31159,7 @@ pub unsafe fn ssptri(
     ipiv: &[i32],
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssptri_(
         &(uplo as c_char),
@@ -27459,6 +31168,7 @@ pub unsafe fn ssptri(
         ipiv.as_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -27470,6 +31180,7 @@ pub unsafe fn zsptri(
     ipiv: &[i32],
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsptri_(
         &(uplo as c_char),
@@ -27478,6 +31189,7 @@ pub unsafe fn zsptri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -27491,6 +31203,7 @@ pub unsafe fn csptrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csptrs_(
         &(uplo as c_char),
@@ -27501,6 +31214,7 @@ pub unsafe fn csptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27514,6 +31228,7 @@ pub unsafe fn dsptrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsptrs_(
         &(uplo as c_char),
@@ -27524,6 +31239,7 @@ pub unsafe fn dsptrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27537,6 +31253,7 @@ pub unsafe fn ssptrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssptrs_(
         &(uplo as c_char),
@@ -27547,6 +31264,7 @@ pub unsafe fn ssptrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27560,6 +31278,7 @@ pub unsafe fn zsptrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsptrs_(
         &(uplo as c_char),
@@ -27570,6 +31289,7 @@ pub unsafe fn zsptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -27593,6 +31313,8 @@ pub unsafe fn dstebz(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dstebz_(
         &(range as c_char),
@@ -27613,6 +31335,8 @@ pub unsafe fn dstebz(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27636,6 +31360,8 @@ pub unsafe fn sstebz(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sstebz_(
         &(range as c_char),
@@ -27656,6 +31382,8 @@ pub unsafe fn sstebz(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27674,6 +31402,7 @@ pub unsafe fn cstedc(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cstedc_(
         &(compz as c_char),
@@ -27689,6 +31418,7 @@ pub unsafe fn cstedc(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
     )
 }
 
@@ -27705,6 +31435,7 @@ pub unsafe fn dstedc(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dstedc_(
         &(compz as c_char),
@@ -27718,6 +31449,7 @@ pub unsafe fn dstedc(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
     )
 }
 
@@ -27734,6 +31466,7 @@ pub unsafe fn sstedc(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sstedc_(
         &(compz as c_char),
@@ -27747,6 +31480,7 @@ pub unsafe fn sstedc(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
     )
 }
 
@@ -27765,6 +31499,7 @@ pub unsafe fn zstedc(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zstedc_(
         &(compz as c_char),
@@ -27780,6 +31515,7 @@ pub unsafe fn zstedc(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
     )
 }
 
@@ -27805,6 +31541,8 @@ pub unsafe fn cstegr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cstegr_(
         &(jobz as c_char),
@@ -27827,6 +31565,8 @@ pub unsafe fn cstegr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27852,6 +31592,8 @@ pub unsafe fn dstegr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dstegr_(
         &(jobz as c_char),
@@ -27874,6 +31616,8 @@ pub unsafe fn dstegr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27899,6 +31643,8 @@ pub unsafe fn sstegr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sstegr_(
         &(jobz as c_char),
@@ -27921,6 +31667,8 @@ pub unsafe fn sstegr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -27946,6 +31694,8 @@ pub unsafe fn zstegr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zstegr_(
         &(jobz as c_char),
@@ -27968,6 +31718,8 @@ pub unsafe fn zstegr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28126,6 +31878,8 @@ pub unsafe fn cstemr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cstemr_(
         &(jobz as c_char),
@@ -28149,6 +31903,8 @@ pub unsafe fn cstemr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28175,6 +31931,8 @@ pub unsafe fn dstemr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dstemr_(
         &(jobz as c_char),
@@ -28198,6 +31956,8 @@ pub unsafe fn dstemr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28224,6 +31984,8 @@ pub unsafe fn sstemr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sstemr_(
         &(jobz as c_char),
@@ -28247,6 +32009,8 @@ pub unsafe fn sstemr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28273,6 +32037,8 @@ pub unsafe fn zstemr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zstemr_(
         &(jobz as c_char),
@@ -28296,6 +32062,8 @@ pub unsafe fn zstemr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28309,6 +32077,7 @@ pub unsafe fn csteqr(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csteqr_(
         &(compz as c_char),
@@ -28319,6 +32088,7 @@ pub unsafe fn csteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28332,6 +32102,7 @@ pub unsafe fn dsteqr(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsteqr_(
         &(compz as c_char),
@@ -28342,6 +32113,7 @@ pub unsafe fn dsteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28355,6 +32127,7 @@ pub unsafe fn ssteqr(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssteqr_(
         &(compz as c_char),
@@ -28365,6 +32138,7 @@ pub unsafe fn ssteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28378,6 +32152,7 @@ pub unsafe fn zsteqr(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsteqr_(
         &(compz as c_char),
@@ -28388,6 +32163,7 @@ pub unsafe fn zsteqr(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28411,6 +32187,7 @@ pub unsafe fn dstev(
     ldz: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dstev_(
         &(jobz as c_char),
@@ -28421,6 +32198,7 @@ pub unsafe fn dstev(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28434,6 +32212,7 @@ pub unsafe fn sstev(
     ldz: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sstev_(
         &(jobz as c_char),
@@ -28444,6 +32223,7 @@ pub unsafe fn sstev(
         &ldz,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28460,6 +32240,7 @@ pub unsafe fn dstevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dstevd_(
         &(jobz as c_char),
@@ -28473,6 +32254,7 @@ pub unsafe fn dstevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
     )
 }
 
@@ -28489,6 +32271,7 @@ pub unsafe fn sstevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::sstevd_(
         &(jobz as c_char),
@@ -28502,6 +32285,7 @@ pub unsafe fn sstevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
     )
 }
 
@@ -28527,6 +32311,8 @@ pub unsafe fn dstevr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dstevr_(
         &(jobz as c_char),
@@ -28549,6 +32335,8 @@ pub unsafe fn dstevr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28574,6 +32362,8 @@ pub unsafe fn sstevr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sstevr_(
         &(jobz as c_char),
@@ -28596,6 +32386,8 @@ pub unsafe fn sstevr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28619,6 +32411,8 @@ pub unsafe fn dstevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dstevx_(
         &(jobz as c_char),
@@ -28639,6 +32433,8 @@ pub unsafe fn dstevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28662,6 +32458,8 @@ pub unsafe fn sstevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::sstevx_(
         &(jobz as c_char),
@@ -28682,6 +32480,8 @@ pub unsafe fn sstevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28696,6 +32496,7 @@ pub unsafe fn csycon(
     rcond: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csycon_(
         &(uplo as c_char),
@@ -28707,6 +32508,7 @@ pub unsafe fn csycon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -28722,6 +32524,7 @@ pub unsafe fn dsycon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsycon_(
         &(uplo as c_char),
@@ -28734,6 +32537,7 @@ pub unsafe fn dsycon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28749,6 +32553,7 @@ pub unsafe fn ssycon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssycon_(
         &(uplo as c_char),
@@ -28761,6 +32566,7 @@ pub unsafe fn ssycon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28775,6 +32581,7 @@ pub unsafe fn zsycon(
     rcond: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsycon_(
         &(uplo as c_char),
@@ -28786,6 +32593,7 @@ pub unsafe fn zsycon(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -28801,6 +32609,7 @@ pub unsafe fn csycon_3(
     rcond: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csycon_3_(
         &(uplo as c_char),
@@ -28813,6 +32622,7 @@ pub unsafe fn csycon_3(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -28829,6 +32639,7 @@ pub unsafe fn dsycon_3(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsycon_3_(
         &(uplo as c_char),
@@ -28842,6 +32653,7 @@ pub unsafe fn dsycon_3(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28858,6 +32670,7 @@ pub unsafe fn ssycon_3(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssycon_3_(
         &(uplo as c_char),
@@ -28871,6 +32684,7 @@ pub unsafe fn ssycon_3(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -28886,6 +32700,7 @@ pub unsafe fn zsycon_3(
     rcond: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsycon_3_(
         &(uplo as c_char),
@@ -28898,6 +32713,7 @@ pub unsafe fn zsycon_3(
         rcond,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -28911,6 +32727,8 @@ pub unsafe fn csyconv(
     ipiv: &[i32],
     e: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::csyconv_(
         &(uplo as c_char),
@@ -28921,6 +32739,8 @@ pub unsafe fn csyconv(
         ipiv.as_ptr(),
         e.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28934,6 +32754,8 @@ pub unsafe fn dsyconv(
     ipiv: &[i32],
     e: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsyconv_(
         &(uplo as c_char),
@@ -28944,6 +32766,8 @@ pub unsafe fn dsyconv(
         ipiv.as_ptr(),
         e.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28957,6 +32781,8 @@ pub unsafe fn ssyconv(
     ipiv: &[i32],
     e: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssyconv_(
         &(uplo as c_char),
@@ -28967,6 +32793,8 @@ pub unsafe fn ssyconv(
         ipiv.as_ptr(),
         e.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -28980,6 +32808,8 @@ pub unsafe fn zsyconv(
     ipiv: &[i32],
     e: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zsyconv_(
         &(uplo as c_char),
@@ -28990,6 +32820,8 @@ pub unsafe fn zsyconv(
         ipiv.as_ptr(),
         e.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29004,6 +32836,7 @@ pub unsafe fn csyequb(
     amax: &mut f32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csyequb_(
         &(uplo as c_char),
@@ -29015,6 +32848,7 @@ pub unsafe fn csyequb(
         amax,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -29029,6 +32863,7 @@ pub unsafe fn dsyequb(
     amax: &mut f64,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsyequb_(
         &(uplo as c_char),
@@ -29040,6 +32875,7 @@ pub unsafe fn dsyequb(
         amax,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -29054,6 +32890,7 @@ pub unsafe fn ssyequb(
     amax: &mut f32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssyequb_(
         &(uplo as c_char),
@@ -29065,6 +32902,7 @@ pub unsafe fn ssyequb(
         amax,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -29079,6 +32917,7 @@ pub unsafe fn zsyequb(
     amax: &mut f64,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsyequb_(
         &(uplo as c_char),
@@ -29090,6 +32929,7 @@ pub unsafe fn zsyequb(
         amax,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -29104,6 +32944,8 @@ pub unsafe fn dsyev(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsyev_(
         &(jobz as c_char),
@@ -29115,6 +32957,8 @@ pub unsafe fn dsyev(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29129,6 +32973,8 @@ pub unsafe fn ssyev(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssyev_(
         &(jobz as c_char),
@@ -29140,6 +32986,8 @@ pub unsafe fn ssyev(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29154,6 +33002,8 @@ pub unsafe fn dsyev_2stage(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsyev_2stage_(
         &(jobz as c_char),
@@ -29165,6 +33015,8 @@ pub unsafe fn dsyev_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29179,6 +33031,8 @@ pub unsafe fn ssyev_2stage(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssyev_2stage_(
         &(jobz as c_char),
@@ -29190,6 +33044,8 @@ pub unsafe fn ssyev_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29206,6 +33062,8 @@ pub unsafe fn dsyevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsyevd_(
         &(jobz as c_char),
@@ -29219,6 +33077,8 @@ pub unsafe fn dsyevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29235,6 +33095,8 @@ pub unsafe fn ssyevd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssyevd_(
         &(jobz as c_char),
@@ -29248,6 +33110,8 @@ pub unsafe fn ssyevd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29264,6 +33128,8 @@ pub unsafe fn dsyevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsyevd_2stage_(
         &(jobz as c_char),
@@ -29277,6 +33143,8 @@ pub unsafe fn dsyevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29293,6 +33161,8 @@ pub unsafe fn ssyevd_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssyevd_2stage_(
         &(jobz as c_char),
@@ -29306,6 +33176,8 @@ pub unsafe fn ssyevd_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29332,6 +33204,9 @@ pub unsafe fn dsyevr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsyevr_(
         &(jobz as c_char),
@@ -29355,6 +33230,9 @@ pub unsafe fn dsyevr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29381,6 +33259,9 @@ pub unsafe fn ssyevr(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssyevr_(
         &(jobz as c_char),
@@ -29404,6 +33285,9 @@ pub unsafe fn ssyevr(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29430,6 +33314,9 @@ pub unsafe fn dsyevr_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsyevr_2stage_(
         &(jobz as c_char),
@@ -29453,6 +33340,9 @@ pub unsafe fn dsyevr_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29479,6 +33369,9 @@ pub unsafe fn ssyevr_2stage(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssyevr_2stage_(
         &(jobz as c_char),
@@ -29502,6 +33395,9 @@ pub unsafe fn ssyevr_2stage(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29527,6 +33423,9 @@ pub unsafe fn dsyevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsyevx_(
         &(jobz as c_char),
@@ -29549,6 +33448,9 @@ pub unsafe fn dsyevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29574,6 +33476,9 @@ pub unsafe fn ssyevx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssyevx_(
         &(jobz as c_char),
@@ -29596,6 +33501,9 @@ pub unsafe fn ssyevx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29621,6 +33529,9 @@ pub unsafe fn dsyevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsyevx_2stage_(
         &(jobz as c_char),
@@ -29643,6 +33554,9 @@ pub unsafe fn dsyevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29668,6 +33582,9 @@ pub unsafe fn ssyevx_2stage(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssyevx_2stage_(
         &(jobz as c_char),
@@ -29690,6 +33607,9 @@ pub unsafe fn ssyevx_2stage(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -29703,6 +33623,7 @@ pub unsafe fn dsygst(
     b: &[f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsygst_(
         itype.as_ptr(),
@@ -29713,6 +33634,7 @@ pub unsafe fn dsygst(
         b.as_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -29726,6 +33648,7 @@ pub unsafe fn ssygst(
     b: &[f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssygst_(
         itype.as_ptr(),
@@ -29736,6 +33659,7 @@ pub unsafe fn ssygst(
         b.as_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -29753,6 +33677,8 @@ pub unsafe fn dsygv(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsygv_(
         itype.as_ptr(),
@@ -29767,6 +33693,8 @@ pub unsafe fn dsygv(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29784,6 +33712,8 @@ pub unsafe fn ssygv(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssygv_(
         itype.as_ptr(),
@@ -29798,6 +33728,8 @@ pub unsafe fn ssygv(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29815,6 +33747,8 @@ pub unsafe fn dsygv_2stage(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsygv_2stage_(
         itype.as_ptr(),
@@ -29829,6 +33763,8 @@ pub unsafe fn dsygv_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29846,6 +33782,8 @@ pub unsafe fn ssygv_2stage(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssygv_2stage_(
         itype.as_ptr(),
@@ -29860,6 +33798,8 @@ pub unsafe fn ssygv_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29879,6 +33819,8 @@ pub unsafe fn dsygvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsygvd_(
         itype.as_ptr(),
@@ -29895,6 +33837,8 @@ pub unsafe fn dsygvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29914,6 +33858,8 @@ pub unsafe fn ssygvd(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssygvd_(
         itype.as_ptr(),
@@ -29930,6 +33876,8 @@ pub unsafe fn ssygvd(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -29958,6 +33906,9 @@ pub unsafe fn dsygvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsygvx_(
         itype.as_ptr(),
@@ -29983,6 +33934,9 @@ pub unsafe fn dsygvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -30011,6 +33965,9 @@ pub unsafe fn ssygvx(
     iwork: &mut [i32],
     ifail: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssygvx_(
         itype.as_ptr(),
@@ -30036,11 +33993,23 @@ pub unsafe fn ssygvx(
         iwork.as_mut_ptr(),
         ifail.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn csyr(uplo: u8, n: i32, alpha: &[c32], x: &[c32], incx: i32, a: &mut [c32], lda: i32) {
+pub unsafe fn csyr(
+    uplo: u8,
+    n: i32,
+    alpha: &[c32],
+    x: &[c32],
+    incx: i32,
+    a: &mut [c32],
+    lda: i32,
+    arg1: usize,
+) {
     ffi::csyr_(
         &(uplo as c_char),
         &n,
@@ -30049,11 +34018,21 @@ pub unsafe fn csyr(uplo: u8, n: i32, alpha: &[c32], x: &[c32], incx: i32, a: &mu
         &incx,
         a.as_mut_ptr() as *mut _,
         &lda,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zsyr(uplo: u8, n: i32, alpha: &[c64], x: &[c64], incx: i32, a: &mut [c64], lda: i32) {
+pub unsafe fn zsyr(
+    uplo: u8,
+    n: i32,
+    alpha: &[c64],
+    x: &[c64],
+    incx: i32,
+    a: &mut [c64],
+    lda: i32,
+    arg1: usize,
+) {
     ffi::zsyr_(
         &(uplo as c_char),
         &n,
@@ -30062,6 +34041,7 @@ pub unsafe fn zsyr(uplo: u8, n: i32, alpha: &[c64], x: &[c64], incx: i32, a: &mu
         &incx,
         a.as_mut_ptr() as *mut _,
         &lda,
+        arg1,
     )
 }
 
@@ -30084,6 +34064,7 @@ pub unsafe fn csyrfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csyrfs_(
         &(uplo as c_char),
@@ -30103,6 +34084,7 @@ pub unsafe fn csyrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -30125,6 +34107,7 @@ pub unsafe fn dsyrfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsyrfs_(
         &(uplo as c_char),
@@ -30144,6 +34127,7 @@ pub unsafe fn dsyrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -30166,6 +34150,7 @@ pub unsafe fn ssyrfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssyrfs_(
         &(uplo as c_char),
@@ -30185,6 +34170,7 @@ pub unsafe fn ssyrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -30207,6 +34193,7 @@ pub unsafe fn zsyrfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsyrfs_(
         &(uplo as c_char),
@@ -30226,6 +34213,7 @@ pub unsafe fn zsyrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -30240,7 +34228,7 @@ pub unsafe fn csyrfsx(
     af: &[c32],
     ldaf: i32,
     ipiv: &[i32],
-    s: &mut [f32],
+    s: &[f32],
     b: &[c32],
     ldb: i32,
     x: &mut [c32],
@@ -30255,6 +34243,8 @@ pub unsafe fn csyrfsx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::csyrfsx_(
         &(uplo as c_char),
@@ -30266,7 +34256,7 @@ pub unsafe fn csyrfsx(
         af.as_ptr() as *const _,
         &ldaf,
         ipiv.as_ptr(),
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -30281,6 +34271,8 @@ pub unsafe fn csyrfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -30295,7 +34287,7 @@ pub unsafe fn dsyrfsx(
     af: &[f64],
     ldaf: i32,
     ipiv: &[i32],
-    s: &mut [f64],
+    s: &[f64],
     b: &[f64],
     ldb: i32,
     x: &mut [f64],
@@ -30310,6 +34302,8 @@ pub unsafe fn dsyrfsx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsyrfsx_(
         &(uplo as c_char),
@@ -30321,7 +34315,7 @@ pub unsafe fn dsyrfsx(
         af.as_ptr(),
         &ldaf,
         ipiv.as_ptr(),
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr(),
         &ldb,
         x.as_mut_ptr(),
@@ -30336,6 +34330,8 @@ pub unsafe fn dsyrfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -30350,7 +34346,7 @@ pub unsafe fn ssyrfsx(
     af: &[f32],
     ldaf: i32,
     ipiv: &[i32],
-    s: &mut [f32],
+    s: &[f32],
     b: &[f32],
     ldb: i32,
     x: &mut [f32],
@@ -30365,6 +34361,8 @@ pub unsafe fn ssyrfsx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssyrfsx_(
         &(uplo as c_char),
@@ -30376,7 +34374,7 @@ pub unsafe fn ssyrfsx(
         af.as_ptr(),
         &ldaf,
         ipiv.as_ptr(),
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr(),
         &ldb,
         x.as_mut_ptr(),
@@ -30391,6 +34389,8 @@ pub unsafe fn ssyrfsx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -30405,7 +34405,7 @@ pub unsafe fn zsyrfsx(
     af: &[c64],
     ldaf: i32,
     ipiv: &[i32],
-    s: &mut [f64],
+    s: &[f64],
     b: &[c64],
     ldb: i32,
     x: &mut [c64],
@@ -30420,6 +34420,8 @@ pub unsafe fn zsyrfsx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zsyrfsx_(
         &(uplo as c_char),
@@ -30431,7 +34433,7 @@ pub unsafe fn zsyrfsx(
         af.as_ptr() as *const _,
         &ldaf,
         ipiv.as_ptr(),
-        s.as_mut_ptr(),
+        s.as_ptr(),
         b.as_ptr() as *const _,
         &ldb,
         x.as_mut_ptr() as *mut _,
@@ -30446,6 +34448,8 @@ pub unsafe fn zsyrfsx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -30462,6 +34466,7 @@ pub unsafe fn csysv(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csysv_(
         &(uplo as c_char),
@@ -30475,6 +34480,7 @@ pub unsafe fn csysv(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30491,6 +34497,7 @@ pub unsafe fn dsysv(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsysv_(
         &(uplo as c_char),
@@ -30504,6 +34511,7 @@ pub unsafe fn dsysv(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30520,6 +34528,7 @@ pub unsafe fn ssysv(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssysv_(
         &(uplo as c_char),
@@ -30533,6 +34542,7 @@ pub unsafe fn ssysv(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30549,6 +34559,7 @@ pub unsafe fn zsysv(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsysv_(
         &(uplo as c_char),
@@ -30562,6 +34573,7 @@ pub unsafe fn zsysv(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30578,6 +34590,7 @@ pub unsafe fn csysv_aa(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csysv_aa_(
         &(uplo as c_char),
@@ -30591,6 +34604,7 @@ pub unsafe fn csysv_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30607,6 +34621,7 @@ pub unsafe fn dsysv_aa(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsysv_aa_(
         &(uplo as c_char),
@@ -30620,6 +34635,7 @@ pub unsafe fn dsysv_aa(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30636,6 +34652,7 @@ pub unsafe fn ssysv_aa(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssysv_aa_(
         &(uplo as c_char),
@@ -30649,6 +34666,7 @@ pub unsafe fn ssysv_aa(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30665,6 +34683,7 @@ pub unsafe fn zsysv_aa(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsysv_aa_(
         &(uplo as c_char),
@@ -30678,6 +34697,7 @@ pub unsafe fn zsysv_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30697,6 +34717,7 @@ pub unsafe fn csysv_aa_2stage(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csysv_aa_2stage_(
         &(uplo as c_char),
@@ -30713,6 +34734,7 @@ pub unsafe fn csysv_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30732,6 +34754,7 @@ pub unsafe fn dsysv_aa_2stage(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsysv_aa_2stage_(
         &(uplo as c_char),
@@ -30748,6 +34771,7 @@ pub unsafe fn dsysv_aa_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30767,6 +34791,7 @@ pub unsafe fn ssysv_aa_2stage(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssysv_aa_2stage_(
         &(uplo as c_char),
@@ -30783,6 +34808,7 @@ pub unsafe fn ssysv_aa_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30802,6 +34828,7 @@ pub unsafe fn zsysv_aa_2stage(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsysv_aa_2stage_(
         &(uplo as c_char),
@@ -30818,6 +34845,7 @@ pub unsafe fn zsysv_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30835,6 +34863,7 @@ pub unsafe fn csysv_rk(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csysv_rk_(
         &(uplo as c_char),
@@ -30849,6 +34878,7 @@ pub unsafe fn csysv_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30866,6 +34896,7 @@ pub unsafe fn dsysv_rk(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsysv_rk_(
         &(uplo as c_char),
@@ -30880,6 +34911,7 @@ pub unsafe fn dsysv_rk(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30897,6 +34929,7 @@ pub unsafe fn ssysv_rk(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssysv_rk_(
         &(uplo as c_char),
@@ -30911,6 +34944,7 @@ pub unsafe fn ssysv_rk(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30928,6 +34962,7 @@ pub unsafe fn zsysv_rk(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsysv_rk_(
         &(uplo as c_char),
@@ -30942,6 +34977,7 @@ pub unsafe fn zsysv_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30958,6 +34994,7 @@ pub unsafe fn csysv_rook(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csysv_rook_(
         &(uplo as c_char),
@@ -30971,6 +35008,7 @@ pub unsafe fn csysv_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -30987,6 +35025,7 @@ pub unsafe fn dsysv_rook(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsysv_rook_(
         &(uplo as c_char),
@@ -31000,6 +35039,7 @@ pub unsafe fn dsysv_rook(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31016,6 +35056,7 @@ pub unsafe fn ssysv_rook(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssysv_rook_(
         &(uplo as c_char),
@@ -31029,6 +35070,7 @@ pub unsafe fn ssysv_rook(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31045,6 +35087,7 @@ pub unsafe fn zsysv_rook(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsysv_rook_(
         &(uplo as c_char),
@@ -31058,6 +35101,7 @@ pub unsafe fn zsysv_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31083,6 +35127,8 @@ pub unsafe fn csysvx(
     lwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::csysvx_(
         &(fact as c_char),
@@ -31105,6 +35151,8 @@ pub unsafe fn csysvx(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -31130,6 +35178,8 @@ pub unsafe fn dsysvx(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsysvx_(
         &(fact as c_char),
@@ -31152,6 +35202,8 @@ pub unsafe fn dsysvx(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -31177,6 +35229,8 @@ pub unsafe fn ssysvx(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssysvx_(
         &(fact as c_char),
@@ -31199,6 +35253,8 @@ pub unsafe fn ssysvx(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -31224,6 +35280,8 @@ pub unsafe fn zsysvx(
     lwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zsysvx_(
         &(fact as c_char),
@@ -31246,6 +35304,8 @@ pub unsafe fn zsysvx(
         &lwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -31277,6 +35337,9 @@ pub unsafe fn csysvxx(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::csysvxx_(
         &(fact as c_char),
@@ -31305,6 +35368,9 @@ pub unsafe fn csysvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -31336,6 +35402,9 @@ pub unsafe fn dsysvxx(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dsysvxx_(
         &(fact as c_char),
@@ -31364,6 +35433,9 @@ pub unsafe fn dsysvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -31395,6 +35467,9 @@ pub unsafe fn ssysvxx(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ssysvxx_(
         &(fact as c_char),
@@ -31423,6 +35498,9 @@ pub unsafe fn ssysvxx(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -31454,6 +35532,9 @@ pub unsafe fn zsysvxx(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zsysvxx_(
         &(fact as c_char),
@@ -31482,11 +35563,22 @@ pub unsafe fn zsysvxx(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn csyswapr(uplo: u8, n: i32, a: &mut [c32], lda: i32, i1: &[i32], i2: &[i32]) {
+pub unsafe fn csyswapr(
+    uplo: u8,
+    n: i32,
+    a: &mut [c32],
+    lda: i32,
+    i1: &[i32],
+    i2: &[i32],
+    arg1: usize,
+) {
     ffi::csyswapr_(
         &(uplo as c_char),
         &n,
@@ -31494,11 +35586,20 @@ pub unsafe fn csyswapr(uplo: u8, n: i32, a: &mut [c32], lda: i32, i1: &[i32], i2
         &lda,
         i1.as_ptr(),
         i2.as_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dsyswapr(uplo: u8, n: i32, a: &mut [f64], lda: i32, i1: &[i32], i2: &[i32]) {
+pub unsafe fn dsyswapr(
+    uplo: u8,
+    n: i32,
+    a: &mut [f64],
+    lda: i32,
+    i1: &[i32],
+    i2: &[i32],
+    arg1: usize,
+) {
     ffi::dsyswapr_(
         &(uplo as c_char),
         &n,
@@ -31506,11 +35607,20 @@ pub unsafe fn dsyswapr(uplo: u8, n: i32, a: &mut [f64], lda: i32, i1: &[i32], i2
         &lda,
         i1.as_ptr(),
         i2.as_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn ssyswapr(uplo: u8, n: i32, a: &mut [f32], lda: i32, i1: &[i32], i2: &[i32]) {
+pub unsafe fn ssyswapr(
+    uplo: u8,
+    n: i32,
+    a: &mut [f32],
+    lda: i32,
+    i1: &[i32],
+    i2: &[i32],
+    arg1: usize,
+) {
     ffi::ssyswapr_(
         &(uplo as c_char),
         &n,
@@ -31518,11 +35628,20 @@ pub unsafe fn ssyswapr(uplo: u8, n: i32, a: &mut [f32], lda: i32, i1: &[i32], i2
         &lda,
         i1.as_ptr(),
         i2.as_ptr(),
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn zsyswapr(uplo: u8, n: i32, a: &mut [c64], lda: i32, i1: &[i32], i2: &[i32]) {
+pub unsafe fn zsyswapr(
+    uplo: u8,
+    n: i32,
+    a: &mut [c64],
+    lda: i32,
+    i1: &[i32],
+    i2: &[i32],
+    arg1: usize,
+) {
     ffi::zsyswapr_(
         &(uplo as c_char),
         &n,
@@ -31530,6 +35649,7 @@ pub unsafe fn zsyswapr(uplo: u8, n: i32, a: &mut [c64], lda: i32, i1: &[i32], i2
         &lda,
         i1.as_ptr(),
         i2.as_ptr(),
+        arg1,
     )
 }
 
@@ -31545,6 +35665,7 @@ pub unsafe fn dsytrd(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrd_(
         &(uplo as c_char),
@@ -31557,6 +35678,7 @@ pub unsafe fn dsytrd(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31572,6 +35694,7 @@ pub unsafe fn ssytrd(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrd_(
         &(uplo as c_char),
@@ -31584,6 +35707,7 @@ pub unsafe fn ssytrd(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31602,6 +35726,8 @@ pub unsafe fn dsytrd_2stage(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dsytrd_2stage_(
         &(vect as c_char),
@@ -31617,6 +35743,8 @@ pub unsafe fn dsytrd_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -31635,6 +35763,8 @@ pub unsafe fn ssytrd_2stage(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ssytrd_2stage_(
         &(vect as c_char),
@@ -31650,6 +35780,8 @@ pub unsafe fn ssytrd_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -31663,6 +35795,7 @@ pub unsafe fn csytrf(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrf_(
         &(uplo as c_char),
@@ -31673,6 +35806,7 @@ pub unsafe fn csytrf(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31686,6 +35820,7 @@ pub unsafe fn dsytrf(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrf_(
         &(uplo as c_char),
@@ -31696,6 +35831,7 @@ pub unsafe fn dsytrf(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31709,6 +35845,7 @@ pub unsafe fn ssytrf(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrf_(
         &(uplo as c_char),
@@ -31719,6 +35856,7 @@ pub unsafe fn ssytrf(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31732,6 +35870,7 @@ pub unsafe fn zsytrf(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrf_(
         &(uplo as c_char),
@@ -31742,6 +35881,7 @@ pub unsafe fn zsytrf(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31755,6 +35895,7 @@ pub unsafe fn csytrf_aa(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrf_aa_(
         &(uplo as c_char),
@@ -31765,6 +35906,7 @@ pub unsafe fn csytrf_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31778,6 +35920,7 @@ pub unsafe fn dsytrf_aa(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrf_aa_(
         &(uplo as c_char),
@@ -31788,6 +35931,7 @@ pub unsafe fn dsytrf_aa(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31801,6 +35945,7 @@ pub unsafe fn ssytrf_aa(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrf_aa_(
         &(uplo as c_char),
@@ -31811,6 +35956,7 @@ pub unsafe fn ssytrf_aa(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31824,6 +35970,7 @@ pub unsafe fn zsytrf_aa(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrf_aa_(
         &(uplo as c_char),
@@ -31834,6 +35981,7 @@ pub unsafe fn zsytrf_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31850,6 +35998,7 @@ pub unsafe fn csytrf_aa_2stage(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrf_aa_2stage_(
         &(uplo as c_char),
@@ -31863,6 +36012,7 @@ pub unsafe fn csytrf_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31879,6 +36029,7 @@ pub unsafe fn dsytrf_aa_2stage(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrf_aa_2stage_(
         &(uplo as c_char),
@@ -31892,6 +36043,7 @@ pub unsafe fn dsytrf_aa_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31908,6 +36060,7 @@ pub unsafe fn ssytrf_aa_2stage(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrf_aa_2stage_(
         &(uplo as c_char),
@@ -31921,6 +36074,7 @@ pub unsafe fn ssytrf_aa_2stage(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31937,6 +36091,7 @@ pub unsafe fn zsytrf_aa_2stage(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrf_aa_2stage_(
         &(uplo as c_char),
@@ -31950,6 +36105,7 @@ pub unsafe fn zsytrf_aa_2stage(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31964,6 +36120,7 @@ pub unsafe fn csytrf_rk(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrf_rk_(
         &(uplo as c_char),
@@ -31975,6 +36132,7 @@ pub unsafe fn csytrf_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -31989,6 +36147,7 @@ pub unsafe fn dsytrf_rk(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrf_rk_(
         &(uplo as c_char),
@@ -32000,6 +36159,7 @@ pub unsafe fn dsytrf_rk(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32014,6 +36174,7 @@ pub unsafe fn ssytrf_rk(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrf_rk_(
         &(uplo as c_char),
@@ -32025,6 +36186,7 @@ pub unsafe fn ssytrf_rk(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32039,6 +36201,7 @@ pub unsafe fn zsytrf_rk(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrf_rk_(
         &(uplo as c_char),
@@ -32050,6 +36213,7 @@ pub unsafe fn zsytrf_rk(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32063,6 +36227,7 @@ pub unsafe fn csytrf_rook(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrf_rook_(
         &(uplo as c_char),
@@ -32073,6 +36238,7 @@ pub unsafe fn csytrf_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32086,6 +36252,7 @@ pub unsafe fn dsytrf_rook(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrf_rook_(
         &(uplo as c_char),
@@ -32096,6 +36263,7 @@ pub unsafe fn dsytrf_rook(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32109,6 +36277,7 @@ pub unsafe fn ssytrf_rook(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrf_rook_(
         &(uplo as c_char),
@@ -32119,6 +36288,7 @@ pub unsafe fn ssytrf_rook(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32132,6 +36302,7 @@ pub unsafe fn zsytrf_rook(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrf_rook_(
         &(uplo as c_char),
@@ -32142,6 +36313,7 @@ pub unsafe fn zsytrf_rook(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32154,6 +36326,7 @@ pub unsafe fn csytri(
     ipiv: &[i32],
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytri_(
         &(uplo as c_char),
@@ -32163,6 +36336,7 @@ pub unsafe fn csytri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -32175,6 +36349,7 @@ pub unsafe fn dsytri(
     ipiv: &[i32],
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytri_(
         &(uplo as c_char),
@@ -32184,6 +36359,7 @@ pub unsafe fn dsytri(
         ipiv.as_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -32196,6 +36372,7 @@ pub unsafe fn ssytri(
     ipiv: &[i32],
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytri_(
         &(uplo as c_char),
@@ -32205,6 +36382,7 @@ pub unsafe fn ssytri(
         ipiv.as_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -32217,6 +36395,7 @@ pub unsafe fn zsytri(
     ipiv: &[i32],
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytri_(
         &(uplo as c_char),
@@ -32226,6 +36405,7 @@ pub unsafe fn zsytri(
         ipiv.as_ptr(),
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -32239,6 +36419,7 @@ pub unsafe fn csytri2(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytri2_(
         &(uplo as c_char),
@@ -32249,6 +36430,7 @@ pub unsafe fn csytri2(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32262,6 +36444,7 @@ pub unsafe fn dsytri2(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytri2_(
         &(uplo as c_char),
@@ -32272,6 +36455,7 @@ pub unsafe fn dsytri2(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32285,6 +36469,7 @@ pub unsafe fn ssytri2(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytri2_(
         &(uplo as c_char),
@@ -32295,6 +36480,7 @@ pub unsafe fn ssytri2(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32308,6 +36494,7 @@ pub unsafe fn zsytri2(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytri2_(
         &(uplo as c_char),
@@ -32318,6 +36505,7 @@ pub unsafe fn zsytri2(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32331,6 +36519,7 @@ pub unsafe fn csytri2x(
     work: &mut [c32],
     nb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytri2x_(
         &(uplo as c_char),
@@ -32341,6 +36530,7 @@ pub unsafe fn csytri2x(
         work.as_mut_ptr() as *mut _,
         &nb,
         info,
+        arg1,
     )
 }
 
@@ -32354,6 +36544,7 @@ pub unsafe fn dsytri2x(
     work: &mut [f64],
     nb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytri2x_(
         &(uplo as c_char),
@@ -32364,6 +36555,7 @@ pub unsafe fn dsytri2x(
         work.as_mut_ptr(),
         &nb,
         info,
+        arg1,
     )
 }
 
@@ -32377,6 +36569,7 @@ pub unsafe fn ssytri2x(
     work: &mut [f32],
     nb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytri2x_(
         &(uplo as c_char),
@@ -32387,6 +36580,7 @@ pub unsafe fn ssytri2x(
         work.as_mut_ptr(),
         &nb,
         info,
+        arg1,
     )
 }
 
@@ -32400,6 +36594,7 @@ pub unsafe fn zsytri2x(
     work: &mut [c64],
     nb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytri2x_(
         &(uplo as c_char),
@@ -32410,6 +36605,7 @@ pub unsafe fn zsytri2x(
         work.as_mut_ptr() as *mut _,
         &nb,
         info,
+        arg1,
     )
 }
 
@@ -32424,6 +36620,7 @@ pub unsafe fn csytri_3(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytri_3_(
         &(uplo as c_char),
@@ -32435,6 +36632,7 @@ pub unsafe fn csytri_3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32449,6 +36647,7 @@ pub unsafe fn dsytri_3(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytri_3_(
         &(uplo as c_char),
@@ -32460,6 +36659,7 @@ pub unsafe fn dsytri_3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32474,6 +36674,7 @@ pub unsafe fn ssytri_3(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytri_3_(
         &(uplo as c_char),
@@ -32485,6 +36686,7 @@ pub unsafe fn ssytri_3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32499,6 +36701,7 @@ pub unsafe fn zsytri_3(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytri_3_(
         &(uplo as c_char),
@@ -32510,6 +36713,7 @@ pub unsafe fn zsytri_3(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32524,6 +36728,7 @@ pub unsafe fn csytrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrs_(
         &(uplo as c_char),
@@ -32535,6 +36740,7 @@ pub unsafe fn csytrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32549,6 +36755,7 @@ pub unsafe fn dsytrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrs_(
         &(uplo as c_char),
@@ -32560,6 +36767,7 @@ pub unsafe fn dsytrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32574,6 +36782,7 @@ pub unsafe fn ssytrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrs_(
         &(uplo as c_char),
@@ -32585,6 +36794,7 @@ pub unsafe fn ssytrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32599,6 +36809,7 @@ pub unsafe fn zsytrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrs_(
         &(uplo as c_char),
@@ -32610,6 +36821,7 @@ pub unsafe fn zsytrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32618,25 +36830,27 @@ pub unsafe fn csytrs2(
     uplo: u8,
     n: i32,
     nrhs: i32,
-    a: &mut [c32],
+    a: &[c32],
     lda: i32,
     ipiv: &[i32],
     b: &mut [c32],
     ldb: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrs2_(
         &(uplo as c_char),
         &n,
         &nrhs,
-        a.as_mut_ptr() as *mut _,
+        a.as_ptr() as *const _,
         &lda,
         ipiv.as_ptr(),
         b.as_mut_ptr() as *mut _,
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -32645,25 +36859,27 @@ pub unsafe fn dsytrs2(
     uplo: u8,
     n: i32,
     nrhs: i32,
-    a: &mut [f64],
+    a: &[f64],
     lda: i32,
     ipiv: &[i32],
     b: &mut [f64],
     ldb: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrs2_(
         &(uplo as c_char),
         &n,
         &nrhs,
-        a.as_mut_ptr(),
+        a.as_ptr(),
         &lda,
         ipiv.as_ptr(),
         b.as_mut_ptr(),
         &ldb,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -32672,25 +36888,27 @@ pub unsafe fn ssytrs2(
     uplo: u8,
     n: i32,
     nrhs: i32,
-    a: &mut [f32],
+    a: &[f32],
     lda: i32,
     ipiv: &[i32],
     b: &mut [f32],
     ldb: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrs2_(
         &(uplo as c_char),
         &n,
         &nrhs,
-        a.as_mut_ptr(),
+        a.as_ptr(),
         &lda,
         ipiv.as_ptr(),
         b.as_mut_ptr(),
         &ldb,
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -32699,25 +36917,27 @@ pub unsafe fn zsytrs2(
     uplo: u8,
     n: i32,
     nrhs: i32,
-    a: &mut [c64],
+    a: &[c64],
     lda: i32,
     ipiv: &[i32],
     b: &mut [c64],
     ldb: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrs2_(
         &(uplo as c_char),
         &n,
         &nrhs,
-        a.as_mut_ptr() as *mut _,
+        a.as_ptr() as *const _,
         &lda,
         ipiv.as_ptr(),
         b.as_mut_ptr() as *mut _,
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -32733,6 +36953,7 @@ pub unsafe fn csytrs_3(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrs_3_(
         &(uplo as c_char),
@@ -32745,6 +36966,7 @@ pub unsafe fn csytrs_3(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32760,6 +36982,7 @@ pub unsafe fn dsytrs_3(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrs_3_(
         &(uplo as c_char),
@@ -32772,6 +36995,7 @@ pub unsafe fn dsytrs_3(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32787,6 +37011,7 @@ pub unsafe fn ssytrs_3(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrs_3_(
         &(uplo as c_char),
@@ -32799,6 +37024,7 @@ pub unsafe fn ssytrs_3(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32814,6 +37040,7 @@ pub unsafe fn zsytrs_3(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrs_3_(
         &(uplo as c_char),
@@ -32826,6 +37053,7 @@ pub unsafe fn zsytrs_3(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32842,6 +37070,7 @@ pub unsafe fn csytrs_aa(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrs_aa_(
         &(uplo as c_char),
@@ -32855,6 +37084,7 @@ pub unsafe fn csytrs_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32871,6 +37101,7 @@ pub unsafe fn dsytrs_aa(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrs_aa_(
         &(uplo as c_char),
@@ -32884,6 +37115,7 @@ pub unsafe fn dsytrs_aa(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32900,6 +37132,7 @@ pub unsafe fn ssytrs_aa(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrs_aa_(
         &(uplo as c_char),
@@ -32913,6 +37146,7 @@ pub unsafe fn ssytrs_aa(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32929,6 +37163,7 @@ pub unsafe fn zsytrs_aa(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrs_aa_(
         &(uplo as c_char),
@@ -32942,6 +37177,7 @@ pub unsafe fn zsytrs_aa(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -32959,6 +37195,7 @@ pub unsafe fn csytrs_aa_2stage(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrs_aa_2stage_(
         &(uplo as c_char),
@@ -32973,6 +37210,7 @@ pub unsafe fn csytrs_aa_2stage(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -32990,6 +37228,7 @@ pub unsafe fn dsytrs_aa_2stage(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrs_aa_2stage_(
         &(uplo as c_char),
@@ -33004,6 +37243,7 @@ pub unsafe fn dsytrs_aa_2stage(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -33021,6 +37261,7 @@ pub unsafe fn ssytrs_aa_2stage(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrs_aa_2stage_(
         &(uplo as c_char),
@@ -33035,6 +37276,7 @@ pub unsafe fn ssytrs_aa_2stage(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -33052,6 +37294,7 @@ pub unsafe fn zsytrs_aa_2stage(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrs_aa_2stage_(
         &(uplo as c_char),
@@ -33066,6 +37309,7 @@ pub unsafe fn zsytrs_aa_2stage(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -33080,6 +37324,7 @@ pub unsafe fn csytrs_rook(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::csytrs_rook_(
         &(uplo as c_char),
@@ -33091,6 +37336,7 @@ pub unsafe fn csytrs_rook(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -33105,6 +37351,7 @@ pub unsafe fn dsytrs_rook(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dsytrs_rook_(
         &(uplo as c_char),
@@ -33116,6 +37363,7 @@ pub unsafe fn dsytrs_rook(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -33130,6 +37378,7 @@ pub unsafe fn ssytrs_rook(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ssytrs_rook_(
         &(uplo as c_char),
@@ -33141,6 +37390,7 @@ pub unsafe fn ssytrs_rook(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -33155,6 +37405,7 @@ pub unsafe fn zsytrs_rook(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zsytrs_rook_(
         &(uplo as c_char),
@@ -33166,6 +37417,7 @@ pub unsafe fn zsytrs_rook(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
     )
 }
 
@@ -33182,6 +37434,9 @@ pub unsafe fn ctbcon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctbcon_(
         &(norm as c_char),
@@ -33195,6 +37450,9 @@ pub unsafe fn ctbcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33211,6 +37469,9 @@ pub unsafe fn dtbcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtbcon_(
         &(norm as c_char),
@@ -33224,6 +37485,9 @@ pub unsafe fn dtbcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33240,6 +37504,9 @@ pub unsafe fn stbcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::stbcon_(
         &(norm as c_char),
@@ -33253,6 +37520,9 @@ pub unsafe fn stbcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33269,6 +37539,9 @@ pub unsafe fn ztbcon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztbcon_(
         &(norm as c_char),
@@ -33282,6 +37555,9 @@ pub unsafe fn ztbcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33304,6 +37580,9 @@ pub unsafe fn ctbrfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctbrfs_(
         &(uplo as c_char),
@@ -33323,6 +37602,9 @@ pub unsafe fn ctbrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33345,6 +37627,9 @@ pub unsafe fn dtbrfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtbrfs_(
         &(uplo as c_char),
@@ -33364,6 +37649,9 @@ pub unsafe fn dtbrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33386,6 +37674,9 @@ pub unsafe fn stbrfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::stbrfs_(
         &(uplo as c_char),
@@ -33405,6 +37696,9 @@ pub unsafe fn stbrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33427,6 +37721,9 @@ pub unsafe fn ztbrfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztbrfs_(
         &(uplo as c_char),
@@ -33446,6 +37743,9 @@ pub unsafe fn ztbrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33462,6 +37762,9 @@ pub unsafe fn ctbtrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctbtrs_(
         &(uplo as c_char),
@@ -33475,6 +37778,9 @@ pub unsafe fn ctbtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33491,6 +37797,9 @@ pub unsafe fn dtbtrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtbtrs_(
         &(uplo as c_char),
@@ -33504,6 +37813,9 @@ pub unsafe fn dtbtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33520,6 +37832,9 @@ pub unsafe fn stbtrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::stbtrs_(
         &(uplo as c_char),
@@ -33533,6 +37848,9 @@ pub unsafe fn stbtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33549,6 +37867,9 @@ pub unsafe fn ztbtrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztbtrs_(
         &(uplo as c_char),
@@ -33562,6 +37883,9 @@ pub unsafe fn ztbtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -33578,6 +37902,11 @@ pub unsafe fn ctfsm(
     a: &[c32],
     b: &mut [c32],
     ldb: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::ctfsm_(
         &(transr as c_char),
@@ -33591,6 +37920,11 @@ pub unsafe fn ctfsm(
         a.as_ptr() as *const _,
         b.as_mut_ptr() as *mut _,
         &ldb,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -33607,6 +37941,11 @@ pub unsafe fn dtfsm(
     a: &[f64],
     b: &mut [f64],
     ldb: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::dtfsm_(
         &(transr as c_char),
@@ -33620,6 +37959,11 @@ pub unsafe fn dtfsm(
         a.as_ptr(),
         b.as_mut_ptr(),
         &ldb,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -33636,6 +37980,11 @@ pub unsafe fn stfsm(
     a: &[f32],
     b: &mut [f32],
     ldb: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::stfsm_(
         &(transr as c_char),
@@ -33649,6 +37998,11 @@ pub unsafe fn stfsm(
         a.as_ptr(),
         b.as_mut_ptr(),
         &ldb,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
@@ -33665,6 +38019,11 @@ pub unsafe fn ztfsm(
     a: &[c64],
     b: &mut [c64],
     ldb: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
 ) {
     ffi::ztfsm_(
         &(transr as c_char),
@@ -33678,11 +38037,26 @@ pub unsafe fn ztfsm(
         a.as_ptr() as *const _,
         b.as_mut_ptr() as *mut _,
         &ldb,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
     )
 }
 
 #[inline]
-pub unsafe fn ctftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [c32], info: &mut i32) {
+pub unsafe fn ctftri(
+    transr: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [c32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) {
     ffi::ctftri_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33690,11 +38064,24 @@ pub unsafe fn ctftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [c32], info
         &n,
         a.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn dtftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [f64], info: &mut i32) {
+pub unsafe fn dtftri(
+    transr: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) {
     ffi::dtftri_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33702,11 +38089,24 @@ pub unsafe fn dtftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [f64], info
         &n,
         a.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn stftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [f32], info: &mut i32) {
+pub unsafe fn stftri(
+    transr: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) {
     ffi::stftri_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33714,11 +38114,24 @@ pub unsafe fn stftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [f32], info
         &n,
         a.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn ztftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [c64], info: &mut i32) {
+pub unsafe fn ztftri(
+    transr: u8,
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [c64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+) {
     ffi::ztftri_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33726,11 +38139,23 @@ pub unsafe fn ztftri(transr: u8, uplo: u8, diag: u8, n: i32, a: &mut [c64], info
         &n,
         a.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn ctfttp(transr: u8, uplo: u8, n: i32, arf: &[c32], ap: &mut [c32], info: &mut i32) {
+pub unsafe fn ctfttp(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    arf: &[c32],
+    ap: &mut [c32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ctfttp_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33738,11 +38163,22 @@ pub unsafe fn ctfttp(transr: u8, uplo: u8, n: i32, arf: &[c32], ap: &mut [c32], 
         arf.as_ptr() as *const _,
         ap.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dtfttp(transr: u8, uplo: u8, n: i32, arf: &[f64], ap: &mut [f64], info: &mut i32) {
+pub unsafe fn dtfttp(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    arf: &[f64],
+    ap: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::dtfttp_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33750,11 +38186,22 @@ pub unsafe fn dtfttp(transr: u8, uplo: u8, n: i32, arf: &[f64], ap: &mut [f64], 
         arf.as_ptr(),
         ap.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn stfttp(transr: u8, uplo: u8, n: i32, arf: &[f32], ap: &mut [f32], info: &mut i32) {
+pub unsafe fn stfttp(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    arf: &[f32],
+    ap: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::stfttp_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33762,11 +38209,22 @@ pub unsafe fn stfttp(transr: u8, uplo: u8, n: i32, arf: &[f32], ap: &mut [f32], 
         arf.as_ptr(),
         ap.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn ztfttp(transr: u8, uplo: u8, n: i32, arf: &[c64], ap: &mut [c64], info: &mut i32) {
+pub unsafe fn ztfttp(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    arf: &[c64],
+    ap: &mut [c64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ztfttp_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -33774,6 +38232,8 @@ pub unsafe fn ztfttp(transr: u8, uplo: u8, n: i32, arf: &[c64], ap: &mut [c64], 
         arf.as_ptr() as *const _,
         ap.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33786,6 +38246,8 @@ pub unsafe fn ctfttr(
     a: &mut [c32],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctfttr_(
         &(transr as c_char),
@@ -33795,6 +38257,8 @@ pub unsafe fn ctfttr(
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33807,6 +38271,8 @@ pub unsafe fn dtfttr(
     a: &mut [f64],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtfttr_(
         &(transr as c_char),
@@ -33816,6 +38282,8 @@ pub unsafe fn dtfttr(
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33828,6 +38296,8 @@ pub unsafe fn stfttr(
     a: &mut [f32],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::stfttr_(
         &(transr as c_char),
@@ -33837,6 +38307,8 @@ pub unsafe fn stfttr(
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33849,6 +38321,8 @@ pub unsafe fn ztfttr(
     a: &mut [c64],
     lda: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztfttr_(
         &(transr as c_char),
@@ -33858,6 +38332,8 @@ pub unsafe fn ztfttr(
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33880,6 +38356,8 @@ pub unsafe fn ctgevc(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctgevc_(
         &(side as c_char),
@@ -33899,6 +38377,8 @@ pub unsafe fn ctgevc(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33920,6 +38400,8 @@ pub unsafe fn dtgevc(
     m: &mut i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtgevc_(
         &(side as c_char),
@@ -33938,6 +38420,8 @@ pub unsafe fn dtgevc(
         m,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33959,6 +38443,8 @@ pub unsafe fn stgevc(
     m: &mut i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::stgevc_(
         &(side as c_char),
@@ -33977,6 +38463,8 @@ pub unsafe fn stgevc(
         m,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -33999,6 +38487,8 @@ pub unsafe fn ztgevc(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztgevc_(
         &(side as c_char),
@@ -34018,6 +38508,8 @@ pub unsafe fn ztgevc(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -34420,6 +38912,9 @@ pub unsafe fn ctgsja(
     work: &mut [c32],
     ncycle: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctgsja_(
         &(jobu as c_char),
@@ -34447,6 +38942,9 @@ pub unsafe fn ctgsja(
         work.as_mut_ptr() as *mut _,
         ncycle.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -34477,6 +38975,9 @@ pub unsafe fn dtgsja(
     work: &mut [f64],
     ncycle: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtgsja_(
         &(jobu as c_char),
@@ -34504,6 +39005,9 @@ pub unsafe fn dtgsja(
         work.as_mut_ptr(),
         ncycle.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -34534,6 +39038,9 @@ pub unsafe fn stgsja(
     work: &mut [f32],
     ncycle: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::stgsja_(
         &(jobu as c_char),
@@ -34561,6 +39068,9 @@ pub unsafe fn stgsja(
         work.as_mut_ptr(),
         ncycle.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -34591,6 +39101,9 @@ pub unsafe fn ztgsja(
     work: &mut [c64],
     ncycle: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztgsja_(
         &(jobu as c_char),
@@ -34618,6 +39131,9 @@ pub unsafe fn ztgsja(
         work.as_mut_ptr() as *mut _,
         ncycle.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -34643,6 +39159,8 @@ pub unsafe fn ctgsna(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctgsna_(
         &(job as c_char),
@@ -34665,6 +39183,8 @@ pub unsafe fn ctgsna(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -34690,6 +39210,8 @@ pub unsafe fn dtgsna(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtgsna_(
         &(job as c_char),
@@ -34712,6 +39234,8 @@ pub unsafe fn dtgsna(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -34737,6 +39261,8 @@ pub unsafe fn stgsna(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::stgsna_(
         &(job as c_char),
@@ -34759,6 +39285,8 @@ pub unsafe fn stgsna(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -34784,6 +39312,8 @@ pub unsafe fn ztgsna(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztgsna_(
         &(job as c_char),
@@ -34806,6 +39336,8 @@ pub unsafe fn ztgsna(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -34833,6 +39365,7 @@ pub unsafe fn ctgsyl(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ctgsyl_(
         &(trans as c_char),
@@ -34857,6 +39390,7 @@ pub unsafe fn ctgsyl(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -34884,6 +39418,7 @@ pub unsafe fn dtgsyl(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dtgsyl_(
         &(trans as c_char),
@@ -34908,6 +39443,7 @@ pub unsafe fn dtgsyl(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -34935,6 +39471,7 @@ pub unsafe fn stgsyl(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::stgsyl_(
         &(trans as c_char),
@@ -34959,6 +39496,7 @@ pub unsafe fn stgsyl(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -34986,6 +39524,7 @@ pub unsafe fn ztgsyl(
     lwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ztgsyl_(
         &(trans as c_char),
@@ -35010,6 +39549,7 @@ pub unsafe fn ztgsyl(
         &lwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -35024,6 +39564,9 @@ pub unsafe fn ctpcon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctpcon_(
         &(norm as c_char),
@@ -35035,6 +39578,9 @@ pub unsafe fn ctpcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -35049,6 +39595,9 @@ pub unsafe fn dtpcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtpcon_(
         &(norm as c_char),
@@ -35060,6 +39609,9 @@ pub unsafe fn dtpcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -35074,6 +39626,9 @@ pub unsafe fn stpcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::stpcon_(
         &(norm as c_char),
@@ -35085,6 +39640,9 @@ pub unsafe fn stpcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -35099,6 +39657,9 @@ pub unsafe fn ztpcon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztpcon_(
         &(norm as c_char),
@@ -35110,6 +39671,9 @@ pub unsafe fn ztpcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -35364,6 +39928,8 @@ pub unsafe fn ctpmlqt(
     ldb: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctpmlqt_(
         &(side as c_char),
@@ -35383,6 +39949,8 @@ pub unsafe fn ctpmlqt(
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35405,6 +39973,8 @@ pub unsafe fn dtpmlqt(
     ldb: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtpmlqt_(
         &(side as c_char),
@@ -35424,6 +39994,8 @@ pub unsafe fn dtpmlqt(
         &ldb,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35446,6 +40018,8 @@ pub unsafe fn stpmlqt(
     ldb: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::stpmlqt_(
         &(side as c_char),
@@ -35465,6 +40039,8 @@ pub unsafe fn stpmlqt(
         &ldb,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35487,6 +40063,8 @@ pub unsafe fn ztpmlqt(
     ldb: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztpmlqt_(
         &(side as c_char),
@@ -35506,6 +40084,8 @@ pub unsafe fn ztpmlqt(
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35528,6 +40108,8 @@ pub unsafe fn ctpmqrt(
     ldb: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctpmqrt_(
         &(side as c_char),
@@ -35547,6 +40129,8 @@ pub unsafe fn ctpmqrt(
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35569,6 +40153,8 @@ pub unsafe fn dtpmqrt(
     ldb: i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtpmqrt_(
         &(side as c_char),
@@ -35588,6 +40174,8 @@ pub unsafe fn dtpmqrt(
         &ldb,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35610,6 +40198,8 @@ pub unsafe fn stpmqrt(
     ldb: i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::stpmqrt_(
         &(side as c_char),
@@ -35629,6 +40219,8 @@ pub unsafe fn stpmqrt(
         &ldb,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35651,6 +40243,8 @@ pub unsafe fn ztpmqrt(
     ldb: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztpmqrt_(
         &(side as c_char),
@@ -35670,6 +40264,8 @@ pub unsafe fn ztpmqrt(
         &ldb,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -35925,6 +40521,10 @@ pub unsafe fn ctprfb(
     ldb: i32,
     work: &mut [c32],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::ctprfb_(
         &(side as c_char),
@@ -35945,6 +40545,10 @@ pub unsafe fn ctprfb(
         &ldb,
         work.as_mut_ptr() as *mut _,
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -35968,6 +40572,10 @@ pub unsafe fn dtprfb(
     ldb: i32,
     work: &mut [f64],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::dtprfb_(
         &(side as c_char),
@@ -35988,6 +40596,10 @@ pub unsafe fn dtprfb(
         &ldb,
         work.as_mut_ptr(),
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -36011,6 +40623,10 @@ pub unsafe fn stprfb(
     ldb: i32,
     work: &mut [f32],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::stprfb_(
         &(side as c_char),
@@ -36031,6 +40647,10 @@ pub unsafe fn stprfb(
         &ldb,
         work.as_mut_ptr(),
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -36054,6 +40674,10 @@ pub unsafe fn ztprfb(
     ldb: i32,
     work: &mut [c64],
     ldwork: i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
 ) {
     ffi::ztprfb_(
         &(side as c_char),
@@ -36074,6 +40698,10 @@ pub unsafe fn ztprfb(
         &ldb,
         work.as_mut_ptr() as *mut _,
         &ldwork,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
     )
 }
 
@@ -36094,6 +40722,9 @@ pub unsafe fn ctprfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctprfs_(
         &(uplo as c_char),
@@ -36111,6 +40742,9 @@ pub unsafe fn ctprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36131,6 +40765,9 @@ pub unsafe fn dtprfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtprfs_(
         &(uplo as c_char),
@@ -36148,6 +40785,9 @@ pub unsafe fn dtprfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36168,6 +40808,9 @@ pub unsafe fn stprfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::stprfs_(
         &(uplo as c_char),
@@ -36185,6 +40828,9 @@ pub unsafe fn stprfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36205,6 +40851,9 @@ pub unsafe fn ztprfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztprfs_(
         &(uplo as c_char),
@@ -36222,50 +40871,93 @@ pub unsafe fn ztprfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn ctptri(uplo: u8, diag: u8, n: i32, ap: &mut [c32], info: &mut i32) {
+pub unsafe fn ctptri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &mut [c32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ctptri_(
         &(uplo as c_char),
         &(diag as c_char),
         &n,
         ap.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dtptri(uplo: u8, diag: u8, n: i32, ap: &mut [f64], info: &mut i32) {
+pub unsafe fn dtptri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::dtptri_(
         &(uplo as c_char),
         &(diag as c_char),
         &n,
         ap.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn stptri(uplo: u8, diag: u8, n: i32, ap: &mut [f32], info: &mut i32) {
+pub unsafe fn stptri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::stptri_(
         &(uplo as c_char),
         &(diag as c_char),
         &n,
         ap.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn ztptri(uplo: u8, diag: u8, n: i32, ap: &mut [c64], info: &mut i32) {
+pub unsafe fn ztptri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    ap: &mut [c64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ztptri_(
         &(uplo as c_char),
         &(diag as c_char),
         &n,
         ap.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36280,6 +40972,9 @@ pub unsafe fn ctptrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctptrs_(
         &(uplo as c_char),
@@ -36291,6 +40986,9 @@ pub unsafe fn ctptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36305,6 +41003,9 @@ pub unsafe fn dtptrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtptrs_(
         &(uplo as c_char),
@@ -36316,6 +41017,9 @@ pub unsafe fn dtptrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36330,6 +41034,9 @@ pub unsafe fn stptrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::stptrs_(
         &(uplo as c_char),
@@ -36341,6 +41048,9 @@ pub unsafe fn stptrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36355,6 +41065,9 @@ pub unsafe fn ztptrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztptrs_(
         &(uplo as c_char),
@@ -36366,11 +41079,23 @@ pub unsafe fn ztptrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
 #[inline]
-pub unsafe fn ctpttf(transr: u8, uplo: u8, n: i32, ap: &[c32], arf: &mut [c32], info: &mut i32) {
+pub unsafe fn ctpttf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[c32],
+    arf: &mut [c32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ctpttf_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -36378,11 +41103,22 @@ pub unsafe fn ctpttf(transr: u8, uplo: u8, n: i32, ap: &[c32], arf: &mut [c32], 
         ap.as_ptr() as *const _,
         arf.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dtpttf(transr: u8, uplo: u8, n: i32, ap: &[f64], arf: &mut [f64], info: &mut i32) {
+pub unsafe fn dtpttf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[f64],
+    arf: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::dtpttf_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -36390,11 +41126,22 @@ pub unsafe fn dtpttf(transr: u8, uplo: u8, n: i32, ap: &[f64], arf: &mut [f64], 
         ap.as_ptr(),
         arf.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn stpttf(transr: u8, uplo: u8, n: i32, ap: &[f32], arf: &mut [f32], info: &mut i32) {
+pub unsafe fn stpttf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[f32],
+    arf: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::stpttf_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -36402,11 +41149,22 @@ pub unsafe fn stpttf(transr: u8, uplo: u8, n: i32, ap: &[f32], arf: &mut [f32], 
         ap.as_ptr(),
         arf.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn ztpttf(transr: u8, uplo: u8, n: i32, ap: &[c64], arf: &mut [c64], info: &mut i32) {
+pub unsafe fn ztpttf(
+    transr: u8,
+    uplo: u8,
+    n: i32,
+    ap: &[c64],
+    arf: &mut [c64],
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ztpttf_(
         &(transr as c_char),
         &(uplo as c_char),
@@ -36414,11 +41172,21 @@ pub unsafe fn ztpttf(transr: u8, uplo: u8, n: i32, ap: &[c64], arf: &mut [c64], 
         ap.as_ptr() as *const _,
         arf.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn ctpttr(uplo: u8, n: i32, ap: &[c32], a: &mut [c32], lda: i32, info: &mut i32) {
+pub unsafe fn ctpttr(
+    uplo: u8,
+    n: i32,
+    ap: &[c32],
+    a: &mut [c32],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::ctpttr_(
         &(uplo as c_char),
         &n,
@@ -36426,11 +41194,20 @@ pub unsafe fn ctpttr(uplo: u8, n: i32, ap: &[c32], a: &mut [c32], lda: i32, info
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dtpttr(uplo: u8, n: i32, ap: &[f64], a: &mut [f64], lda: i32, info: &mut i32) {
+pub unsafe fn dtpttr(
+    uplo: u8,
+    n: i32,
+    ap: &[f64],
+    a: &mut [f64],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::dtpttr_(
         &(uplo as c_char),
         &n,
@@ -36438,11 +41215,20 @@ pub unsafe fn dtpttr(uplo: u8, n: i32, ap: &[f64], a: &mut [f64], lda: i32, info
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn stpttr(uplo: u8, n: i32, ap: &[f32], a: &mut [f32], lda: i32, info: &mut i32) {
+pub unsafe fn stpttr(
+    uplo: u8,
+    n: i32,
+    ap: &[f32],
+    a: &mut [f32],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::stpttr_(
         &(uplo as c_char),
         &n,
@@ -36450,11 +41236,20 @@ pub unsafe fn stpttr(uplo: u8, n: i32, ap: &[f32], a: &mut [f32], lda: i32, info
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn ztpttr(uplo: u8, n: i32, ap: &[c64], a: &mut [c64], lda: i32, info: &mut i32) {
+pub unsafe fn ztpttr(
+    uplo: u8,
+    n: i32,
+    ap: &[c64],
+    a: &mut [c64],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::ztpttr_(
         &(uplo as c_char),
         &n,
@@ -36462,6 +41257,7 @@ pub unsafe fn ztpttr(uplo: u8, n: i32, ap: &[c64], a: &mut [c64], lda: i32, info
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
     )
 }
 
@@ -36477,6 +41273,9 @@ pub unsafe fn ctrcon(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctrcon_(
         &(norm as c_char),
@@ -36489,6 +41288,9 @@ pub unsafe fn ctrcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36504,6 +41306,9 @@ pub unsafe fn dtrcon(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtrcon_(
         &(norm as c_char),
@@ -36516,6 +41321,9 @@ pub unsafe fn dtrcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36531,6 +41339,9 @@ pub unsafe fn strcon(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::strcon_(
         &(norm as c_char),
@@ -36543,6 +41354,9 @@ pub unsafe fn strcon(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36558,6 +41372,9 @@ pub unsafe fn ztrcon(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztrcon_(
         &(norm as c_char),
@@ -36570,6 +41387,9 @@ pub unsafe fn ztrcon(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -36590,6 +41410,8 @@ pub unsafe fn ctrevc(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctrevc_(
         &(side as c_char),
@@ -36607,6 +41429,8 @@ pub unsafe fn ctrevc(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36626,6 +41450,8 @@ pub unsafe fn dtrevc(
     m: &mut i32,
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtrevc_(
         &(side as c_char),
@@ -36642,6 +41468,8 @@ pub unsafe fn dtrevc(
         m,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36661,6 +41489,8 @@ pub unsafe fn strevc(
     m: &mut i32,
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::strevc_(
         &(side as c_char),
@@ -36677,6 +41507,8 @@ pub unsafe fn strevc(
         m,
         work.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36697,6 +41529,8 @@ pub unsafe fn ztrevc(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztrevc_(
         &(side as c_char),
@@ -36714,6 +41548,8 @@ pub unsafe fn ztrevc(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36736,6 +41572,8 @@ pub unsafe fn ctrevc3(
     rwork: &mut [f32],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctrevc3_(
         &(side as c_char),
@@ -36755,6 +41593,8 @@ pub unsafe fn ctrevc3(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36775,6 +41615,8 @@ pub unsafe fn dtrevc3(
     work: &mut [f64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtrevc3_(
         &(side as c_char),
@@ -36792,6 +41634,8 @@ pub unsafe fn dtrevc3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36812,6 +41656,8 @@ pub unsafe fn strevc3(
     work: &mut [f32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::strevc3_(
         &(side as c_char),
@@ -36829,6 +41675,8 @@ pub unsafe fn strevc3(
         work.as_mut_ptr(),
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36851,6 +41699,8 @@ pub unsafe fn ztrevc3(
     rwork: &mut [f64],
     lrwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztrevc3_(
         &(side as c_char),
@@ -36870,6 +41720,8 @@ pub unsafe fn ztrevc3(
         rwork.as_mut_ptr(),
         &lrwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -36884,6 +41736,7 @@ pub unsafe fn ctrexc(
     ifst: &[i32],
     ilst: &[i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ctrexc_(
         &(compq as c_char),
@@ -36895,6 +41748,7 @@ pub unsafe fn ctrexc(
         ifst.as_ptr(),
         ilst.as_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -36910,6 +41764,7 @@ pub unsafe fn dtrexc(
     ilst: &mut [i32],
     work: &mut [f64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::dtrexc_(
         &(compq as c_char),
@@ -36922,6 +41777,7 @@ pub unsafe fn dtrexc(
         ilst.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -36937,6 +41793,7 @@ pub unsafe fn strexc(
     ilst: &mut [i32],
     work: &mut [f32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::strexc_(
         &(compq as c_char),
@@ -36949,6 +41806,7 @@ pub unsafe fn strexc(
         ilst.as_mut_ptr(),
         work.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -36963,6 +41821,7 @@ pub unsafe fn ztrexc(
     ifst: &[i32],
     ilst: &[i32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::ztrexc_(
         &(compq as c_char),
@@ -36974,6 +41833,7 @@ pub unsafe fn ztrexc(
         ifst.as_ptr(),
         ilst.as_ptr(),
         info,
+        arg1,
     )
 }
 
@@ -36995,6 +41855,9 @@ pub unsafe fn ctrrfs(
     work: &mut [c32],
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctrrfs_(
         &(uplo as c_char),
@@ -37013,6 +41876,9 @@ pub unsafe fn ctrrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37034,6 +41900,9 @@ pub unsafe fn dtrrfs(
     work: &mut [f64],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtrrfs_(
         &(uplo as c_char),
@@ -37052,6 +41921,9 @@ pub unsafe fn dtrrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37073,6 +41945,9 @@ pub unsafe fn strrfs(
     work: &mut [f32],
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::strrfs_(
         &(uplo as c_char),
@@ -37091,6 +41966,9 @@ pub unsafe fn strrfs(
         work.as_mut_ptr(),
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37112,6 +41990,9 @@ pub unsafe fn ztrrfs(
     work: &mut [c64],
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztrrfs_(
         &(uplo as c_char),
@@ -37130,6 +42011,9 @@ pub unsafe fn ztrrfs(
         work.as_mut_ptr() as *mut _,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37150,6 +42034,8 @@ pub unsafe fn ctrsen(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctrsen_(
         &(job as c_char),
@@ -37167,6 +42053,8 @@ pub unsafe fn ctrsen(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37190,6 +42078,8 @@ pub unsafe fn dtrsen(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtrsen_(
         &(job as c_char),
@@ -37210,6 +42100,8 @@ pub unsafe fn dtrsen(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37233,6 +42125,8 @@ pub unsafe fn strsen(
     iwork: &mut [i32],
     liwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::strsen_(
         &(job as c_char),
@@ -37253,6 +42147,8 @@ pub unsafe fn strsen(
         iwork.as_mut_ptr(),
         &liwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37273,6 +42169,8 @@ pub unsafe fn ztrsen(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztrsen_(
         &(job as c_char),
@@ -37290,6 +42188,8 @@ pub unsafe fn ztrsen(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37313,6 +42213,8 @@ pub unsafe fn ctrsna(
     ldwork: i32,
     rwork: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctrsna_(
         &(job as c_char),
@@ -37333,6 +42235,8 @@ pub unsafe fn ctrsna(
         &ldwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37356,6 +42260,8 @@ pub unsafe fn dtrsna(
     ldwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtrsna_(
         &(job as c_char),
@@ -37376,6 +42282,8 @@ pub unsafe fn dtrsna(
         &ldwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37399,6 +42307,8 @@ pub unsafe fn strsna(
     ldwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::strsna_(
         &(job as c_char),
@@ -37419,6 +42329,8 @@ pub unsafe fn strsna(
         &ldwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37442,6 +42354,8 @@ pub unsafe fn ztrsna(
     ldwork: i32,
     rwork: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztrsna_(
         &(job as c_char),
@@ -37462,6 +42376,8 @@ pub unsafe fn ztrsna(
         &ldwork,
         rwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37480,6 +42396,8 @@ pub unsafe fn ctrsyl(
     ldc: i32,
     scale: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctrsyl_(
         &(trana as c_char),
@@ -37495,6 +42413,8 @@ pub unsafe fn ctrsyl(
         &ldc,
         scale.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37513,6 +42433,8 @@ pub unsafe fn dtrsyl(
     ldc: i32,
     scale: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtrsyl_(
         &(trana as c_char),
@@ -37528,6 +42450,8 @@ pub unsafe fn dtrsyl(
         &ldc,
         scale.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37546,6 +42470,8 @@ pub unsafe fn strsyl(
     ldc: i32,
     scale: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::strsyl_(
         &(trana as c_char),
@@ -37561,6 +42487,8 @@ pub unsafe fn strsyl(
         &ldc,
         scale.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37579,6 +42507,8 @@ pub unsafe fn ztrsyl(
     ldc: i32,
     scale: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztrsyl_(
         &(trana as c_char),
@@ -37594,11 +42524,194 @@ pub unsafe fn ztrsyl(
         &ldc,
         scale.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn ctrtri(uplo: u8, diag: u8, n: i32, a: &mut [c32], lda: i32, info: &mut i32) {
+pub unsafe fn ctrsyl3(
+    trana: u8,
+    tranb: u8,
+    isgn: &[i32],
+    m: i32,
+    n: i32,
+    a: &[c32],
+    lda: i32,
+    b: &[c32],
+    ldb: i32,
+    c: &mut [c32],
+    ldc: i32,
+    scale: &mut [f32],
+    swork: &mut [f32],
+    ldswork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
+    ffi::ctrsyl3_(
+        &(trana as c_char),
+        &(tranb as c_char),
+        isgn.as_ptr(),
+        &m,
+        &n,
+        a.as_ptr() as *const _,
+        &lda,
+        b.as_ptr() as *const _,
+        &ldb,
+        c.as_mut_ptr() as *mut _,
+        &ldc,
+        scale.as_mut_ptr(),
+        swork.as_mut_ptr(),
+        &ldswork,
+        info,
+        arg1,
+        arg2,
+    )
+}
+
+#[inline]
+pub unsafe fn dtrsyl3(
+    trana: u8,
+    tranb: u8,
+    isgn: &[i32],
+    m: i32,
+    n: i32,
+    a: &[f64],
+    lda: i32,
+    b: &[f64],
+    ldb: i32,
+    c: &mut [f64],
+    ldc: i32,
+    scale: &mut [f64],
+    iwork: &mut [i32],
+    liwork: i32,
+    swork: &mut [f64],
+    ldswork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
+    ffi::dtrsyl3_(
+        &(trana as c_char),
+        &(tranb as c_char),
+        isgn.as_ptr(),
+        &m,
+        &n,
+        a.as_ptr(),
+        &lda,
+        b.as_ptr(),
+        &ldb,
+        c.as_mut_ptr(),
+        &ldc,
+        scale.as_mut_ptr(),
+        iwork.as_mut_ptr(),
+        &liwork,
+        swork.as_mut_ptr(),
+        &ldswork,
+        info,
+        arg1,
+        arg2,
+    )
+}
+
+#[inline]
+pub unsafe fn strsyl3(
+    trana: u8,
+    tranb: u8,
+    isgn: &[i32],
+    m: i32,
+    n: i32,
+    a: &[f32],
+    lda: i32,
+    b: &[f32],
+    ldb: i32,
+    c: &mut [f32],
+    ldc: i32,
+    scale: &mut [f32],
+    iwork: &mut [i32],
+    liwork: i32,
+    swork: &mut [f32],
+    ldswork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
+    ffi::strsyl3_(
+        &(trana as c_char),
+        &(tranb as c_char),
+        isgn.as_ptr(),
+        &m,
+        &n,
+        a.as_ptr(),
+        &lda,
+        b.as_ptr(),
+        &ldb,
+        c.as_mut_ptr(),
+        &ldc,
+        scale.as_mut_ptr(),
+        iwork.as_mut_ptr(),
+        &liwork,
+        swork.as_mut_ptr(),
+        &ldswork,
+        info,
+        arg1,
+        arg2,
+    )
+}
+
+#[inline]
+pub unsafe fn ztrsyl3(
+    trana: u8,
+    tranb: u8,
+    isgn: &[i32],
+    m: i32,
+    n: i32,
+    a: &[c64],
+    lda: i32,
+    b: &[c64],
+    ldb: i32,
+    c: &mut [c64],
+    ldc: i32,
+    scale: &mut [f64],
+    swork: &mut [f64],
+    ldswork: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
+    ffi::ztrsyl3_(
+        &(trana as c_char),
+        &(tranb as c_char),
+        isgn.as_ptr(),
+        &m,
+        &n,
+        a.as_ptr() as *const _,
+        &lda,
+        b.as_ptr() as *const _,
+        &ldb,
+        c.as_mut_ptr() as *mut _,
+        &ldc,
+        scale.as_mut_ptr(),
+        swork.as_mut_ptr(),
+        &ldswork,
+        info,
+        arg1,
+        arg2,
+    )
+}
+
+#[inline]
+pub unsafe fn ctrtri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [c32],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ctrtri_(
         &(uplo as c_char),
         &(diag as c_char),
@@ -37606,11 +42719,22 @@ pub unsafe fn ctrtri(uplo: u8, diag: u8, n: i32, a: &mut [c32], lda: i32, info: 
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn dtrtri(uplo: u8, diag: u8, n: i32, a: &mut [f64], lda: i32, info: &mut i32) {
+pub unsafe fn dtrtri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [f64],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::dtrtri_(
         &(uplo as c_char),
         &(diag as c_char),
@@ -37618,11 +42742,22 @@ pub unsafe fn dtrtri(uplo: u8, diag: u8, n: i32, a: &mut [f64], lda: i32, info: 
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn strtri(uplo: u8, diag: u8, n: i32, a: &mut [f32], lda: i32, info: &mut i32) {
+pub unsafe fn strtri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [f32],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::strtri_(
         &(uplo as c_char),
         &(diag as c_char),
@@ -37630,11 +42765,22 @@ pub unsafe fn strtri(uplo: u8, diag: u8, n: i32, a: &mut [f32], lda: i32, info: 
         a.as_mut_ptr(),
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn ztrtri(uplo: u8, diag: u8, n: i32, a: &mut [c64], lda: i32, info: &mut i32) {
+pub unsafe fn ztrtri(
+    uplo: u8,
+    diag: u8,
+    n: i32,
+    a: &mut [c64],
+    lda: i32,
+    info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+) {
     ffi::ztrtri_(
         &(uplo as c_char),
         &(diag as c_char),
@@ -37642,6 +42788,8 @@ pub unsafe fn ztrtri(uplo: u8, diag: u8, n: i32, a: &mut [c64], lda: i32, info: 
         a.as_mut_ptr() as *mut _,
         &lda,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37657,6 +42805,9 @@ pub unsafe fn ctrtrs(
     b: &mut [c32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ctrtrs_(
         &(uplo as c_char),
@@ -37669,6 +42820,9 @@ pub unsafe fn ctrtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37684,6 +42838,9 @@ pub unsafe fn dtrtrs(
     b: &mut [f64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::dtrtrs_(
         &(uplo as c_char),
@@ -37696,6 +42853,9 @@ pub unsafe fn dtrtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37711,6 +42871,9 @@ pub unsafe fn strtrs(
     b: &mut [f32],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::strtrs_(
         &(uplo as c_char),
@@ -37723,6 +42886,9 @@ pub unsafe fn strtrs(
         b.as_mut_ptr(),
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37738,6 +42904,9 @@ pub unsafe fn ztrtrs(
     b: &mut [c64],
     ldb: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::ztrtrs_(
         &(uplo as c_char),
@@ -37750,6 +42919,9 @@ pub unsafe fn ztrtrs(
         b.as_mut_ptr() as *mut _,
         &ldb,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -37762,6 +42934,8 @@ pub unsafe fn ctrttf(
     lda: i32,
     arf: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ctrttf_(
         &(transr as c_char),
@@ -37771,6 +42945,8 @@ pub unsafe fn ctrttf(
         &lda,
         arf.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37783,6 +42959,8 @@ pub unsafe fn dtrttf(
     lda: i32,
     arf: &mut [f64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::dtrttf_(
         &(transr as c_char),
@@ -37792,6 +42970,8 @@ pub unsafe fn dtrttf(
         &lda,
         arf.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37804,6 +42984,8 @@ pub unsafe fn strttf(
     lda: i32,
     arf: &mut [f32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::strttf_(
         &(transr as c_char),
@@ -37813,6 +42995,8 @@ pub unsafe fn strttf(
         &lda,
         arf.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -37825,6 +43009,8 @@ pub unsafe fn ztrttf(
     lda: i32,
     arf: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::ztrttf_(
         &(transr as c_char),
@@ -37834,11 +43020,21 @@ pub unsafe fn ztrttf(
         &lda,
         arf.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
     )
 }
 
 #[inline]
-pub unsafe fn ctrttp(uplo: u8, n: i32, a: &[c32], lda: i32, ap: &mut [c32], info: &mut i32) {
+pub unsafe fn ctrttp(
+    uplo: u8,
+    n: i32,
+    a: &[c32],
+    lda: i32,
+    ap: &mut [c32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::ctrttp_(
         &(uplo as c_char),
         &n,
@@ -37846,11 +43042,20 @@ pub unsafe fn ctrttp(uplo: u8, n: i32, a: &[c32], lda: i32, ap: &mut [c32], info
         &lda,
         ap.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn dtrttp(uplo: u8, n: i32, a: &[f64], lda: i32, ap: &mut [f64], info: &mut i32) {
+pub unsafe fn dtrttp(
+    uplo: u8,
+    n: i32,
+    a: &[f64],
+    lda: i32,
+    ap: &mut [f64],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::dtrttp_(
         &(uplo as c_char),
         &n,
@@ -37858,11 +43063,20 @@ pub unsafe fn dtrttp(uplo: u8, n: i32, a: &[f64], lda: i32, ap: &mut [f64], info
         &lda,
         ap.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn strttp(uplo: u8, n: i32, a: &[f32], lda: i32, ap: &mut [f32], info: &mut i32) {
+pub unsafe fn strttp(
+    uplo: u8,
+    n: i32,
+    a: &[f32],
+    lda: i32,
+    ap: &mut [f32],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::strttp_(
         &(uplo as c_char),
         &n,
@@ -37870,11 +43084,20 @@ pub unsafe fn strttp(uplo: u8, n: i32, a: &[f32], lda: i32, ap: &mut [f32], info
         &lda,
         ap.as_mut_ptr(),
         info,
+        arg1,
     )
 }
 
 #[inline]
-pub unsafe fn ztrttp(uplo: u8, n: i32, a: &[c64], lda: i32, ap: &mut [c64], info: &mut i32) {
+pub unsafe fn ztrttp(
+    uplo: u8,
+    n: i32,
+    a: &[c64],
+    lda: i32,
+    ap: &mut [c64],
+    info: &mut i32,
+    arg1: usize,
+) {
     ffi::ztrttp_(
         &(uplo as c_char),
         &n,
@@ -37882,6 +43105,7 @@ pub unsafe fn ztrttp(uplo: u8, n: i32, a: &[c64], lda: i32, ap: &mut [c64], info
         &lda,
         ap.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -38001,6 +43225,8 @@ pub unsafe fn cunbdb(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cunbdb_(
         &(trans as c_char),
@@ -38025,6 +43251,8 @@ pub unsafe fn cunbdb(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -38052,6 +43280,8 @@ pub unsafe fn zunbdb(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zunbdb_(
         &(trans as c_char),
@@ -38076,6 +43306,8 @@ pub unsafe fn zunbdb(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -38113,6 +43345,12 @@ pub unsafe fn cuncsd(
     lrwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::cuncsd_(
         &(jobu1 as c_char),
@@ -38147,6 +43385,12 @@ pub unsafe fn cuncsd(
         &lrwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -38184,6 +43428,12 @@ pub unsafe fn zuncsd(
     lrwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
+    arg4: usize,
+    arg5: usize,
+    arg6: usize,
 ) {
     ffi::zuncsd_(
         &(jobu1 as c_char),
@@ -38218,6 +43468,12 @@ pub unsafe fn zuncsd(
         &lrwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
+        arg4,
+        arg5,
+        arg6,
     )
 }
 
@@ -38246,6 +43502,9 @@ pub unsafe fn cuncsd2by1(
     lrwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cuncsd2by1_(
         &(jobu1 as c_char),
@@ -38271,6 +43530,9 @@ pub unsafe fn cuncsd2by1(
         &lrwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -38299,6 +43561,9 @@ pub unsafe fn zuncsd2by1(
     lrwork: i32,
     iwork: &mut [i32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zuncsd2by1_(
         &(jobu1 as c_char),
@@ -38324,6 +43589,9 @@ pub unsafe fn zuncsd2by1(
         &lrwork,
         iwork.as_mut_ptr(),
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -38339,6 +43607,7 @@ pub unsafe fn cungbr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cungbr_(
         &(vect as c_char),
@@ -38351,6 +43620,7 @@ pub unsafe fn cungbr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -38366,6 +43636,7 @@ pub unsafe fn zungbr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zungbr_(
         &(vect as c_char),
@@ -38378,6 +43649,7 @@ pub unsafe fn zungbr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -38641,6 +43913,7 @@ pub unsafe fn cungtr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cungtr_(
         &(uplo as c_char),
@@ -38651,6 +43924,7 @@ pub unsafe fn cungtr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -38664,6 +43938,7 @@ pub unsafe fn zungtr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zungtr_(
         &(uplo as c_char),
@@ -38674,6 +43949,7 @@ pub unsafe fn zungtr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
     )
 }
 
@@ -38736,6 +44012,56 @@ pub unsafe fn zungtsqr_row(
 }
 
 #[inline]
+pub unsafe fn cunhr_col(
+    m: i32,
+    n: i32,
+    nb: i32,
+    a: &mut [c32],
+    lda: i32,
+    t: &mut [c32],
+    ldt: i32,
+    d: &mut [c32],
+    info: &mut i32,
+) {
+    ffi::cunhr_col_(
+        &m,
+        &n,
+        &nb,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        t.as_mut_ptr() as *mut _,
+        &ldt,
+        d.as_mut_ptr() as *mut _,
+        info,
+    )
+}
+
+#[inline]
+pub unsafe fn zunhr_col(
+    m: i32,
+    n: i32,
+    nb: i32,
+    a: &mut [c64],
+    lda: i32,
+    t: &mut [c64],
+    ldt: i32,
+    d: &mut [c64],
+    info: &mut i32,
+) {
+    ffi::zunhr_col_(
+        &m,
+        &n,
+        &nb,
+        a.as_mut_ptr() as *mut _,
+        &lda,
+        t.as_mut_ptr() as *mut _,
+        &ldt,
+        d.as_mut_ptr() as *mut _,
+        info,
+    )
+}
+
+#[inline]
 pub unsafe fn cunmbr(
     vect: u8,
     side: u8,
@@ -38751,6 +44077,9 @@ pub unsafe fn cunmbr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cunmbr_(
         &(vect as c_char),
@@ -38767,6 +44096,9 @@ pub unsafe fn cunmbr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -38786,6 +44118,9 @@ pub unsafe fn zunmbr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zunmbr_(
         &(vect as c_char),
@@ -38802,6 +44137,9 @@ pub unsafe fn zunmbr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -38821,6 +44159,8 @@ pub unsafe fn cunmhr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cunmhr_(
         &(side as c_char),
@@ -38837,6 +44177,8 @@ pub unsafe fn cunmhr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -38856,6 +44198,8 @@ pub unsafe fn zunmhr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zunmhr_(
         &(side as c_char),
@@ -38872,6 +44216,8 @@ pub unsafe fn zunmhr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -38890,6 +44236,8 @@ pub unsafe fn cunmlq(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cunmlq_(
         &(side as c_char),
@@ -38905,6 +44253,8 @@ pub unsafe fn cunmlq(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -38923,6 +44273,8 @@ pub unsafe fn zunmlq(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zunmlq_(
         &(side as c_char),
@@ -38938,6 +44290,8 @@ pub unsafe fn zunmlq(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -38956,6 +44310,8 @@ pub unsafe fn cunmql(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cunmql_(
         &(side as c_char),
@@ -38971,6 +44327,8 @@ pub unsafe fn cunmql(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -38989,6 +44347,8 @@ pub unsafe fn zunmql(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zunmql_(
         &(side as c_char),
@@ -39004,6 +44364,8 @@ pub unsafe fn zunmql(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -39022,6 +44384,8 @@ pub unsafe fn cunmqr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cunmqr_(
         &(side as c_char),
@@ -39037,6 +44401,8 @@ pub unsafe fn cunmqr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -39055,6 +44421,8 @@ pub unsafe fn zunmqr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zunmqr_(
         &(side as c_char),
@@ -39070,6 +44438,8 @@ pub unsafe fn zunmqr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -39088,6 +44458,8 @@ pub unsafe fn cunmrq(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cunmrq_(
         &(side as c_char),
@@ -39103,6 +44475,8 @@ pub unsafe fn cunmrq(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -39121,6 +44495,8 @@ pub unsafe fn zunmrq(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zunmrq_(
         &(side as c_char),
@@ -39136,6 +44512,8 @@ pub unsafe fn zunmrq(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -39155,6 +44533,8 @@ pub unsafe fn cunmrz(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::cunmrz_(
         &(side as c_char),
@@ -39171,6 +44551,8 @@ pub unsafe fn cunmrz(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -39190,6 +44572,8 @@ pub unsafe fn zunmrz(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
 ) {
     ffi::zunmrz_(
         &(side as c_char),
@@ -39206,6 +44590,8 @@ pub unsafe fn zunmrz(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
     )
 }
 
@@ -39224,6 +44610,9 @@ pub unsafe fn cunmtr(
     work: &mut [c32],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cunmtr_(
         &(side as c_char),
@@ -39239,6 +44628,9 @@ pub unsafe fn cunmtr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -39257,6 +44649,9 @@ pub unsafe fn zunmtr(
     work: &mut [c64],
     lwork: i32,
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zunmtr_(
         &(side as c_char),
@@ -39272,6 +44667,9 @@ pub unsafe fn zunmtr(
         work.as_mut_ptr() as *mut _,
         &lwork,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -39285,6 +44683,7 @@ pub unsafe fn cupgtr(
     ldq: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::cupgtr_(
         &(uplo as c_char),
@@ -39295,6 +44694,7 @@ pub unsafe fn cupgtr(
         &ldq,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -39308,6 +44708,7 @@ pub unsafe fn zupgtr(
     ldq: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
 ) {
     ffi::zupgtr_(
         &(uplo as c_char),
@@ -39318,6 +44719,7 @@ pub unsafe fn zupgtr(
         &ldq,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
     )
 }
 
@@ -39334,6 +44736,9 @@ pub unsafe fn cupmtr(
     ldc: i32,
     work: &mut [c32],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::cupmtr_(
         &(side as c_char),
@@ -39347,6 +44752,9 @@ pub unsafe fn cupmtr(
         &ldc,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }
 
@@ -39363,6 +44771,9 @@ pub unsafe fn zupmtr(
     ldc: i32,
     work: &mut [c64],
     info: &mut i32,
+    arg1: usize,
+    arg2: usize,
+    arg3: usize,
 ) {
     ffi::zupmtr_(
         &(side as c_char),
@@ -39376,5 +44787,8 @@ pub unsafe fn zupmtr(
         &ldc,
         work.as_mut_ptr() as *mut _,
         info,
+        arg1,
+        arg2,
+        arg3,
     )
 }

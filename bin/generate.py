@@ -113,6 +113,10 @@ def translate_base_type(cty):
         return 'c64'
     elif 'size_t' in cty:
         return 'size_t'
+    elif 'i32' in cty:
+        return 'i32'
+    elif 'usize' in cty:
+        return 'usize'
 
     assert False, 'cannot translate `{}`'.format(cty)
 
@@ -181,6 +185,8 @@ def translate_body_argument(name, rty):
         return '{}.as_mut_ptr() as *mut _'.format(name)
 
     elif rty == 'size_t':
+        return name
+    elif rty == 'usize':
         return name
 
     assert False, 'cannot translate `{}: {}`'.format(name, rty)
